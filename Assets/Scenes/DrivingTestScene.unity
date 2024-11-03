@@ -149,14 +149,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 510495662}
-  m_LocalRotation: {x: 0.15412639, y: -0.21677227, z: 0.034681197, w: 0.9633546}
-  m_LocalPosition: {x: -103.15951, y: -15.532309, z: 414.5567}
+  m_LocalRotation: {x: 0.09823155, y: -0.54573864, z: 0.06461492, w: 0.8296654}
+  m_LocalPosition: {x: -141.45685, y: -10.090055, z: 386.15536}
   m_LocalScale: {x: 18, y: 1, z: 138.9961}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 747648809}
   m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 18.179, y: -25.363, z: 0}
+  m_LocalEulerAnglesHint: {x: 13.505, y: -66.672, z: 0}
 --- !u!65 &510495664
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -428,7 +428,7 @@ Transform:
   - {fileID: 1676653536}
   - {fileID: 510495663}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &822262355
 GameObject:
@@ -442,6 +442,7 @@ GameObject:
   - component: {fileID: 822262357}
   - component: {fileID: 822262356}
   - component: {fileID: 822262359}
+  - component: {fileID: 822262360}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -515,13 +516,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 822262355}
-  m_LocalRotation: {x: 0.1472618, y: -0, z: -0, w: 0.9890976}
-  m_LocalPosition: {x: 0, y: 4.25, z: -7.15}
+  m_LocalRotation: {x: 0.14726143, y: 0.0022711433, z: -0.0003381392, w: 0.989095}
+  m_LocalPosition: {x: 0.23693514, y: 46.93, z: -26.919924}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1138813010}
-  m_RootOrder: -1
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 16.937, y: 0, z: 0}
 --- !u!114 &822262359
 MonoBehaviour:
@@ -567,6 +568,21 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
+--- !u!114 &822262360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 822262355}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ecdc5ad7955db4d4fae02f686d198706, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectToFollow: {fileID: 1138813007}
+  YOffset: 4
+  ZOffset: 12.5
 --- !u!1 &995739028
 GameObject:
   m_ObjectHideFlags: 0
@@ -665,6 +681,7 @@ GameObject:
   - component: {fileID: 1138813008}
   - component: {fileID: 1138813011}
   - component: {fileID: 1138813012}
+  - component: {fileID: 1138813013}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -681,7 +698,7 @@ Rigidbody:
   m_GameObject: {fileID: 1138813007}
   serializedVersion: 4
   m_Mass: 1
-  m_Drag: 0.1
+  m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
@@ -718,8 +735,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2, y: 1.5, z: 2}
-  m_Center: {x: 0, y: -0.4, z: 0}
+  m_Size: {x: 2, y: 1.6504418, z: 2}
+  m_Center: {x: 1.0445187e-11, y: -0.32478076, z: -2.2338073e-10}
 --- !u!4 &1138813010
 Transform:
   m_ObjectHideFlags: 0
@@ -727,16 +744,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1138813007}
-  m_LocalRotation: {x: -0, y: 0.0022961772, z: -0, w: 0.99999744}
-  m_LocalPosition: {x: 0.27, y: 42.68, z: -19.72}
+  m_LocalRotation: {x: 0.046740126, y: 0.0022936673, z: -0.000107323955, w: 0.99890447}
+  m_LocalPosition: {x: 0.27, y: 42.52, z: -19.74}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2140743309}
-  - {fileID: 822262358}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0.263, z: 0}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 5.358, y: 0.263, z: 0}
 --- !u!114 &1138813011
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -788,12 +804,33 @@ MonoBehaviour:
     type: 3}
   driftLeftAction: {fileID: 5644699140024429943, guid: d9d2b3604ca3d634297463d92278d7c5,
     type: 3}
-  maxSpeed: 25
+  maxSpeed: 40
   accelerationSpeed: 700
-  horizontalSpeed: 2.5
-  rotationSpeed: 1
-  driftSpeed: 0.2
-  driftDrag: 1
+  horizontalSpeed: 3
+  rotationSpeed: 10
+  driftSpeed: 0.5
+  driftDrag: 0.4
+--- !u!95 &1138813013
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1138813007}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a0705c2124f74794182734de900bbe91, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1227337942
 GameObject:
   m_ObjectHideFlags: 0

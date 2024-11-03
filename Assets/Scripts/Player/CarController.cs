@@ -25,7 +25,7 @@ public class CarController : MonoBehaviour
     private float driftSpeed;
     [SerializeField]
     private float driftDrag;
-    public enum Drift { NONE, RIGHT, LEFT };
+    public enum Drift { NONE = 0, RIGHT = 1, LEFT = 2 };
     private Drift driftDirection;
 
 
@@ -36,10 +36,12 @@ public class CarController : MonoBehaviour
     private float horizontalValue;
 
     private Rigidbody rb;
+    private Animator animator;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        animator = GetComponent<Animator>();
     }
 
     private void OnEnable()
@@ -72,6 +74,8 @@ public class CarController : MonoBehaviour
         driftLeftAction.action.started -= DriftLeftAction;
         driftLeftAction.action.canceled -= DriftLeftAction;
     }
+
+    #region Input
     private void AccelerateAction(InputAction.CallbackContext obj)
     {
         accelerating = obj.ReadValueAsButton();
@@ -86,10 +90,7 @@ public class CarController : MonoBehaviour
     {
         driftingRight = obj.ReadValueAsButton();
         if (driftingRight)
-        {
-            driftDirection = Drift.RIGHT;
-            Debug.Log("Esta drifteando a la derecha");
-        }
+            SetDriftDirection(Drift.RIGHT);
         else
             StopDriftingOnSide();
     }
@@ -97,14 +98,12 @@ public class CarController : MonoBehaviour
     {
         driftingLeft = obj.ReadValueAsButton();
         if (driftingLeft)
-        {
-            driftDirection = Drift.LEFT;
-            Debug.Log("Esta drifteando a la izquierda");
-        }
+            SetDriftDirection(Drift.LEFT);
         else
             StopDriftingOnSide();
     }
 
+    #endregion
 
     void FixedUpdate()
     {
@@ -133,18 +132,27 @@ public class CarController : MonoBehaviour
     private void HorizontalMovement()
     {
         rb.position = transform.position + transform.right * horizontalValue * horizontalSpeed * Time.fixedDeltaTime;
+        animator.SetFloat("HorizontalDirection", horizontalValue);
     }
     private void LookAtDirection()
     {
+        if (rb.velocity.magnitude < 4)
+            return;
+
         Vector3 startLookDir = transform.forward;
         Vector3 destinyLookDir = rb.velocity.normalized;
 
-        transform.forward = Vector3.Slerp(startLookDir, destinyLookDir, Time.fixedDeltaTime * rotationSpeed);
+        transform.forward = Vector3.Lerp(startLookDir, destinyLookDir, Time.fixedDeltaTime * rotationSpeed);
     }
 
     #endregion
 
     #region Drift
+    private void SetDriftDirection(Drift _driftDir)
+    {
+        driftDirection = _driftDir;
+        animator.SetInteger("DriftState", (int)driftDirection);
+    }
     private void DriftBehaviour()
     {
         HorizontalMovement();
@@ -154,31 +162,16 @@ public class CarController : MonoBehaviour
     private void StopDriftingOnSide()
     {
         if (driftingRight)
-            driftDirection = Drift.RIGHT;
+            SetDriftDirection(Drift.RIGHT);
         else if (driftingLeft)
-            driftDirection = Drift.LEFT;
+            SetDriftDirection(Drift.LEFT);
         else
             StopDrift();
 
-
-        switch (driftDirection)
-        {
-            case Drift.NONE:
-                Debug.Log("No esta drifteando a ningun lado");
-                break;
-            case Drift.RIGHT:
-                Debug.Log("Esta drifteando a la derecha, porque ha dejado de hacerlo en la izquierda");
-                break;
-            case Drift.LEFT:
-                Debug.Log("Esta drifteando a la izquierda, porque ha dejado de hacerlo en la derecha");
-                break;
-            default:
-                break;
-        }
     }
     private void StopDrift()
     {
-        driftDirection = Drift.NONE;
+        SetDriftDirection(Drift.NONE);
         //Rotar hacia el forward
     }
     private void DriftMovement()
@@ -196,9 +189,18 @@ public class CarController : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        Gizmos.color = Color.yellow;
-        if(rb)
-            Gizmos.DrawLine(transform.position, transform.position + rb.velocity);
+        //Gizmos.color = Color.blue;
+        //Gizmos.DrawLine(transform.position, transform.position + transform.forward * 3);
+
+        if (rb)
+        {
+            Vector3 destinyPosition = transform.position + rb.velocity;
+            Gizmos.color = Color.green;
+            Gizmos.DrawLine(transform.position, destinyPosition);
+            //destinyPosition.y = transform.position.y;
+            //Gizmos.color = Color.red;
+            //Gizmos.DrawLine(transform.position, destinyPosition);
+        }
     }
 
 }
