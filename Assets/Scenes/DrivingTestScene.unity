@@ -808,8 +808,8 @@ MonoBehaviour:
   accelerationSpeed: 700
   horizontalSpeed: 3
   rotationSpeed: 10
-  driftSpeed: 0.5
-  driftDrag: 0.4
+  driftSpeed: 0.3
+  driftDrag: 0.5
 --- !u!95 &1138813013
 Animator:
   serializedVersion: 5

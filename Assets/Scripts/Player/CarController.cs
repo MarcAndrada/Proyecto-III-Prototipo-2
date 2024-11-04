@@ -54,9 +54,11 @@ public class CarController : MonoBehaviour
         horizontalAction.action.canceled += HorizontalAction;
 
         driftRightAction.action.started += DriftRightAction;
+        driftRightAction.action.performed += DriftRightAction;
         driftRightAction.action.canceled += DriftRightAction;
         
         driftLeftAction.action.started += DriftLeftAction;
+        driftLeftAction.action.performed += DriftLeftAction;
         driftLeftAction.action.canceled += DriftLeftAction;
     }
     private void OnDisable()
@@ -69,9 +71,11 @@ public class CarController : MonoBehaviour
         horizontalAction.action.canceled -= HorizontalAction;
 
         driftRightAction.action.started -= DriftRightAction;
+        driftRightAction.action.performed -= DriftRightAction;
         driftRightAction.action.canceled -= DriftRightAction;
 
         driftLeftAction.action.started -= DriftLeftAction;
+        driftLeftAction.action.performed -= DriftLeftAction;
         driftLeftAction.action.canceled -= DriftLeftAction;
     }
 
@@ -88,7 +92,10 @@ public class CarController : MonoBehaviour
 
     private void DriftRightAction(InputAction.CallbackContext obj)
     {
-        driftingRight = obj.ReadValueAsButton();
+        float buttonValue = obj.ReadValue<float>();
+        Debug.Log(buttonValue);
+        driftingRight = buttonValue > 0.1f;
+        
         if (driftingRight)
             SetDriftDirection(Drift.RIGHT);
         else
@@ -96,7 +103,10 @@ public class CarController : MonoBehaviour
     }
     private void DriftLeftAction(InputAction.CallbackContext obj)
     {
-        driftingLeft = obj.ReadValueAsButton();
+        float buttonValue = obj.ReadValue<float>();
+        Debug.Log(buttonValue);
+        driftingLeft = buttonValue > 0.1f; 
+        
         if (driftingLeft)
             SetDriftDirection(Drift.LEFT);
         else
