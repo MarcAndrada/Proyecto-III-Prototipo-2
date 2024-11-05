@@ -45,7 +45,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ColorMap:
-        m_Texture: {fileID: 2800000, guid: f1593d2c8420d1241bb8d51bda2c1dbf, type: 3}
+        m_Texture: {fileID: 2800000, guid: 7d6073e2cba59864e9172485fd86b17f, type: 3}
         m_Scale: {x: 1, y: 5}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
@@ -121,7 +121,7 @@ Material:
     - _NoiseBias: 0.5
     - _NoiseScale: 1
     - _OcclusionStrength: 1
-    - _OutlineThickness: 0
+    - _OutlineThickness: 1.005
     - _Parallax: 0.005
     - _QueueOffset: 0
     - _ReceiveShadows: 1

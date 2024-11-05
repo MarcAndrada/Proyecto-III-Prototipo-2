@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: 360f718f5c2ae214f8b1ddbe9e54a0f8, type: 2}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 0b040cd79c6e5764bb34bbcc4f60e949, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.0041419016, g: 0.0038594934, b: 0.017157173, a: 1}
+  m_IndirectSpecularColor: {r: 0.05509145, g: 0.024629345, b: 0.051242884, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -579,8 +579,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToFollow: {fileID: 1138813007}
-  YOffset: 4
-  ZOffset: 12.5
+  YOffset: 5
+  ZOffset: 17
 --- !u!1 &1138813007
 GameObject:
   m_ObjectHideFlags: 0
@@ -721,8 +721,8 @@ MonoBehaviour:
   accelerationSpeed: 700
   horizontalSpeed: 3
   rotationSpeed: 10
-  driftSpeed: 0.3
-  driftDrag: 0.5
+  driftSpeed: 0.5
+  driftDrag: 0.7
 --- !u!95 &1138813013
 Animator:
   serializedVersion: 5

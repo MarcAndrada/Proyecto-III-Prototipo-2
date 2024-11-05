@@ -45,7 +45,7 @@ Shader "Gemix/CustomToon"
             #pragma vertex Vertex
             #pragma fragment Fragment
             
-            #include "HLSL/ToonShaderPass.hlsl"
+            #include "../HLSL/ToonShaderPass.hlsl"
             
             ENDHLSL
         }
@@ -63,7 +63,7 @@ Shader "Gemix/CustomToon"
             #pragma vertex Vertex
             #pragma fragment FragmentDepthOnly
             
-            #include "HLSL/ToonShaderPass.hlsl"
+            #include "../HLSL/ToonShaderPass.hlsl"
             
             ENDHLSL
         }
@@ -81,7 +81,7 @@ Shader "Gemix/CustomToon"
             #pragma vertex InverseVert;
             #pragma fragment Outline;
 
-            #include "HLSL/Unlit.hlsl"
+            #include "../HLSL/Unlit.hlsl"
             ENDHLSL
         }
         /*
@@ -114,7 +114,7 @@ Shader "Gemix/CustomToon"
             #pragma vertex Vertex
             #pragma fragment FragmentDepthOnly
             
-            #include "HLSL/ToonShaderPass.hlsl"
+            #include "../HLSL/ToonShaderPass.hlsl"
             
             ENDHLSL
         }
@@ -130,7 +130,7 @@ Shader "Gemix/CustomToon"
             #pragma vertex Vertex
             #pragma fragment FragmentDepthNormalsOnly
             
-            #include "HLSL/ToonShaderPass.hlsl"
+            #include "../HLSL/ToonShaderPass.hlsl"
             
             ENDHLSL
         }
