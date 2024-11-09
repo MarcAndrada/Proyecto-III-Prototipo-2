@@ -9,11 +9,9 @@ using UnityEngine.Splines;
 [ExecuteInEditMode()]
 public class SplineSampler : MonoBehaviour
 {
-     [SerializeField] private SplineContainer _splineContainer;
-    [SerializeField] private int _splineIndex;
-    [SerializeField] [Range(0f, 1f)] private float _time;
-    [SerializeField] private float _width;
-
+    [SerializeField] private SplineContainer _splineContainer;
+    private int _splineIndex;
+    
     public SplineContainer Container => _splineContainer;
     public int NumSplines => _splineContainer != null ? _splineContainer.Splines.Count : 0;
     
@@ -23,27 +21,6 @@ public class SplineSampler : MonoBehaviour
 
     private Vector3 _p1;
     private Vector3 _p2;
-
-    private void Update()
-    {
-        if (_splineContainer == null)
-        {
-            Debug.LogWarning("SplineContainer is not assigned.", this);
-            return;
-        }
-
-        if (_splineIndex < 0 || _splineIndex >= NumSplines)
-        {
-            Debug.LogWarning("Spline index out of range.", this);
-            return;
-        }
-
-        _splineContainer.Evaluate(_splineIndex, _time, out _position, out _forward, out _upVector);
-        float3 right = Vector3.Cross(_forward, _upVector).normalized;
-
-        _p1 = _position + (right * _width);
-        _p2 = _position + (-right * _width);
-    }
 
     public void SampleSplineWidth(int splineIndex, float t, float width, out Vector3 p1, out Vector3 p2)
     {
@@ -66,13 +43,4 @@ public class SplineSampler : MonoBehaviour
         SampleSplineWidth(_splineIndex, t, width, out p1, out p2);
     }
 
-    private void OnDrawGizmos()
-    {
-        if (_splineContainer == null) return;
-
-        Handles.matrix = transform.localToWorldMatrix;
-        Handles.SphereHandleCap(0, _p1, Quaternion.identity, .5f, EventType.Repaint);
-        Handles.DrawDottedLine(_p1, _p2, .5f);
-        Handles.SphereHandleCap(0, _p2, Quaternion.identity, .5f, EventType.Repaint);
-    }
 }
