@@ -1,30 +1,41 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
     [SerializeField]
     private GameObject objectToFollow;
-    [SerializeField]
-    private float YOffset;
-    [SerializeField]
-    private float ZOffset;
 
+    [Space, SerializeField]
+    private float cameraSpeed;
+
+    [Space, SerializeField]
+    private Vector3 offsetFromObject;
+    [SerializeField]
+    private float cameraDistance;
 
     private void Update()
     {
-        transform.position = CalculateObjectOffset();
+        transform.position = Vector3.Lerp(transform.position, CalculateObjectOffset(), Time.deltaTime * cameraSpeed);
 
         transform.forward = (objectToFollow.transform.position - transform.position).normalized;
 
     }
     private Vector3 CalculateObjectOffset()
     {
-        Vector3 destinyPos = objectToFollow.transform.position;
-
-        destinyPos += (-objectToFollow.transform.forward * ZOffset) + (Vector3.up * YOffset);
-
-        return destinyPos;
+        offsetFromObject = offsetFromObject.normalized;
+        return objectToFollow.transform.position + offsetFromObject * cameraDistance;
     }
+
+
+    private void OnDrawGizmosSelected()
+    {
+        offsetFromObject = offsetFromObject.normalized;
+        if (!objectToFollow)
+            return;
+        
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawLine(objectToFollow.transform.position, objectToFollow.transform.position + offsetFromObject * cameraDistance);
+
+    }
+
 }

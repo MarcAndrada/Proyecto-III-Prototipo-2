@@ -389,6 +389,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 65702495048144492, guid: ddd3afbd4c7f0e143b065630e5a44cfd, type: 3}
+    - {fileID: -8700617353114198275, guid: ddd3afbd4c7f0e143b065630e5a44cfd, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ddd3afbd4c7f0e143b065630e5a44cfd, type: 3}
@@ -579,8 +580,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToFollow: {fileID: 1138813007}
-  YOffset: 5
-  ZOffset: 17
+  cameraSpeed: 9
+  offsetFromObject: {x: -0.6868849, y: 0.5034657, z: -0.5241292}
+  cameraDistance: 30
 --- !u!1 &1138813007
 GameObject:
   m_ObjectHideFlags: 0
@@ -611,8 +613,8 @@ Rigidbody:
   m_GameObject: {fileID: 1138813007}
   serializedVersion: 4
   m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_Drag: 0.5
+  m_AngularDrag: 4
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -627,7 +629,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 48
+  m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!65 &1138813009
 BoxCollider:
@@ -709,20 +711,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136e1a9ae137d714e8adf137d4dda1b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  accelerateAction: {fileID: 7411635868168797477, guid: d9d2b3604ca3d634297463d92278d7c5,
+  moveRightWheelAction: {fileID: 9068189477494685092, guid: d9d2b3604ca3d634297463d92278d7c5,
     type: 3}
-  horizontalAction: {fileID: 5945452982328729523, guid: d9d2b3604ca3d634297463d92278d7c5,
+  moveLeftWheelAction: {fileID: 5644699140024429943, guid: d9d2b3604ca3d634297463d92278d7c5,
     type: 3}
-  driftRightAction: {fileID: 9068189477494685092, guid: d9d2b3604ca3d634297463d92278d7c5,
+  breakRightAction: {fileID: -6604502521253144215, guid: d9d2b3604ca3d634297463d92278d7c5,
     type: 3}
-  driftLeftAction: {fileID: 5644699140024429943, guid: d9d2b3604ca3d634297463d92278d7c5,
+  breakLeftAction: {fileID: 6745286038154878125, guid: d9d2b3604ca3d634297463d92278d7c5,
     type: 3}
-  maxSpeed: 40
-  accelerationSpeed: 700
-  horizontalSpeed: 3
-  rotationSpeed: 10
-  driftSpeed: 0.5
-  driftDrag: 0.7
+  impulseForce: 4
+  impulseTorque: {x: 1.5, y: 2}
+  minSpeedToBreak: 1
+  breakSpeed: 1.8
+  breakMovingTorque: 400
+  breakStaticTorque: 50
 --- !u!95 &1138813013
 Animator:
   serializedVersion: 5
