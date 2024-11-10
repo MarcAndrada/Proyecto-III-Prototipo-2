@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -12,8 +13,25 @@ public class CarController : MonoBehaviour
     [SerializeField]
     private InputActionReference breakLeftAction;
 
+
+    [Serializable]
+    private struct Wheel
+    {
+        public WheelCollider wheelCol;
+        public float currentTorque;
+        public float currentBrakeForce;
+    }
+    [Space, Header("Wheels"), SerializeField]
+    private Wheel rightWheel;
+    private Wheel leftWheel;
+    private Wheel tinyRightWheel;
+    private Wheel tinyLeftWheel;
+
+
     [Space, Header("Move Variables"), SerializeField]
     private float impulseForce;
+    [SerializeField]
+    private float maxWheelSpeed;
     [SerializeField]
     private Vector2 impulseTorque;
 
@@ -61,11 +79,12 @@ public class CarController : MonoBehaviour
     #region Input
     private void MoveRightWheelAction(InputAction.CallbackContext obj)
     {
-        MoveWheel(impulseForce, Random.Range(impulseTorque.x, impulseTorque.y));
+        //MoveWheel(impulseForce, Random.Range(impulseTorque.x, impulseTorque.y));
     }
     private void MoveLeftWheelAction(InputAction.CallbackContext obj)
     {
-        MoveWheel(impulseForce, -Random.Range(impulseTorque.x, impulseTorque.y));
+        
+        //MoveWheel(impulseForce, -Random.Range(impulseTorque.x, impulseTorque.y));
     }
 
     private void BreakRightAction(InputAction.CallbackContext obj)
@@ -80,76 +99,29 @@ public class CarController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        SetChairSpeed();
-        CarBreaks();
+        ApplyMotorSpeed();
+        CarBrakes();
     }
 
-    private void SetChairSpeed()
+    private void ApplyMotorSpeed()
     {
-        Vector3 noYVelocity = rb.velocity;
-        noYVelocity.y = 0;
-        Vector3 forwardVelocity = transform.forward * noYVelocity.magnitude;
-        forwardVelocity.y = rb.velocity.y;
-
-
-        rb.velocity = forwardVelocity;
+        ApplyMotorTorque(rightWheel);
+        ApplyMotorTorque(leftWheel);
+        ApplyMotorTorque(tinyRightWheel);
+        ApplyMotorTorque(tinyLeftWheel);
     }
-    private void MoveWheel(float _impulseForce, float _torqueForce)
+
+    private void ApplyMotorTorque(Wheel _wheel)
     {
-        rb.AddForce(transform.forward * _impulseForce, ForceMode.Impulse);
 
-        rb.AddRelativeTorque(0, _torqueForce, 0, ForceMode.Impulse);
     }
 
-    private void CarBreaks()
+    private void CarBrakes()
     {
-        if (!breakRight && !breakLeft)
-            return;
-
-        float torqueIntensity = breakStaticTorque;
-        if (rb.velocity.magnitude >= minSpeedToBreak) 
-        { 
-            BreakDrag();
-            torqueIntensity = breakMovingTorque;
-        }
-
-        BreakTorque(torqueIntensity);
+        
 
     }
-    private void BreakDrag()
-    {
-        Vector3 velocityNoY = rb.velocity;
-        velocityNoY.y = 0;
 
-        float multiplier = 0;
-
-        multiplier += breakRight ? 1 : 0;
-        multiplier += breakLeft ? 1 : 0;
-
-
-
-        float finalMagnitude = velocityNoY.magnitude - breakSpeed * multiplier * Time.fixedDeltaTime;
-
-        Vector3 finalVelocity = velocityNoY.normalized * finalMagnitude;
-        finalVelocity.y = rb.velocity.y;
-
-        rb.velocity = finalVelocity;
-
-    }
-    private void BreakTorque(float _torqueIntensity)
-    {
-        float breakDirection = 0;
-        breakDirection += breakRight ? 1 : 0;
-        breakDirection += breakLeft ? -1 : 0;
-
-
-        if (breakDirection == 0)
-            return;
-
-        float torqueForce = _torqueIntensity * Time.fixedDeltaTime * breakDirection;
-        rb.AddRelativeTorque(0, torqueForce, 0, ForceMode.Force);
-
-    }
     private void OnDrawGizmos()
     {
         //Gizmos.color = Color.blue;
