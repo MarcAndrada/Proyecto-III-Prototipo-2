@@ -4,36 +4,29 @@ using UnityEngine.InputSystem;
 public class CarController : MonoBehaviour
 {
     [Header("Input"), SerializeField]
-    private InputActionReference accelerateAction;
+    private InputActionReference moveRightWheelAction;
     [SerializeField]
-    private InputActionReference horizontalAction;
+    private InputActionReference moveLeftWheelAction;
     [SerializeField]
-    private InputActionReference driftRightAction;
+    private InputActionReference breakRightAction;
     [SerializeField]
-    private InputActionReference driftLeftAction;
+    private InputActionReference breakLeftAction;
 
-    [Space, Header("Drive Variables"), SerializeField]
-    private float maxSpeed;
+    [Space, Header("Move Variables"), SerializeField]
+    private float impulseForce;
     [SerializeField]
-    private float accelerationSpeed;
+    private Vector2 impulseTorque;
+
+    [Space, Header("Break Variables"), SerializeField]
+    private float minSpeedToBreak;
     [SerializeField]
-    private float horizontalSpeed;
+    private float breakSpeed;
     [SerializeField]
-    private float rotationSpeed;
-
-    [Space, Header("Drift Variables"), SerializeField]
-    private float driftSpeed;
+    private float breakMovingTorque;
     [SerializeField]
-    private float driftDrag;
-    public enum Drift { NONE = 0, RIGHT = 1, LEFT = 2 };
-    private Drift driftDirection;
-
-
-    private bool accelerating;
-    private bool driftingRight;
-    private bool driftingLeft;
-
-    private float horizontalValue;
+    private float breakStaticTorque;
+    private bool breakRight;
+    private bool breakLeft;
 
     private Rigidbody rb;
     private Animator animator;
@@ -46,157 +39,117 @@ public class CarController : MonoBehaviour
 
     private void OnEnable()
     {
-        accelerateAction.action.started += AccelerateAction;
-        accelerateAction.action.canceled += AccelerateAction;
+        moveRightWheelAction.action.started += MoveRightWheelAction;
+        moveLeftWheelAction.action.started += MoveLeftWheelAction;
 
-        horizontalAction.action.started += HorizontalAction;
-        horizontalAction.action.performed += HorizontalAction;
-        horizontalAction.action.canceled += HorizontalAction;
-
-        driftRightAction.action.started += DriftRightAction;
-        driftRightAction.action.performed += DriftRightAction;
-        driftRightAction.action.canceled += DriftRightAction;
-        
-        driftLeftAction.action.started += DriftLeftAction;
-        driftLeftAction.action.performed += DriftLeftAction;
-        driftLeftAction.action.canceled += DriftLeftAction;
+        breakRightAction.action.started += BreakRightAction;
+        breakRightAction.action.canceled += BreakRightAction;
+        breakLeftAction.action.started += BreakLeftAction;
+        breakLeftAction.action.canceled += BreakLeftAction;
     }
     private void OnDisable()
     {
-        accelerateAction.action.started -= AccelerateAction;
-        accelerateAction.action.canceled -= AccelerateAction;
+        moveRightWheelAction.action.started -= MoveRightWheelAction;
+        moveLeftWheelAction.action.started -= MoveLeftWheelAction;
 
-        horizontalAction.action.started -= HorizontalAction;
-        horizontalAction.action.performed -= HorizontalAction;
-        horizontalAction.action.canceled -= HorizontalAction;
-
-        driftRightAction.action.started -= DriftRightAction;
-        driftRightAction.action.performed -= DriftRightAction;
-        driftRightAction.action.canceled -= DriftRightAction;
-
-        driftLeftAction.action.started -= DriftLeftAction;
-        driftLeftAction.action.performed -= DriftLeftAction;
-        driftLeftAction.action.canceled -= DriftLeftAction;
+        breakRightAction.action.started -= BreakRightAction;
+        breakRightAction.action.canceled -= BreakRightAction;
+        breakLeftAction.action.started -= BreakLeftAction;
+        breakLeftAction.action.canceled -= BreakLeftAction;
     }
 
     #region Input
-    private void AccelerateAction(InputAction.CallbackContext obj)
+    private void MoveRightWheelAction(InputAction.CallbackContext obj)
     {
-        accelerating = obj.ReadValueAsButton();
+        MoveWheel(impulseForce, Random.Range(impulseTorque.x, impulseTorque.y));
+    }
+    private void MoveLeftWheelAction(InputAction.CallbackContext obj)
+    {
+        MoveWheel(impulseForce, -Random.Range(impulseTorque.x, impulseTorque.y));
     }
 
-    private void HorizontalAction(InputAction.CallbackContext obj)
+    private void BreakRightAction(InputAction.CallbackContext obj)
     {
-        horizontalValue = obj.ReadValue<float>();
+        breakRight = obj.ReadValueAsButton();
     }
-
-    private void DriftRightAction(InputAction.CallbackContext obj)
+    private void BreakLeftAction(InputAction.CallbackContext obj)
     {
-        float buttonValue = obj.ReadValue<float>();
-        Debug.Log(buttonValue);
-        driftingRight = buttonValue > 0.1f;
-        
-        if (driftingRight)
-            SetDriftDirection(Drift.RIGHT);
-        else
-            StopDriftingOnSide();
+        breakLeft = obj.ReadValueAsButton();
     }
-    private void DriftLeftAction(InputAction.CallbackContext obj)
-    {
-        float buttonValue = obj.ReadValue<float>();
-        Debug.Log(buttonValue);
-        driftingLeft = buttonValue > 0.1f; 
-        
-        if (driftingLeft)
-            SetDriftDirection(Drift.LEFT);
-        else
-            StopDriftingOnSide();
-    }
-
     #endregion
 
-    void FixedUpdate()
+    private void FixedUpdate()
     {
-        if (driftDirection == Drift.NONE)
-            DriveBehaviour();
-        else
-            DriftBehaviour();
-
+        SetChairSpeed();
+        CarBreaks();
     }
 
-    #region Driving
-    private void DriveBehaviour()
+    private void SetChairSpeed()
     {
-        Accelerate();
-        HorizontalMovement();
-        LookAtDirection();
+        Vector3 noYVelocity = rb.velocity;
+        noYVelocity.y = 0;
+        Vector3 forwardVelocity = transform.forward * noYVelocity.magnitude;
+        forwardVelocity.y = rb.velocity.y;
+
+
+        rb.velocity = forwardVelocity;
     }
-    private void Accelerate()
+    private void MoveWheel(float _impulseForce, float _torqueForce)
     {
-        if (accelerating)
-            rb.AddForce(transform.forward * accelerationSpeed * Time.fixedDeltaTime, ForceMode.Force);
-            
-        if (rb.velocity.magnitude >= maxSpeed)
-            rb.velocity = rb.velocity.normalized * maxSpeed;
+        rb.AddForce(transform.forward * _impulseForce, ForceMode.Impulse);
+
+        rb.AddRelativeTorque(0, _torqueForce, 0, ForceMode.Impulse);
     }
-    private void HorizontalMovement()
+
+    private void CarBreaks()
     {
-        rb.position = transform.position + transform.right * horizontalValue * horizontalSpeed * Time.fixedDeltaTime;
-        animator.SetFloat("HorizontalDirection", horizontalValue);
-    }
-    private void LookAtDirection()
-    {
-        if (rb.velocity.magnitude < 4)
+        if (!breakRight && !breakLeft)
             return;
 
-        Vector3 startLookDir = transform.forward;
-        Vector3 destinyLookDir = rb.velocity.normalized;
+        float torqueIntensity = breakStaticTorque;
+        if (rb.velocity.magnitude >= minSpeedToBreak) 
+        { 
+            BreakDrag();
+            torqueIntensity = breakMovingTorque;
+        }
 
-        transform.forward = Vector3.Lerp(startLookDir, destinyLookDir, Time.fixedDeltaTime * rotationSpeed);
+        BreakTorque(torqueIntensity);
+
     }
-
-    #endregion
-
-    #region Drift
-    private void SetDriftDirection(Drift _driftDir)
+    private void BreakDrag()
     {
-        driftDirection = _driftDir;
-        animator.SetInteger("DriftState", (int)driftDirection);
+        Vector3 velocityNoY = rb.velocity;
+        velocityNoY.y = 0;
+
+        float multiplier = 0;
+
+        multiplier += breakRight ? 1 : 0;
+        multiplier += breakLeft ? 1 : 0;
+
+
+
+        float finalMagnitude = velocityNoY.magnitude - breakSpeed * multiplier * Time.fixedDeltaTime;
+
+        Vector3 finalVelocity = velocityNoY.normalized * finalMagnitude;
+        finalVelocity.y = rb.velocity.y;
+
+        rb.velocity = finalVelocity;
+
     }
-    private void DriftBehaviour()
+    private void BreakTorque(float _torqueIntensity)
     {
-        HorizontalMovement();
-        DriftMovement();
-        LookAtDirection();
-    }
-    private void StopDriftingOnSide()
-    {
-        if (driftingRight)
-            SetDriftDirection(Drift.RIGHT);
-        else if (driftingLeft)
-            SetDriftDirection(Drift.LEFT);
-        else
-            StopDrift();
+        float breakDirection = 0;
+        breakDirection += breakRight ? 1 : 0;
+        breakDirection += breakLeft ? -1 : 0;
+
+
+        if (breakDirection == 0)
+            return;
+
+        float torqueForce = _torqueIntensity * Time.fixedDeltaTime * breakDirection;
+        rb.AddRelativeTorque(0, torqueForce, 0, ForceMode.Force);
 
     }
-    private void StopDrift()
-    {
-        SetDriftDirection(Drift.NONE);
-        //Rotar hacia el forward
-    }
-    private void DriftMovement()
-    {
-        //Calcular direccion de giro
-        Vector3 rotationDirection = driftDirection == Drift.RIGHT ? transform.right : -transform.right;
-
-        //Velocidad de direccion de drift
-        Vector3 driftDir = Vector3.Slerp(rb.velocity.normalized, rotationDirection, Time.fixedDeltaTime * driftSpeed);
-
-        rb.velocity = driftDir * (rb.velocity.magnitude - (driftDrag * Time.fixedDeltaTime));
-    }
-    #endregion
-
-
     private void OnDrawGizmos()
     {
         //Gizmos.color = Color.blue;

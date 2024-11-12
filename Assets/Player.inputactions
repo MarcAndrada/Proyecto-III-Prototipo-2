@@ -6,25 +6,7 @@
             "id": "199009ef-f855-405b-a9a8-92e566918940",
             "actions": [
                 {
-                    "name": "Accelerate",
-                    "type": "Button",
-                    "id": "fcc2a924-bb6d-46d6-b6ad-fff7f67fd461",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Horizontal",
-                    "type": "Value",
-                    "id": "d65c0e9a-7b24-4099-9838-dabbf0e0fa19",
-                    "expectedControlType": "Axis",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
-                },
-                {
-                    "name": "DriftRight",
+                    "name": "MoveRightWheel",
                     "type": "Button",
                     "id": "3216f0c8-9aca-441d-9f9a-1382a587b624",
                     "expectedControlType": "Button",
@@ -33,9 +15,27 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "DriftLeft",
+                    "name": "MoveLeftWheel",
                     "type": "Button",
                     "id": "9051c5ef-e4ea-409e-9ffa-05fd7743887e",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "BreakRight",
+                    "type": "Button",
+                    "id": "baa6828c-b605-45ac-94a7-b122b5986323",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "BreakLeft",
+                    "type": "Button",
+                    "id": "e0ed05bb-7f3e-427f-9e53-23253f35dadb",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -45,111 +45,23 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "28e384e2-49ec-4b0c-9494-709a0aae4647",
-                    "path": "<Gamepad>/buttonSouth",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Accelerate",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "ac65dadd-ee1d-4812-9a94-a8cee144ec04",
-                    "path": "<Keyboard>/w",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Accelerate",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "Keyboard",
-                    "id": "f964e650-4c78-4545-99b7-52ec49222640",
-                    "path": "1DAxis",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Horizontal",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "negative",
-                    "id": "38132b43-26b4-47f1-ad4d-5f4d857ac426",
-                    "path": "<Keyboard>/a",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Horizontal",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "positive",
-                    "id": "ae2f0d99-0f97-4dfc-a058-7e28516128c8",
-                    "path": "<Keyboard>/d",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Horizontal",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "Gamepad",
-                    "id": "e7624980-ccca-4ecc-a857-3121319d10f8",
-                    "path": "1DAxis",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Horizontal",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "negative",
-                    "id": "8c697755-1d15-4dfd-92ce-28fde98c4e7a",
-                    "path": "<Gamepad>/leftStick/left",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Horizontal",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "positive",
-                    "id": "7608cdc0-161c-480d-8c3c-96e54847385f",
-                    "path": "<Gamepad>/leftStick/right",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Horizontal",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "",
                     "id": "e51dd95f-2bf3-4609-a022-b737b973f41c",
                     "path": "<Gamepad>/rightTrigger",
                     "interactions": "Press(pressPoint=0.8,behavior=2)",
                     "processors": "",
                     "groups": "",
-                    "action": "DriftRight",
+                    "action": "MoveRightWheel",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
                     "id": "5f62085f-f6cf-41c8-b089-2595d3b03571",
-                    "path": "<Keyboard>/e",
+                    "path": "<Keyboard>/d",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "DriftRight",
+                    "action": "MoveRightWheel",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -160,18 +72,62 @@
                     "interactions": "Press(pressPoint=0.8,behavior=2)",
                     "processors": "",
                     "groups": "",
-                    "action": "DriftLeft",
+                    "action": "MoveLeftWheel",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
                     "id": "9703e2b1-0a4c-47f1-bccc-da7296a6c308",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MoveLeftWheel",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "dd8db689-d75c-4e8e-ba6b-dad2b05a6571",
+                    "path": "<Gamepad>/rightShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "BreakRight",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "01f4d00c-38d6-4aff-b576-a71cdb81a271",
+                    "path": "<Gamepad>/leftShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "BreakLeft",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "363b26bc-be55-4533-8a71-10952b831f53",
                     "path": "<Keyboard>/q",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "DriftLeft",
+                    "action": "BreakLeft",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e35dfcf9-ea19-4eb2-b11d-286879bb5415",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "BreakRight",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
