@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SlotIcon : MonoBehaviour
@@ -8,23 +6,31 @@ public class SlotIcon : MonoBehaviour
 
     public IconType type {  get; private set; }
 
-    private Vector2 rotationDirection;
+    private Vector2Int rotationDirection;
 
+  
 
-    public void RandomizeIconType()
+    public void RandomizeIconType(int _x)
     {
-        type = (IconType)Random.Range(1, (int)IconType.ROTATE + 1);
+        int randomLastNum = 
+            _x <= 0 || _x >= GameManager.Instance.slotWidth - 1
+            ? (int)IconType.MOVE_FORWARD + 1
+            : (int)IconType.ROTATE + 1;
+
+        type = (IconType)Random.Range(1, randomLastNum);
 
         if (type == IconType.ROTATE)
         {
-            rotationDirection.x = Random.Range(-1, 1);
-            rotationDirection.y = Random.Range(-1, 1);
+            rotationDirection.x = Random.Range(0, 2) == 0 ? -1 : 1;
+            rotationDirection.y = Random.Range(0, 2) == 0 ? -1 : 1;
 
-            transform.right = rotationDirection;
+            transform.right = new Vector3(rotationDirection.x, -rotationDirection.y);
         }
+        else
+            transform.right = transform.parent.right;
     }
 
-    public Vector2 GetRotationDirection()
+    public Vector2Int GetRotationDirection()
     {
         return rotationDirection;
     }

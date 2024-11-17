@@ -13,11 +13,14 @@ public class SlotMachineController : MonoBehaviour
     [SerializeField]
     private GameObject slotIconsPrefab;
 
+    [SerializeField]
+    private SlotCanvasController slotCanvasController;
+    
     // Start is called before the first frame update
     void Start()
     {
         InitializeSlot();
-        SpinWheel();
+        RandomizeIcons();
     }
 
     private void InitializeSlot()
@@ -35,15 +38,28 @@ public class SlotMachineController : MonoBehaviour
 
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.L))
+            SpinWheel();
+
+    }
 
     public void SpinWheel()
+    {
+        //Poner la animacion
+        slotCanvasController.animator.SetTrigger("SpinWheel");
+    }
+
+
+    public void RandomizeIcons()
     {
         for (int i = 0; i < GameManager.Instance.slotWidth; i++)
         {
             for (int j = 0; j < GameManager.Instance.slotHeight; j++)
             {
-                slotIcons[i][j].RandomizeIconType();
-                slotIcons[i][j].GetComponent<Image>().sprite = 
+                slotIcons[i][j].RandomizeIconType(i);
+                slotIcons[i][j].GetComponent<Image>().sprite =
                     GameManager.Instance.iconSprite[slotIcons[i][j].type];
 
                 float x = GameManager.Instance.iconXOffset * i;
