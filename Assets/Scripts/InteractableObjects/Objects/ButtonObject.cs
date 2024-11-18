@@ -12,6 +12,8 @@ public class ButtonObject : InteractableObject
 
     public override void OnHover()
     {
+        if (!CanInteract())
+            return;
         base.OnHover();
         turnController.DisplayTurnDirection(starterPos, buttonDirection);
     }
@@ -24,6 +26,10 @@ public class ButtonObject : InteractableObject
 
     public override void ActivateObject()
     {
-        turnController.DirectionButtonPressed(starterPos, buttonDirection);
+        if (CanInteract())
+        {
+            turnController.DirectionButtonPressed(starterPos, buttonDirection);
+            StopHovering();
+        }
     }
 }

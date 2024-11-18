@@ -10,7 +10,7 @@ public class SlotIcon : MonoBehaviour
 
   
 
-    public void RandomizeIconType(int _x)
+    public void RandomizeIconType(int _x, int _y)
     {
         int randomLastNum = 
             _x <= 0 || _x >= GameManager.Instance.slotWidth - 1
@@ -21,8 +21,15 @@ public class SlotIcon : MonoBehaviour
 
         if (type == IconType.ROTATE)
         {
-            rotationDirection.x = Random.Range(0, 2) == 0 ? -1 : 1;
-            rotationDirection.y = Random.Range(0, 2) == 0 ? -1 : 1;
+            int randomX = Random.Range(0, 2) == 0 ? -1 : 1;
+            int randomY = Random.Range(0, 2) == 0 ? -1 : 1;
+
+            if(_y >= GameManager.Instance.slotHeight - 1 && randomY == 1)
+                randomY = -1;
+            else if (_y <= 0 && randomY == -1)
+                randomY = 1;
+            rotationDirection.x = randomX;
+            rotationDirection.y = randomY;
 
             transform.right = new Vector3(rotationDirection.x, -rotationDirection.y);
         }

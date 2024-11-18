@@ -20,6 +20,9 @@ public class PlayerSlotController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (GameManager.Instance.state != GameManager.GameState.PLAYER_TURN)
+            return;
+
         CheckMousePointer();
         ActivateHoveredObject();
         DisplayObjectInfo();
@@ -60,7 +63,7 @@ public class PlayerSlotController : MonoBehaviour
 
     private void DisplayObjectInfo()
     {
-        if (hoveredObject == null || !hoveredObject.GetObjectInfo())
+        if (hoveredObject == null || !hoveredObject.GetObjectInfo() || !hoveredObject.CanInteract())
         {
             displayInfoPivot.SetActive(false);
             return;

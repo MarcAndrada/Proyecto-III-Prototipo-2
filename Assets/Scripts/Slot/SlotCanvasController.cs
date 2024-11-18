@@ -18,4 +18,9 @@ public class SlotCanvasController : MonoBehaviour
         slotController.RandomizeIcons();
     }
 
+    public void EndSpinWheelAction()
+    {
+        GameManager.Instance.FinishActionState();
+    }
+
 }

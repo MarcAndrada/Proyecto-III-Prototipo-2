@@ -6,8 +6,12 @@ public abstract class InteractableObject : MonoBehaviour
 {
     [SerializeField]
     protected InteractableObjectsInfo objectInfo;
+    [SerializeField]
+    private List<GameManager.ActionState> interactableActions;
 
     protected Outline outline;
+    
+
 
     protected virtual void Awake()
     {
@@ -16,6 +20,9 @@ public abstract class InteractableObject : MonoBehaviour
 
     public virtual void OnHover()
     {
+        if (!CanInteract())
+            return;
+
         if (outline)
             outline.enabled = true;
     }
@@ -25,6 +32,7 @@ public abstract class InteractableObject : MonoBehaviour
             outline.enabled = false;
     }
 
+
     public InteractableObjectsInfo GetObjectInfo()
     {
         return objectInfo;
@@ -32,5 +40,15 @@ public abstract class InteractableObject : MonoBehaviour
 
     public abstract void ActivateObject();
 
+    public bool CanInteract()
+    {
+        foreach (GameManager.ActionState item in interactableActions)
+        {
+            if(item == GameManager.Instance.actionState)
+                return true;
+        }
+
+        return false;
+    }
 
 }

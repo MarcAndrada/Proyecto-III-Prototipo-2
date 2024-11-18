@@ -49,6 +49,7 @@ public class SlotMachineController : MonoBehaviour
     {
         //Poner la animacion
         slotCanvasController.animator.SetTrigger("SpinWheel");
+        GameManager.Instance.FinishActionState(); //Acabar con el estado previo y empezar el de SPIN_WHEEL
     }
 
 
@@ -58,7 +59,7 @@ public class SlotMachineController : MonoBehaviour
         {
             for (int j = 0; j < GameManager.Instance.slotHeight; j++)
             {
-                slotIcons[i][j].RandomizeIconType(i);
+                slotIcons[i][j].RandomizeIconType(i, j);
                 slotIcons[i][j].GetComponent<Image>().sprite =
                     GameManager.Instance.iconSprite[slotIcons[i][j].type];
 

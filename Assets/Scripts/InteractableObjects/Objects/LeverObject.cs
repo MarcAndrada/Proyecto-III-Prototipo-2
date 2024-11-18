@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class LeverObject : InteractableObject
@@ -9,6 +7,10 @@ public class LeverObject : InteractableObject
 
     public override void ActivateObject()
     {
-        controller.SpinWheel();
+        if (CanInteract())
+        {
+            controller.SpinWheel();
+            StopHovering();
+        }
     }
 }

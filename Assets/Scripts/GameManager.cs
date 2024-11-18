@@ -6,16 +6,26 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
 
     [field: Space, Header("Slot"), SerializeField]
-    public int slotWidth {  get; private set; }
-    [field: SerializeField] 
-    public int slotHeight {  get; private set; }
+    public int slotWidth { get; private set; }
+    [field: SerializeField]
+    public int slotHeight { get; private set; }
 
     [Space, Header("Slot Icons"), SerializedDictionary("Type", "Sprite")]
     public SerializedDictionary<SlotIcon.IconType, Sprite> iconSprite;
     [field: SerializeField]
-    public float iconXOffset {  get; private set; }
+    public float iconXOffset { get; private set; }
     [field: SerializeField]
-    public float iconYOffset {  get; private set; }
+    public float iconYOffset { get; private set; }
+
+    public enum GameState { COIN_FLIP, PLAYER_TURN, AI_TURN }
+    public enum ActionState { START, WHEEL_SPIN, ACTION, RESULTS }
+
+    [field: Space, Header("GameState"), SerializeField]
+    public GameState state { get; private set; }
+    [field: SerializeField]
+    public ActionState actionState {  get; private set; }
+    int stateOrder;
+
 
     private void Awake()
     {
@@ -25,6 +35,123 @@ public class GameManager : MonoBehaviour
         Instance = this;
     }
 
+    private void Start()
+    {
+        state = GameState.COIN_FLIP;
+        actionState = ActionState.START;
 
+        FlipCoin();
+    }
+    private void ChangeGameState(GameState _nextState)
+    {
+        switch (state)
+        {
+            case GameState.COIN_FLIP:
+                break;
+            case GameState.PLAYER_TURN:
+                //Bloquear las acciones del player
+                break;
+            case GameState.AI_TURN:
+                break;
+            default:
+                break;
+        }
+
+        state = _nextState;
+
+        switch (_nextState)
+        {
+            case GameState.COIN_FLIP:
+                //Mirar hacia donde se haga el giro de moneda
+                FlipCoin();
+                break;
+            case GameState.PLAYER_TURN:
+                //Devolverle el control del player
+                break;
+            case GameState.AI_TURN:
+                //Hacer que el player mire en la direccion de la pantalla donde se hace la accion del enemigo
+                ChangeToNextGameState();
+                break;
+            default:
+                break;
+        }
+    }
+
+    public void FinishActionState()
+    {
+        switch (actionState)
+        {
+            case ActionState.START:
+                actionState = ActionState.WHEEL_SPIN;
+                break;
+            case ActionState.WHEEL_SPIN:
+                actionState = ActionState.ACTION;
+                break;
+            case ActionState.ACTION:
+                actionState = ActionState.RESULTS;
+                FinishActionState(); //Esto quitar cuando la carrera de camellos este hecho
+                break;
+            case ActionState.RESULTS:
+
+
+                //Cambiar de turno y empezar de nuevo las acciones
+                ChangeToNextGameState();
+                actionState = ActionState.START;
+
+                break;
+            default:
+                break;
+        }
+    }
+
+    private void ChangeToNextGameState()
+    {
+        if (stateOrder == 0) //El player tira primero
+        {
+            switch (state)
+            {
+                case GameState.COIN_FLIP:
+                    ChangeGameState(GameState.PLAYER_TURN);
+                    break;
+                case GameState.PLAYER_TURN:
+                    ChangeGameState(GameState.AI_TURN);
+                    break;
+                case GameState.AI_TURN:
+                    //Flipear Moneda
+                    ChangeGameState(GameState.COIN_FLIP);
+                    break;
+                default:
+                    break;
+            }
+        }
+        else //El Enemigo Tira primero
+        {
+            switch (state)
+            {
+                case GameState.COIN_FLIP:
+                    ChangeGameState(GameState.AI_TURN);
+                    break;
+                case GameState.PLAYER_TURN:
+                    //Flipear Moneda
+                    ChangeGameState(GameState.COIN_FLIP);
+                    break;
+                case GameState.AI_TURN:
+                    ChangeGameState(GameState.PLAYER_TURN);
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
+
+    private void FlipCoin()
+    {
+        stateOrder = Random.Range(0,2);
+        if (stateOrder == 0)
+            Debug.Log("Empieza a tirar el player");
+        else
+            Debug.Log("Empieza tirando el enemigo");
+        ChangeToNextGameState();
+    }
 
 }

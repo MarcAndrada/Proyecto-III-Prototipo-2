@@ -17,54 +17,6 @@ public class TurnController : MonoBehaviour
         slotMachine = GetComponent<SlotMachineController>();
         moneyController = GetComponent<MoneyController>();
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Alpha1)) //De arriba a la izquierda hacia abajo a la derecha
-        {
-            DirectionButtonPressed(new Vector2Int(0,0), new Vector2Int(1, 1));
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha2)) //Primera fila
-        {
-            DirectionButtonPressed(new Vector2Int(0, 0), new Vector2Int(1, 0));
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha3)) //Segunda fila
-        {
-            DirectionButtonPressed(new Vector2Int(0, 1), new Vector2Int(1, 0));
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha4)) //Tercera fila
-        {
-            DirectionButtonPressed(new Vector2Int(0, 2), new Vector2Int(1, 0));
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha5)) // De abajo a la izquierda hacia arriba a la derecha
-        {
-            DirectionButtonPressed(new Vector2Int(0, 2), new Vector2Int(1, -1));
-        }
-
-
-        if (Input.GetKeyDown(KeyCode.Q)) //De arriba a la izquierda hacia abajo a la derecha
-        {
-            DisplayTurnDirection(new Vector2Int(0, 0), new Vector2Int(1, 1));
-        }
-        else if (Input.GetKeyDown(KeyCode.W)) //Primera fila
-        {
-            DisplayTurnDirection(new Vector2Int(0, 0), new Vector2Int(1, 0));
-        }
-        else if (Input.GetKeyDown(KeyCode.E)) //Segunda fila
-        {
-            DisplayTurnDirection(new Vector2Int(0, 1), new Vector2Int(1, 0));
-        }
-        else if (Input.GetKeyDown(KeyCode.R)) //Tercera fila
-        {
-            DisplayTurnDirection(new Vector2Int(0, 2), new Vector2Int(1, 0));
-        }
-        else if (Input.GetKeyDown(KeyCode.T)) // De abajo a la izquierda hacia arriba a la derecha
-        {
-            DisplayTurnDirection(new Vector2Int(0, 2), new Vector2Int(1, -1));
-        }
-
-    }
     
     public void DisplayTurnDirection(Vector2Int _starterPos, Vector2Int _direction)
     {
@@ -116,7 +68,6 @@ public class TurnController : MonoBehaviour
         while (IsInsideBounds(currentPosition)) 
         {
             SlotIcon currentIcon = slotMachine.GetSlotIcon(currentPosition.x, currentPosition.y);
-            Debug.Log(currentIcon.type);
 
             bool haveToMultiply = lastType == currentIcon.type;
 
@@ -159,6 +110,8 @@ public class TurnController : MonoBehaviour
         //Añadir los movimientos frontales
         //Añadir los movimientos traseros
 
+
+        GameManager.Instance.FinishActionState(); //Aqui acaba la accion de ACTION y empieza la de RESULT
     }
 
 
@@ -190,6 +143,4 @@ public class TurnController : MonoBehaviour
             item.gameObject.SetActive(false);
         }
     }
-
-
 }

@@ -1606,6 +1606,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectInfo: {fileID: 0}
+  interactableActions: 
   starterPos: {x: 0, y: 0}
   buttonDirection: {x: 0, y: 0}
   turnController: {fileID: 0}
@@ -2539,6 +2540,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectInfo: {fileID: 0}
+  interactableActions: 02000000
   starterPos: {x: 0, y: 2}
   buttonDirection: {x: 1, y: 0}
   turnController: {fileID: 1681434871}
@@ -2599,6 +2601,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectInfo: {fileID: 0}
+  interactableActions: 02000000
   starterPos: {x: 0, y: 0}
   buttonDirection: {x: 1, y: 1}
   turnController: {fileID: 1681434871}
@@ -3086,6 +3089,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectInfo: {fileID: 0}
+  interactableActions: 
   starterPos: {x: 0, y: 0}
   buttonDirection: {x: 0, y: 0}
   turnController: {fileID: 0}
@@ -3765,6 +3769,8 @@ MonoBehaviour:
       Value: {fileID: 21300000, guid: b6d7d3ee5c80a984588d8c898889df0f, type: 3}
   <iconXOffset>k__BackingField: 400
   <iconYOffset>k__BackingField: 300
+  <state>k__BackingField: 0
+  <actionState>k__BackingField: 0
 --- !u!4 &856857650
 Transform:
   m_ObjectHideFlags: 0
@@ -4000,6 +4006,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectInfo: {fileID: 0}
+  interactableActions: 
   starterPos: {x: 0, y: 0}
   buttonDirection: {x: 0, y: 0}
   turnController: {fileID: 0}
@@ -4684,6 +4691,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectInfo: {fileID: 0}
+  interactableActions: 02000000
   starterPos: {x: 0, y: 0}
   buttonDirection: {x: 1, y: 0}
   turnController: {fileID: 1681434871}
@@ -5031,6 +5039,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectInfo: {fileID: 0}
+  interactableActions: 02000000
   starterPos: {x: 0, y: 2}
   buttonDirection: {x: 1, y: -1}
   turnController: {fileID: 1681434871}
@@ -5837,6 +5846,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectInfo: {fileID: 11400000, guid: b1355db3952061940a6b0405806412db, type: 2}
+  interactableActions: 00000000
   controller: {fileID: 1681434869}
 --- !u!1 &1227170307
 GameObject:
@@ -6413,6 +6423,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectInfo: {fileID: 0}
+  interactableActions: 02000000
   starterPos: {x: 0, y: 1}
   buttonDirection: {x: 1, y: 0}
   turnController: {fileID: 1681434871}
@@ -7360,6 +7371,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectInfo: {fileID: 0}
+  interactableActions: 
   starterPos: {x: 0, y: 0}
   buttonDirection: {x: 0, y: 0}
   turnController: {fileID: 0}
@@ -8089,6 +8101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectInfo: {fileID: 0}
+  interactableActions: 
   starterPos: {x: 0, y: 0}
   buttonDirection: {x: 0, y: 0}
   turnController: {fileID: 0}
