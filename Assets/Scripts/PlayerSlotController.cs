@@ -39,7 +39,6 @@ public class PlayerSlotController : MonoBehaviour
             return;
         }
 
-        Debug.Log("Hit Object: " + hit.collider.gameObject.name);
         selectedObjectMouseHitPos = hit.point;
 
         InteractableObject currentObject = hit.collider.gameObject.GetComponent<InteractableObject>();
