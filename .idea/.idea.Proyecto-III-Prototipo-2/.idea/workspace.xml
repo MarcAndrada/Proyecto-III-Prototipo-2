@@ -6,8 +6,17 @@
   <component name="ChangeListManager">
     <list default="true" id="aeccacd7-3bc8-4ec3-bb74-a2081e3ac631" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Proyecto-III-Prototipo-2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Proyecto-III-Prototipo-2/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Blender/Screens.blend" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Blender/Screens.blend" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Blender/TubeTV.blend" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Blender/TubeTV.blend" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/OldTV/Screens.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/OldTV/Screens.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/OldTV/TubeTV.fbx" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/OldTV/TubeTV.fbx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Screens/Screens.fbx" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Screens/Screens.fbx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Map.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Map.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Decorative/RotateSaw.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Decorative/RotateSaw.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Decorative/AttachRagdollToRope.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Decorative/AttachRagdollToRope.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Settings/SampleSceneProfile.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/SampleSceneProfile.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,10 +29,10 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Decorative/CrowdFloatingEffect.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 3
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 3
+}</component>
   <component name="ProjectId" id="2p1UA952ikRYyJ2sg6PD4j04bvf" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -32,7 +41,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "feature/map",
+    "git-widget-placeholder": "feature/characters",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -87,7 +96,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1731932930029</updated>
-      <workItem from="1731932933537" duration="788000" />
+      <workItem from="1731932933537" duration="3632000" />
     </task>
     <servers />
   </component>
