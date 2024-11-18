@@ -9,7 +9,6 @@ public class RotateSaw : MonoBehaviour
 
     void Update()
     {
-        // Rotate the saw around its local Z-axis
         transform.Rotate(0, 0, rotationSpeed * Time.deltaTime);
     }
 }
