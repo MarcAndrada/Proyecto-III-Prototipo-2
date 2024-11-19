@@ -6,13 +6,17 @@ using UnityEngine.EventSystems;
 public class CameraSwitcher : MonoBehaviour
 {
     [Header("Cameras")]
-    [SerializeField] private CinemachineVirtualCamera mainVCam;
-    [SerializeField] private CinemachineVirtualCamera topVCam;
-    [SerializeField] private CinemachineVirtualCamera leftVCam;
-    [SerializeField] private CinemachineVirtualCamera rightVCam;
+    [SerializeField] private Camera mainCamera;
+    [SerializeField] private Transform mainCameraTransform;
+    [SerializeField] private Transform topCameraTransform;
+    [SerializeField] private Transform leftCameraTransform;
+    [SerializeField] private Transform rightCameraTransform;
+    [Space, SerializeField]
+    private float cameraMoveSpeed;
+    private Vector3 cameraDestinyPos;
+    private Quaternion cameraDestinyRot;
+    private bool canMove;
 
-    private CinemachineVirtualCamera currentVCam;
-    
     [Header("Canvas Borders")]
     [SerializeField] private RectTransform bottom;
     [SerializeField] private RectTransform top;
@@ -24,39 +28,64 @@ public class CameraSwitcher : MonoBehaviour
     private void Start()
     {
         entriesEnter = new List<EventTrigger.Entry>();
-        currentVCam = mainVCam;
-        SetActiveCamera(currentVCam);
         
+        mainCamera.transform.position = mainCameraTransform.transform.position;
+        mainCamera.transform.rotation = mainCameraTransform.transform.rotation;
+        cameraDestinyPos = mainCameraTransform.transform.position;
+        cameraDestinyRot = mainCameraTransform.transform.rotation;
+
+        canMove = true;
+
         AddEventTrigger(top, "Top");
         AddEventTrigger(left, "Left");
         AddEventTrigger(right, "Right"); 
     }
 
+    private void Update()
+    {
+        MoveCamera();
+    }
+
     public void SwitchToCamera(string direction)
     {
+        if (!canMove)
+            return;
+
+        canMove = false;
+        Invoke("SetCanMove", 1.5f);
         Debug.Log("Pointer Enter");
 
-        CinemachineVirtualCamera newVCam = null;
+        Vector3 currentDestPos = Vector3.zero;
+        Quaternion currentDestRot = Quaternion.identity;
 
         switch (direction)
         {
             case "Top":
-                newVCam = topVCam;
+                currentDestPos = topCameraTransform.position;
+                currentDestRot = topCameraTransform.rotation;
                 break;
             case "Left":
-                newVCam = leftVCam;
+                currentDestPos = leftCameraTransform.position;
+                currentDestRot = leftCameraTransform.rotation;
                 break;
             case "Right":
-                newVCam = rightVCam;
+                currentDestPos = rightCameraTransform.position;
+                currentDestRot = rightCameraTransform.rotation;
                 break;
             case "Main":
-                newVCam = mainVCam;
+                currentDestPos = mainCameraTransform.position;
+                currentDestRot = mainCameraTransform.rotation;
                 break;
         }
 
-        if (newVCam != null && newVCam != currentVCam)
+        
+
+        if (currentDestPos != cameraDestinyPos || currentDestRot != cameraDestinyRot)
         {
-            SetActiveCamera(newVCam);
+            cameraDestinyPos = currentDestPos;
+            cameraDestinyRot = currentDestRot;
+
+            //SetActiveCamera(newVCam);
             DeactivateTriggers();
             if (direction == "Top")
             {
@@ -78,13 +107,16 @@ public class CameraSwitcher : MonoBehaviour
             }
         }
     }
-    private void SetActiveCamera(CinemachineVirtualCamera newVCam)
-    {
-        if (currentVCam != null)
-            currentVCam.Priority = 10;
 
-        currentVCam = newVCam;
-        currentVCam.Priority = 20;
+    private void SetCanMove()
+    {
+        canMove = true;
+    }
+
+    private void MoveCamera()
+    {
+        mainCamera.transform.position = Vector3.Lerp(mainCamera.transform.position, cameraDestinyPos, Time.deltaTime * cameraMoveSpeed);
+        mainCamera.transform.rotation = Quaternion.Lerp(mainCamera.transform.rotation, cameraDestinyRot, Time.deltaTime * cameraMoveSpeed);
     }
     private void AddEventTrigger(RectTransform rect, string direction)
     {
