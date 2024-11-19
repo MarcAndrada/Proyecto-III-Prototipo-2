@@ -97,20 +97,8 @@ public class CameraSwitcher : MonoBehaviour
         entryEnter.callback.AddListener((eventData) => { SwitchToCamera(direction); });
         entriesEnter.Add(entryEnter); 
         trigger.triggers.Add(entryEnter);
-
-        EventTrigger.Entry entryExit = new EventTrigger.Entry
-        {
-            eventID = EventTriggerType.PointerExit
-        };
-        entryExit.callback.AddListener((eventData) => { OnPointerExitCamera(); });
-        trigger.triggers.Add(entryExit);
     }
-    private void OnPointerExitCamera()
-    {
-        Debug.Log("Pointer Exit");
-        
-    }    
-   
+    
     private void DeactivateTriggers()
     {
         foreach (EventTrigger.Entry entry in entriesEnter)
