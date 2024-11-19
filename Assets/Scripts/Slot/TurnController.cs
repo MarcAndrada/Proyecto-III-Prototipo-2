@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class TurnController : MonoBehaviour
 {
+    [SerializeField]
+    private bool isPlayer;
 
     private Vector2Int currentPosition;
     private Vector2Int currentDirection;
@@ -108,7 +110,9 @@ public class TurnController : MonoBehaviour
         //Añadir las monedas
         moneyController.AddCoins(coins * coinMultiplier);
         //Añadir los movimientos frontales
+        GameManager.Instance.ChangeHealth(isPlayer, backwardMovements * backwardMultiplier);
         //Añadir los movimientos traseros
+        GameManager.Instance.ChangeHealth(!isPlayer, -forwardMovements * forwardMultiplier);
 
 
         GameManager.Instance.FinishActionState(); //Aqui acaba la accion de ACTION y empieza la de RESULT

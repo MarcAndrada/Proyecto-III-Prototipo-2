@@ -5,6 +5,17 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
+
+    public enum GameState { COIN_FLIP, PLAYER_TURN, AI_TURN }
+    public enum ActionState { START, WHEEL_SPIN, ACTION, RESULTS }
+
+    [field: Space, Header("GameState"), SerializeField]
+    public GameState state { get; private set; }
+    [field: SerializeField]
+    public ActionState actionState { get; private set; }
+    int stateOrder;
+
+
     [field: Space, Header("Slot"), SerializeField]
     public int slotWidth { get; private set; }
     [field: SerializeField]
@@ -17,14 +28,22 @@ public class GameManager : MonoBehaviour
     [field: SerializeField]
     public float iconYOffset { get; private set; }
 
-    public enum GameState { COIN_FLIP, PLAYER_TURN, AI_TURN }
-    public enum ActionState { START, WHEEL_SPIN, ACTION, RESULTS }
-
-    [field: Space, Header("GameState"), SerializeField]
-    public GameState state { get; private set; }
+    [Space, Header("Hanged mans"), SerializeField]
+    private int maxHealth;
     [field: SerializeField]
-    public ActionState actionState {  get; private set; }
-    int stateOrder;
+    public int playerHangedManHealth { get; private set; }
+    [field: SerializeField]
+    public int enemyHangedManHealth { get; private set; }
+
+    [field: SerializeField]
+    public float ropeOffset;
+    [field: SerializeField]
+    public float moveUpSpeed { get; private set; }
+    [field: SerializeField]
+    public float moveDownSpeed { get; private set; }
+
+
+
 
 
     private void Awake()
@@ -89,7 +108,7 @@ public class GameManager : MonoBehaviour
                 break;
             case ActionState.ACTION:
                 actionState = ActionState.RESULTS;
-                FinishActionState(); //Esto quitar cuando la carrera de camellos este hecho
+                Invoke("FinishActionState", 4);
                 break;
             case ActionState.RESULTS:
 
@@ -152,6 +171,14 @@ public class GameManager : MonoBehaviour
         else
             Debug.Log("Empieza tirando el enemigo");
         ChangeToNextGameState();
+    }
+
+    public void ChangeHealth(bool _isPlayer, int _healthChange)
+    {
+        if (_isPlayer)
+            playerHangedManHealth = Mathf.Clamp(playerHangedManHealth + _healthChange, 0, maxHealth);
+        else
+            enemyHangedManHealth = Mathf.Clamp(enemyHangedManHealth + _healthChange, 0, maxHealth);
     }
 
 }

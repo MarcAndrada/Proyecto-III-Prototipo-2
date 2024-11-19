@@ -7,7 +7,8 @@ public class LeverObject : InteractableObject
 
     public override void ActivateObject()
     {
-        if (CanInteract())
+        if (GameManager.Instance.state == GameManager.GameState.PLAYER_TURN 
+            && CanInteract())
         {
             controller.SpinWheel();
             StopHovering();
