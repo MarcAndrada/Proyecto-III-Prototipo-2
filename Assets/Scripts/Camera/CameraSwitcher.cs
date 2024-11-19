@@ -52,7 +52,6 @@ public class CameraSwitcher : MonoBehaviour
             return;
 
         canMove = false;
-        Invoke("SetCanMove", 1.5f);
         Debug.Log("Pointer Enter");
 
         Vector3 currentDestPos = Vector3.zero;
@@ -129,8 +128,15 @@ public class CameraSwitcher : MonoBehaviour
         entryEnter.callback.AddListener((eventData) => { SwitchToCamera(direction); });
         entriesEnter.Add(entryEnter); 
         trigger.triggers.Add(entryEnter);
+        
+        EventTrigger.Entry entryExit = new EventTrigger.Entry
+        {
+            eventID = EventTriggerType.PointerExit
+        };
+        entryExit.callback.AddListener((eventData) => { SetCanMove(); });
+        trigger.triggers.Add(entryExit);
+
     }
-    
     private void DeactivateTriggers()
     {
         foreach (EventTrigger.Entry entry in entriesEnter)

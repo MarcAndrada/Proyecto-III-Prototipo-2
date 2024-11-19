@@ -9,18 +9,23 @@ public class VirtualScreen : GraphicRaycaster
     [SerializeField] private GraphicRaycaster screenCaster;
 
     public override void Raycast(PointerEventData eventData, List<RaycastResult> resultList)
-    {
+    {        
+        if (screenCamera == null || screenCamera.targetTexture == null)
+        {
+            Debug.LogWarning("Screen Camera or Render Texture not set.");
+            return;
+        }
+        
         Ray ray = eventCamera.ScreenPointToRay(eventData.position);
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit))
         {
-            if (hit.collider.transform == transform)
+            if (hit.collider.GetComponent<Renderer>()?.material.mainTexture == screenCamera.targetTexture)
             {
-                // Figure out where the pointer would be in the second camera based on texture position or RenderTexture.
                 Vector3 virtualPos = new Vector3(hit.textureCoord.x, hit.textureCoord.y);
                 virtualPos.x *= screenCamera.targetTexture.width;
                 virtualPos.y *= screenCamera.targetTexture.height;
-
+                
                 eventData.position = virtualPos;
 
                 screenCaster.Raycast(eventData, resultList);

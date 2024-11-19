@@ -17,6 +17,6 @@ public class Store : MonoBehaviour
     [SerializeField] private int startingItems;
     public void Buy()
     {
-        
+        Debug.Log("Apretao");
     }
 }

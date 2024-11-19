@@ -6,13 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="aeccacd7-3bc8-4ec3-bb74-a2081e3ac631" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Proyecto-III-Prototipo-2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Proyecto-III-Prototipo-2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Blender/Map.blend" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Blender/Map.blend" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Blender/TubeTV.blend" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Blender/TubeTV.blend" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/SlotsTextures/ShopRenderTexture.renderTexture" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/SlotsTextures/ShopRenderTexture.renderTexture.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/OldTV/TubeTV.fbx" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/OldTV/TubeTV.fbx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Map.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Map.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Camera/CameraSwitcher.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Camera/CameraSwitcher.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Store/Store.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Store/Store.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Store/VirtualScreen.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Store/VirtualScreen.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,7 +36,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "feature/tiendesita",
+    "git-widget-placeholder": "develop",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
