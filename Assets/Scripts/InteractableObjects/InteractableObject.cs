@@ -11,8 +11,6 @@ public abstract class InteractableObject : MonoBehaviour
 
     protected Outline outline;
     
-
-
     protected virtual void Awake()
     {
         outline = GetComponent<Outline>();

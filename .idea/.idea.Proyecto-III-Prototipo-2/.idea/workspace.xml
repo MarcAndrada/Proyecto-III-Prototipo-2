@@ -6,17 +6,15 @@
   <component name="ChangeListManager">
     <list default="true" id="aeccacd7-3bc8-4ec3-bb74-a2081e3ac631" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Proyecto-III-Prototipo-2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Proyecto-III-Prototipo-2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Blender/Screens.blend" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Blender/Screens.blend" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Blender/TubeTV.blend" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Blender/TubeTV.blend" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/OldTV/Screens.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/OldTV/Screens.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/OldTV/TubeTV.fbx" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/OldTV/TubeTV.fbx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Screens/Screens.fbx" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Screens/Screens.fbx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/SlotsTextures/PlayerSlotTexture.renderTexture" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/SlotsTextures/PlayerSlotTexture.renderTexture" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Jail/Materials/Glass.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Jail/Materials/Glass.mat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Map.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Map.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Decorative/AttachRagdollToRope.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Decorative/AttachRagdollToRope.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Settings/SampleSceneProfile.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/SampleSceneProfile.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InteractableObjects/InteractableObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InteractableObjects/InteractableObject.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Settings/URP-HighFidelity-Renderer.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/URP-HighFidelity-Renderer.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,6 +25,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Camera/CameraSwitcher.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Decorative/CrowdFloatingEffect.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
@@ -41,7 +40,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "feature/characters",
+    "git-widget-placeholder": "develop",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -52,7 +51,7 @@
 }]]></component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2022.3.14f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2022.3.3f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-projectPath D:\Git\UnityProjects\Proyecto-III-Prototipo-2 -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="D:\Git\UnityProjects\Proyecto-III-Prototipo-2" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -60,7 +59,7 @@
       <method v="2" />
     </configuration>
     <configuration name="Unit Tests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2022.3.14f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2022.3.3f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath D:\Git\UnityProjects\Proyecto-III-Prototipo-2 -testResults Logs/results.xml -logFile Logs/Editor.log -testPlatform EditMode -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="D:\Git\UnityProjects\Proyecto-III-Prototipo-2" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -97,6 +96,7 @@
       <option name="presentableId" value="Default" />
       <updated>1731932930029</updated>
       <workItem from="1731932933537" duration="3632000" />
+      <workItem from="1732029890546" duration="7310000" />
     </task>
     <servers />
   </component>
