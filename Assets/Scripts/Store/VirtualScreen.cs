@@ -20,7 +20,8 @@ public class VirtualScreen : GraphicRaycaster
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit))
         {
-            if (hit.collider.GetComponent<Renderer>()?.material.mainTexture == screenCamera.targetTexture)
+            Renderer renderer = hit.collider.GetComponent<Renderer>();
+            if (renderer && renderer?.material.mainTexture == screenCamera.targetTexture)
             {
                 Vector3 virtualPos = new Vector3(hit.textureCoord.x, hit.textureCoord.y);
                 virtualPos.x *= screenCamera.targetTexture.width;

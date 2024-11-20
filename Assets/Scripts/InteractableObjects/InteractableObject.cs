@@ -9,11 +9,25 @@ public abstract class InteractableObject : MonoBehaviour
     [SerializeField]
     private List<GameManager.ActionState> interactableActions;
 
-    protected Outline outline;
+    protected List<Outline> outline;
     
     protected virtual void Awake()
     {
-        outline = GetComponent<Outline>();
+        outline = new List<Outline>();
+        Outline[] objectOutlines = GetComponents<Outline>();
+
+        Outline[] childsOutlines = GetComponentsInChildren<Outline>();
+
+        foreach (Outline obj in objectOutlines) 
+        { 
+            outline.Add(obj);
+        }
+        foreach (Outline obj in childsOutlines)
+        {
+            outline.Add(obj);
+        }
+
+
     }
 
     public virtual void OnHover()
@@ -21,13 +35,23 @@ public abstract class InteractableObject : MonoBehaviour
         if (!CanInteract())
             return;
 
-        if (outline)
-            outline.enabled = true;
+        if (outline.Count > 0)
+        {
+            foreach (Outline obj in outline)
+            {
+                obj.enabled = true;
+            }
+        }
     }
     public virtual void StopHovering()
     {
-        if (outline)
-            outline.enabled = false;
+        if (outline.Count > 0)
+        {
+            foreach (Outline obj in outline)
+            {
+                obj.enabled = false;
+            }
+        }
     }
 
 
