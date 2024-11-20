@@ -6,17 +6,17 @@ public class Store : MonoBehaviour
 {
     public enum ItemType
     {
-        JokerCard,
-        Button,
-        Cigar,
-        JusticeBalance,
-        Joystick,
-        RedCoin,
+        JOKER,
+        INTERRUPTOR,
+        CIGARRETTE,
+        BALANCE,
+        JOYSTICK,
+        RED_COIN
         
     }
     [SerializeField] private int startingItems;
     public void Buy()
     {
-        Debug.Log("Apretao");
+        
     }
 }

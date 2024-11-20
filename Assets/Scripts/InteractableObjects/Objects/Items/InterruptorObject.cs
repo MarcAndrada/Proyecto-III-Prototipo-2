@@ -1,8 +1,10 @@
-using UnityEngine;
 public class InterruptorObject : InteractableObject
 {
     public override void ActivateObject()
     {
-        Debug.Log("CLICK");
+        GameManager.Instance.ItemUsed(Store.ItemType.INTERRUPTOR);
+        //Poner animacion de clickar boton
+
+        Destroy(gameObject);
     }
 }
