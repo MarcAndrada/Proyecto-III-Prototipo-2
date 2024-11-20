@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Store : MonoBehaviour
 {
-    enum ItemType
+    public enum ItemType
     {
         JokerCard,
         Button,

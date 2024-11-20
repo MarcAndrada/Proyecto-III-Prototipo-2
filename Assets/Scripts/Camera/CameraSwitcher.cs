@@ -38,7 +38,9 @@ public class CameraSwitcher : MonoBehaviour
 
         AddEventTrigger(top, "Top");
         AddEventTrigger(left, "Left");
-        AddEventTrigger(right, "Right"); 
+        AddEventTrigger(right, "Right");
+
+        Cursor.lockState = CursorLockMode.Confined;        
     }
 
     private void Update()

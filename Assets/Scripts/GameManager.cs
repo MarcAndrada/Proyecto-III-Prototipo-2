@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using AYellowpaper.SerializedCollections;
 
@@ -8,6 +9,10 @@ public class GameManager : MonoBehaviour
 
     public enum GameState { COIN_FLIP, PLAYER_TURN, AI_TURN }
     public enum ActionState { START, WHEEL_SPIN, ACTION, RESULTS }
+
+    public List<Store.ItemType> playerItemsUsed; 
+    public List<Store.ItemType> enemyItemsUsed; 
+
 
     [field: Space, Header("GameState"), SerializeField]
     public GameState state { get; private set; }
@@ -56,6 +61,9 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        playerItemsUsed = new List<Store.ItemType>();
+        enemyItemsUsed = new List<Store.ItemType>();
+
         state = GameState.COIN_FLIP;
         actionState = ActionState.START;
 
@@ -86,10 +94,17 @@ public class GameManager : MonoBehaviour
                 break;
             case GameState.PLAYER_TURN:
                 //Devolverle el control del player
+
+                //Resetear los Items del player
+                playerItemsUsed.Clear();
                 break;
             case GameState.AI_TURN:
                 //Hacer que el player mire en la direccion de la pantalla donde se hace la accion del enemigo
+
+                //Resetear los Items del enemigo
+                enemyItemsUsed.Clear();
                 ChangeToNextGameState();
+
                 break;
             default:
                 break;

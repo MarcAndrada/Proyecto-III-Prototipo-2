@@ -105,6 +105,7 @@ public class TurnController : MonoBehaviour
             lastType = currentIcon.type;
 
             currentPosition += currentDirection;
+
         }
 
         //Añadir las monedas
