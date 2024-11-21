@@ -5,30 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aeccacd7-3bc8-4ec3-bb74-a2081e3ac631" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Store/InventoryManager.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Store/InventoryManager.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Proyecto-III-Prototipo-2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Proyecto-III-Prototipo-2/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Materials/StoreTextures/ShopRenderTexture.renderTexture" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/StoreTextures/ShopRenderTexture.renderTexture" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Balance/Balance.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Balance/Balance.fbx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Card/Card.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Card/Card.fbx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Character/Hazmat_Character.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Character/Hazmat_Character.fbx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Cigarrete/Malboro.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Cigarrete/Malboro.fbx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Cigarrete/Sigarro.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Cigarrete/Sigarro.fbx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Coins/Coin.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Coins/Coin.fbx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Dice/Dice.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Dice/Dice.fbx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Jail/Map.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Jail/Map.fbx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Jail/Scene.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Jail/Scene.fbx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Joystick/Joystick.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Joystick/Joystick.fbx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/OldTV/TubeTV.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/OldTV/TubeTV.fbx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/RemoteControl/RemoteControl.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/RemoteControl/RemoteControl.fbx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Rope/Rope.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Rope/Rope.fbx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Saw/Saw.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Saw/Saw.fbx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Screens/Screens.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Screens/Screens.fbx.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Map.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Map.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Store/Store.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Store/Store.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Store/VirtualScreen.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Store/VirtualScreen.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/SlotIcons/SlotCoin.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/SlotIcons/SlotCoin.png.meta" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,7 +34,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "feature/store",
+    "git-widget-placeholder": "develop",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -112,7 +91,7 @@
       <updated>1731932930029</updated>
       <workItem from="1731932933537" duration="3632000" />
       <workItem from="1732029890546" duration="10632000" />
-      <workItem from="1732216704844" duration="3232000" />
+      <workItem from="1732216704844" duration="3966000" />
     </task>
     <servers />
   </component>
