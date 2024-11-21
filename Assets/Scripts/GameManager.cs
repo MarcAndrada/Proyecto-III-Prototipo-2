@@ -47,10 +47,6 @@ public class GameManager : MonoBehaviour
     [field: SerializeField]
     public float moveDownSpeed { get; private set; }
 
-
-
-
-
     private void Awake()
     {
         if (Instance != null && Instance != this)
