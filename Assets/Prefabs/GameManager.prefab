@@ -30,7 +30,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3461601325117904094
 MonoBehaviour:
@@ -44,6 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 357a005aa1ce2a2439e0753d6a5d3c27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerItemsUsed: 
+  enemyItemsUsed: 
   <state>k__BackingField: 0
   <actionState>k__BackingField: 0
   <slotWidth>k__BackingField: 4
@@ -51,18 +53,18 @@ MonoBehaviour:
   iconSprite:
     _serializedList:
     - Key: 1
-      Value: {fileID: 21300000, guid: 52889cfebecf060459ac78097fb2f1c1, type: 3}
+      Value: {fileID: 21300000, guid: 4a8ffd46262aca84c85069fbdfa616dc, type: 3}
     - Key: 2
-      Value: {fileID: 21300000, guid: b36bdca7b8100cc4a879830db8716b0b, type: 3}
+      Value: {fileID: 21300000, guid: 27e2d973fe33479488e667121fb8edbf, type: 3}
     - Key: 3
-      Value: {fileID: 21300000, guid: 8abe64cbe5ed2e748bd14deb1bf4777b, type: 3}
+      Value: {fileID: 21300000, guid: 15bea563fa9cd124b975ce4ec400e090, type: 3}
     - Key: 4
       Value: {fileID: 21300000, guid: b6d7d3ee5c80a984588d8c898889df0f, type: 3}
   <iconXOffset>k__BackingField: 400
   <iconYOffset>k__BackingField: 300
-  maxHealth: 15
-  <playerHangedManHealth>k__BackingField: 10
-  <enemyHangedManHealth>k__BackingField: 10
-  ropeOffset: 0.65
-  <moveUpSpeed>k__BackingField: 0.8
-  <moveDownSpeed>k__BackingField: 5
+  maxHealth: 20
+  <playerHangedManHealth>k__BackingField: 15
+  <enemyHangedManHealth>k__BackingField: 15
+  ropeOffset: 0.45
+  <moveUpSpeed>k__BackingField: 0.3
+  <moveDownSpeed>k__BackingField: 10
