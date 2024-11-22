@@ -38,13 +38,6 @@ public class SlotMachineController : MonoBehaviour
 
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.L))
-            SpinWheel();
-
-    }
-
     public void SpinWheel()
     {
         //Poner la animacion
@@ -60,7 +53,7 @@ public class SlotMachineController : MonoBehaviour
             for (int j = 0; j < GameManager.Instance.slotHeight; j++)
             {
                 slotIcons[i][j].RandomizeIconType(i, j);
-                slotIcons[i][j].GetComponent<Image>().sprite =
+                slotIcons[i][j].iconImage.sprite =
                     GameManager.Instance.iconSprite[slotIcons[i][j].type];
 
                 float x = GameManager.Instance.iconXOffset * i;

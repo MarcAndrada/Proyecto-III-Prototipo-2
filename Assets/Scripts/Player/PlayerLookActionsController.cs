@@ -7,7 +7,7 @@ public class PlayerLookActionsController : MonoBehaviour
     [SerializeField]
     private CameraSwitcher cameraController;
 
-    public enum LookAtActions { NORMAL_CAMERA, RESULTS, ENEMY_TURN }
+    public enum LookAtActions { NORMAL_CAMERA, RESULTS, ENEMY_TURN, LOCK_MAIN }
 
     private List<(LookAtActions, float)> actionsList = new List<(LookAtActions, float)>();
     public bool canDoNextAction { get; private set; }
@@ -36,6 +36,9 @@ public class PlayerLookActionsController : MonoBehaviour
                 break;
             case LookAtActions.ENEMY_TURN:
                 LookAt("Top");
+                break;
+            case LookAtActions.LOCK_MAIN:
+                LookAt("Main");
                 break;
             default:
                 break;

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SlotIcon : MonoBehaviour
 {
@@ -8,7 +9,15 @@ public class SlotIcon : MonoBehaviour
 
     private Vector2Int rotationDirection;
 
-  
+    public Image iconImage { get; private set; }
+    public Image backgroundImage { get; private set; }
+
+    private void Awake()
+    {
+        iconImage = GetComponentInChildren<Image>();
+        backgroundImage = GetComponent<Image>();
+        backgroundImage.enabled = false;
+    }
 
     public void RandomizeIconType(int _x, int _y)
     {
