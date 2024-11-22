@@ -54,7 +54,6 @@ public class CameraSwitcher : MonoBehaviour
             return;
 
         canMove = false;
-        Debug.Log("Pointer Enter");
 
         Vector3 currentDestPos = Vector3.zero;
         Quaternion currentDestRot = Quaternion.identity;
