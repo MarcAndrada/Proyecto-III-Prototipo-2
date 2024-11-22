@@ -8,6 +8,6 @@ public class MoneyCanvasController : MonoBehaviour
     
     public void UpdateCoins(int _coins)
     {
-        coinText.text = _coins.ToString() + " G";
+        coinText.text = _coins.ToString();
     }
 }

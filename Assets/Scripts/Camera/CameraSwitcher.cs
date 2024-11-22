@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using UnityEngine;
-using Cinemachine;
 using UnityEngine.EventSystems;
 
 public class CameraSwitcher : MonoBehaviour
@@ -48,13 +47,8 @@ public class CameraSwitcher : MonoBehaviour
         MoveCamera();
     }
 
-    public void SwitchToCamera(string direction)
+    public (Vector3, Quaternion) GetCameraPositionAndRotation(string direction)
     {
-        if (!canMove)
-            return;
-
-        canMove = false;
-
         Vector3 currentDestPos = Vector3.zero;
         Quaternion currentDestRot = Quaternion.identity;
 
@@ -78,40 +72,45 @@ public class CameraSwitcher : MonoBehaviour
                 break;
         }
 
-        
+        return (currentDestPos, currentDestRot);
+    }
+    public void SetMovementCameraTriggers(string _direction, (Vector3, Quaternion) _destiny)
+    {
+        if(!canMove)
+            return;
 
-        if (currentDestPos != cameraDestinyPos || currentDestRot != cameraDestinyRot)
+        if (_destiny.Item1 != cameraDestinyPos || _destiny.Item2 != cameraDestinyRot)
         {
-            cameraDestinyPos = currentDestPos;
-            cameraDestinyRot = currentDestRot;
+            canMove = false;
+
+            SetCameraDestination(_destiny);
 
             //SetActiveCamera(newVCam);
             DeactivateTriggers();
-            if (direction == "Top")
-            {
+            if (_direction == "Top")
                 AddEventTrigger(bottom, "Main");
-            }
-            if (direction == "Left")
-            {
+            else if (_direction == "Left")
                 AddEventTrigger(right, "Main");
-            }
-            if (direction == "Right")
-            {
+            else if (_direction == "Right")
                 AddEventTrigger(left, "Main");
-            }
-            if (direction == "Main")
+            else if (_direction == "Main")
             {
                 AddEventTrigger(top, "Top");
                 AddEventTrigger(left, "Left");
-                AddEventTrigger(right, "Right"); 
+                AddEventTrigger(right, "Right");
             }
         }
     }
-
+    public void SetCameraDestination((Vector3, Quaternion) _destiny)
+    {
+        cameraDestinyPos = _destiny.Item1;
+        cameraDestinyRot = _destiny.Item2;
+    }
     private void SetCanMove()
     {
         canMove = true;
     }
+
 
     private void MoveCamera()
     {
@@ -126,7 +125,7 @@ public class CameraSwitcher : MonoBehaviour
         {
             eventID = EventTriggerType.PointerEnter
         };
-        entryEnter.callback.AddListener((eventData) => { SwitchToCamera(direction); });
+        entryEnter.callback.AddListener((eventData) => { SetMovementCameraTriggers(direction, GetCameraPositionAndRotation(direction)); });
         entriesEnter.Add(entryEnter); 
         trigger.triggers.Add(entryEnter);
         
@@ -138,7 +137,7 @@ public class CameraSwitcher : MonoBehaviour
         trigger.triggers.Add(entryExit);
 
     }
-    private void DeactivateTriggers()
+    public void DeactivateTriggers()
     {
         foreach (EventTrigger.Entry entry in entriesEnter)
         {

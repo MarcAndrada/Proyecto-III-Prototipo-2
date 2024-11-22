@@ -11,8 +11,11 @@ public class GameManager : MonoBehaviour
     public enum ActionState { START, WHEEL_SPIN, ACTION, RESULTS }
 
     public List<Store.ItemType> playerItemsUsed; 
-    public List<Store.ItemType> enemyItemsUsed; 
+    public List<Store.ItemType> enemyItemsUsed;
 
+
+    [SerializeField]
+    private PlayerLookActionsController playerLookController;
 
     [field: Space, Header("GameState"), SerializeField]
     public GameState state { get; private set; }
@@ -80,7 +83,6 @@ public class GameManager : MonoBehaviour
             case GameState.COIN_FLIP:
                 break;
             case GameState.PLAYER_TURN:
-                //Bloquear las acciones del player
                 break;
             case GameState.AI_TURN:
                 break;
@@ -97,15 +99,17 @@ public class GameManager : MonoBehaviour
                 FlipCoin();
                 break;
             case GameState.PLAYER_TURN:
-                //Devolverle el control del player
+
                 if (UsedItem(enemyItemsUsed, Store.ItemType.INTERRUPTOR))
                 {
                     ChangeToNextGameState();
                     enemyItemsUsed.Remove(Store.ItemType.INTERRUPTOR);
                 }
+                //Devolverle el control del player
+                playerLookController.AddAction(PlayerLookActionsController.LookAtActions.NORMAL_CAMERA, 0);
                 break;
             case GameState.AI_TURN:
-                //Hacer que el player mire en la direccion de la pantalla donde se hace la accion del enemigo
+                
 
                 //Resetear los Items del enemigo
                 if (UsedItem(playerItemsUsed, Store.ItemType.INTERRUPTOR))
@@ -115,6 +119,9 @@ public class GameManager : MonoBehaviour
                     ChangeToNextGameState();
 
                 }
+
+                //Hacer que el player mire en la direccion de la pantalla donde se hace la accion del enemigo
+                playerLookController.AddAction(PlayerLookActionsController.LookAtActions.RESULTS, 0);
 
                 ChangeToNextGameState();
 
@@ -135,16 +142,18 @@ public class GameManager : MonoBehaviour
                 actionState = ActionState.ACTION;
                 break;
             case ActionState.ACTION:
+                //Cambiar la camara del player a la derecha
+                playerLookController.AddAction(PlayerLookActionsController.LookAtActions.RESULTS, 5);                
+                Invoke("FinishActionState", 5);
+
                 actionState = ActionState.RESULTS;
-                Invoke("FinishActionState", 4);
                 break;
             case ActionState.RESULTS:
-
+                //Cambiar la camara del player a la central y setearle los triggers que tocan
 
                 //Cambiar de turno y empezar de nuevo las acciones
                 ChangeToNextGameState();
                 actionState = ActionState.START;
-
                 break;
             default:
                 break;
@@ -237,8 +246,6 @@ public class GameManager : MonoBehaviour
 
         return false;
     }
-
-
     public void ItemUsed(Store.ItemType _itemUsed)
     {
         if (state == GameState.PLAYER_TURN)
@@ -246,5 +253,7 @@ public class GameManager : MonoBehaviour
         else if (state == GameState.AI_TURN)
             playerItemsUsed.Add(_itemUsed);
     }
+
+    
 
 }
