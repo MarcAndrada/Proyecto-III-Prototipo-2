@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,11 +11,17 @@ public class MoneyController : MonoBehaviour
     private GameObject coinPrefab;
     [SerializeField]
     private float spawnRandomRotationForce;
+    [SerializeField]
+    private MoneyCanvasController moneyCanvas;
 
     private List<GameObject> coinList = new List<GameObject>();
 
     private int totalCoins;
 
+    private void Start()
+    {
+        moneyCanvas.UpdateCoins(totalCoins);
+    }
     public void AddCoins(int _addedCoins)
     {
         totalCoins += _addedCoins;
@@ -41,6 +46,8 @@ public class MoneyController : MonoBehaviour
 
             coinList.Add(newCoin);
         }
+
+        moneyCanvas.UpdateCoins(totalCoins) ;
     }
 
     public bool RemoveCoins(int _coinAmount)
@@ -59,7 +66,10 @@ public class MoneyController : MonoBehaviour
             coinList.RemoveAt(coinList.Count - 1);
         }
 
+        moneyCanvas.UpdateCoins(totalCoins);
 
         return true;
     }
+
+    public int GetCoinAmount() { return totalCoins; }   
 }
