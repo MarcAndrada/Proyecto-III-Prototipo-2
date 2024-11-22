@@ -22,6 +22,10 @@ public class GameManager : MonoBehaviour
 
 
     [field: Space, Header("Slot"), SerializeField]
+    public SlotMachineController playerSlot {  get; private set; }
+    [field: SerializeField]
+    public SlotMachineController enemySlot { get; private set; }
+    [field: SerializeField]
     public int slotWidth { get; private set; }
     [field: SerializeField]
     public int slotHeight { get; private set; }
@@ -46,6 +50,10 @@ public class GameManager : MonoBehaviour
     public float moveUpSpeed { get; private set; }
     [field: SerializeField]
     public float moveDownSpeed { get; private set; }
+
+    [field: Space, Header("Cigarrette"), SerializeField]
+    public Transform cigarretteTransform {  get; private set; }
+
 
     private void Awake()
     {
@@ -90,15 +98,24 @@ public class GameManager : MonoBehaviour
                 break;
             case GameState.PLAYER_TURN:
                 //Devolverle el control del player
-
-                //Resetear los Items del player
-                playerItemsUsed.Clear();
+                if (UsedItem(enemyItemsUsed, Store.ItemType.INTERRUPTOR))
+                {
+                    ChangeToNextGameState();
+                    enemyItemsUsed.Remove(Store.ItemType.INTERRUPTOR);
+                }
                 break;
             case GameState.AI_TURN:
                 //Hacer que el player mire en la direccion de la pantalla donde se hace la accion del enemigo
 
                 //Resetear los Items del enemigo
-                enemyItemsUsed.Clear();
+                if (UsedItem(playerItemsUsed, Store.ItemType.INTERRUPTOR))
+                {
+                    Debug.Log("Turno Skipeado");
+                    playerItemsUsed.Remove(Store.ItemType.INTERRUPTOR);
+                    ChangeToNextGameState();
+
+                }
+
                 ChangeToNextGameState();
 
                 break;
@@ -176,11 +193,29 @@ public class GameManager : MonoBehaviour
 
     private void FlipCoin()
     {
+        if(UsedItem(playerItemsUsed, Store.ItemType.RED_COIN))
+        {
+            Debug.Log("Trucado para que empieze el player");
+            stateOrder = 0;
+            playerItemsUsed.Remove(Store.ItemType.RED_COIN);
+            ChangeToNextGameState();
+            return;
+        }
+        else if (UsedItem(enemyItemsUsed, Store.ItemType.RED_COIN))
+        {
+            stateOrder = 1;
+            enemyItemsUsed.Remove(Store.ItemType.RED_COIN);
+            ChangeToNextGameState();
+            return;
+        }
+
         stateOrder = Random.Range(0,2);
+
         if (stateOrder == 0)
             Debug.Log("Empieza a tirar el player");
         else
             Debug.Log("Empieza tirando el enemigo");
+
         ChangeToNextGameState();
     }
 
@@ -190,6 +225,26 @@ public class GameManager : MonoBehaviour
             playerHangedManHealth = Mathf.Clamp(playerHangedManHealth + _healthChange, 0, maxHealth);
         else
             enemyHangedManHealth = Mathf.Clamp(enemyHangedManHealth + _healthChange, 0, maxHealth);
+    }
+
+    private bool UsedItem(List<Store.ItemType> _itemList, Store.ItemType _itemToSearch)
+    {
+        foreach (Store.ItemType item in _itemList)
+        {
+            if(item == _itemToSearch)
+                return true;
+        }
+
+        return false;
+    }
+
+
+    public void ItemUsed(Store.ItemType _itemUsed)
+    {
+        if (state == GameState.PLAYER_TURN)
+            playerItemsUsed.Add(_itemUsed);
+        else if (state == GameState.AI_TURN)
+            playerItemsUsed.Add(_itemUsed);
     }
 
 }

@@ -8,12 +8,12 @@ public class Store : MonoBehaviour
 {
     public enum ItemType
     {
-        JokerCard,
-        Button,
-        Cigar,
-        JusticeBalance,
-        Joystick,
-        RedCoin,
+        JOKER,
+        INTERRUPTOR,
+        CIGARRETTE,
+        BALANCE,
+        JOYSTICK,
+        RED_COIN
     }
     [Header("Items")]
     [SerializeField] private GameObject[] shopItems;
@@ -68,18 +68,6 @@ public class Store : MonoBehaviour
     }
     private void BuyItem(int buttonIndex)
     {
-        int itemIndex = randomItemIndexes[buttonIndex];
-        GameObject selectedItem = shopItems[itemIndex];
-
-        if (inventory.AddItem(selectedItem))
-        {
-            // Gastar el dinero 
-            Debug.Log($"Compraste: {selectedItem.name}");
-            generatedButtons[buttonIndex].interactable = false;
-        }
-        else
-        {
-            Debug.Log("Inventario lleno.");
-        }
+        
     }
 }

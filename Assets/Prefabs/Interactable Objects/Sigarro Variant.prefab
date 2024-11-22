@@ -827,6 +827,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectInfo: {fileID: 11400000, guid: 6ccff7f126966f44c838b107a459d187, type: 2}
   interactableActions: 00000000010000000200000003000000
+  cigarretteSpeed: 1.5
 --- !u!65 &7139542559722495136
 BoxCollider:
   m_ObjectHideFlags: 0
