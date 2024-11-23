@@ -29,7 +29,7 @@ public class ButtonObject : InteractableObject
         if (CanInteract())
         {
             turnController.DirectionButtonPressed(starterPos, buttonDirection);
-            StopHovering();
+            base.StopHovering();
         }
     }
 }

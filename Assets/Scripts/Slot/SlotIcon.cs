@@ -9,13 +9,13 @@ public class SlotIcon : MonoBehaviour
 
     private Vector2Int rotationDirection;
 
+    [field: SerializeField]
     public Image iconImage { get; private set; }
+    [field: SerializeField]
     public Image backgroundImage { get; private set; }
 
-    private void Awake()
+    private void Start()
     {
-        iconImage = GetComponentInChildren<Image>();
-        backgroundImage = GetComponent<Image>();
         backgroundImage.enabled = false;
     }
 

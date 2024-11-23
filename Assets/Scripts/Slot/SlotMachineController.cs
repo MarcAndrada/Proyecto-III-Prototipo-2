@@ -42,9 +42,9 @@ public class SlotMachineController : MonoBehaviour
     {
         //Poner la animacion
         slotCanvasController.animator.SetTrigger("SpinWheel");
+        
         GameManager.Instance.FinishActionState(); //Acabar con el estado previo y empezar el de SPIN_WHEEL
     }
-
 
     public void RandomizeIcons()
     {
@@ -53,12 +53,13 @@ public class SlotMachineController : MonoBehaviour
             for (int j = 0; j < GameManager.Instance.slotHeight; j++)
             {
                 slotIcons[i][j].RandomizeIconType(i, j);
-                slotIcons[i][j].iconImage.sprite =
-                    GameManager.Instance.iconSprite[slotIcons[i][j].type];
+                slotIcons[i][j].iconImage.sprite = GameManager.Instance.iconSprite[slotIcons[i][j].type];
 
                 float x = GameManager.Instance.iconXOffset * i;
                 float y = -GameManager.Instance.iconYOffset * j;
                 slotIcons[i][j].transform.localPosition = new Vector3(x, y);
+
+                slotIcons[i][j].backgroundImage.enabled = false;
             }
         }
     }

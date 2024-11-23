@@ -8,14 +8,16 @@ public class GameManager : MonoBehaviour
 
 
     public enum GameState { COIN_FLIP, PLAYER_TURN, AI_TURN }
-    public enum ActionState { START, WHEEL_SPIN, ACTION, RESULTS }
+    public enum ActionState { START, WHEEL_SPIN, ACTION, SHOWING_ACTION, RESULTS }
 
-    public List<Store.ItemType> playerItemsUsed; 
+    [HideInInspector]
+    public List<Store.ItemType> playerItemsUsed;
+    [HideInInspector]
     public List<Store.ItemType> enemyItemsUsed;
 
 
-    [SerializeField]
-    private PlayerLookActionsController playerLookController;
+    [field: SerializeField]
+    public PlayerLookActionsController playerLookController {  get; private set; }
 
     [field: Space, Header("GameState"), SerializeField]
     public GameState state { get; private set; }
@@ -32,6 +34,8 @@ public class GameManager : MonoBehaviour
     public int slotWidth { get; private set; }
     [field: SerializeField]
     public int slotHeight { get; private set; }
+    [field: SerializeField]
+    public int actionResultIconDuration { get; private set; }
 
     [Space, Header("Slot Icons"), SerializedDictionary("Type", "Sprite")]
     public SerializedDictionary<SlotIcon.IconType, Sprite> iconSprite;
@@ -56,6 +60,8 @@ public class GameManager : MonoBehaviour
 
     [field: Space, Header("Cigarrette"), SerializeField]
     public Transform cigarretteTransform {  get; private set; }
+    [field: SerializeField]
+    public ParticleSystem segarroSmoke { get; private set; }
 
 
     private void Awake()
@@ -76,6 +82,7 @@ public class GameManager : MonoBehaviour
 
         FlipCoin();
     }
+    
     private void ChangeGameState(GameState _nextState)
     {
         switch (state)
@@ -105,8 +112,6 @@ public class GameManager : MonoBehaviour
                     ChangeToNextGameState();
                     enemyItemsUsed.Remove(Store.ItemType.INTERRUPTOR);
                 }
-                //Devolverle el control del player
-                playerLookController.AddAction(PlayerLookActionsController.LookAtActions.NORMAL_CAMERA, 0);
                 break;
             case GameState.AI_TURN:
                 
@@ -119,9 +124,6 @@ public class GameManager : MonoBehaviour
                     ChangeToNextGameState();
 
                 }
-
-                //Hacer que el player mire en la direccion de la pantalla donde se hace la accion del enemigo
-                playerLookController.AddAction(PlayerLookActionsController.LookAtActions.RESULTS, 0);
 
                 ChangeToNextGameState();
 
@@ -142,15 +144,17 @@ public class GameManager : MonoBehaviour
                 actionState = ActionState.ACTION;
                 break;
             case ActionState.ACTION:
-                //Cambiar la camara del player a la derecha
-                playerLookController.AddAction(PlayerLookActionsController.LookAtActions.RESULTS, 5);                
-                Invoke("FinishActionState", 5);
-
+                actionState = ActionState.SHOWING_ACTION;
+                playerLookController.AddAction(PlayerLookActionsController.LookAtActions.LOCK_MAIN, 0);
+                break;
+            case ActionState.SHOWING_ACTION:
                 actionState = ActionState.RESULTS;
+                playerLookController.AddAction(PlayerLookActionsController.LookAtActions.RESULTS, 0);
                 break;
             case ActionState.RESULTS:
-                //Cambiar la camara del player a la central y setearle los triggers que tocan
 
+                //Cambiar la camara del player a la central y setearle los triggers que tocan
+                playerLookController.AddAction(PlayerLookActionsController.LookAtActions.NORMAL_CAMERA, 0);
                 //Cambiar de turno y empezar de nuevo las acciones
                 ChangeToNextGameState();
                 actionState = ActionState.START;
@@ -253,7 +257,4 @@ public class GameManager : MonoBehaviour
         else if (state == GameState.AI_TURN)
             playerItemsUsed.Add(_itemUsed);
     }
-
-    
-
 }

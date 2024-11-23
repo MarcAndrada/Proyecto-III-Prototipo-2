@@ -1476,6 +1476,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPlayer: 1
+  iconsUI:
+  - iconImage: {fileID: 0}
+    iconObtainedText: {fileID: 0}
+    iconMultiplierText: {fileID: 0}
+  - iconImage: {fileID: 0}
+    iconObtainedText: {fileID: 0}
+    iconMultiplierText: {fileID: 0}
+  - iconImage: {fileID: 0}
+    iconObtainedText: {fileID: 0}
+    iconMultiplierText: {fileID: 0}
   connectionIconImages:
   - {fileID: 0}
   - {fileID: 0}
@@ -1508,6 +1518,7 @@ MonoBehaviour:
   coinSpawnOffset: {x: 0.2, y: 0.5}
   coinPrefab: {fileID: 5257272381945011839, guid: 4d6cbc667d5dc2e4f86ef28c91aec4c6, type: 3}
   spawnRandomRotationForce: 4
+  moneyCanvas: {fileID: 0}
 --- !u!114 &8919050051823833107
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -8,7 +8,12 @@ public class CigaretteObject : InteractableObject
     private float cigarretteProcess;
     private Vector3 starterPos;
     private Quaternion starterRot;
-
+    [SerializeField]
+    private float smokeToAdd;
+    private float starterSmokeAlpha;
+    private float smokeProcess;
+    [SerializeField]
+    private float smokeSpeed;
 
     public override void ActivateObject()
     {
@@ -23,6 +28,8 @@ public class CigaretteObject : InteractableObject
         objectInfo = null;
         outline.Clear();
 
+        starterSmokeAlpha = GameManager.Instance.segarroSmoke.main.startColor.color.a;
+        smokeProcess = 0;
         StopHovering();
     }
 
@@ -32,7 +39,7 @@ public class CigaretteObject : InteractableObject
         {
             MoveCigarretteToMouth();
         }
-        else
+        else if(usingCigarrette)
         {
             SmokeCigarrette();
         }
@@ -52,6 +59,16 @@ public class CigaretteObject : InteractableObject
 
     private void SmokeCigarrette()
     {
+        smokeProcess += Time.deltaTime * smokeSpeed / 10;
+
+        float finalAlpha = starterSmokeAlpha + smokeToAdd;
+        float alphaValue = Mathf.Lerp(starterSmokeAlpha, finalAlpha, smokeProcess);
+
+        ParticleSystem.MainModule mainModule = GameManager.Instance.segarroSmoke.main;
+        mainModule.startColor = new Color(1, 1, 1, alphaValue);
+
+        if (smokeProcess >= 1)
+            Destroy(gameObject);
 
     }
 }

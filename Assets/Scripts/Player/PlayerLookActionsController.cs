@@ -14,7 +14,10 @@ public class PlayerLookActionsController : MonoBehaviour
 
     private float timePassed;
 
-
+    private void Start()
+    {
+        canDoNextAction = true;
+    }
     private void Update()
     {
         CheckIfCanDoNextAction();

@@ -46,10 +46,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerItemsUsed: 
   enemyItemsUsed: 
+  <playerLookController>k__BackingField: {fileID: 0}
   <state>k__BackingField: 0
   <actionState>k__BackingField: 0
+  <playerSlot>k__BackingField: {fileID: 0}
+  <enemySlot>k__BackingField: {fileID: 0}
   <slotWidth>k__BackingField: 4
   <slotHeight>k__BackingField: 3
+  <actionResultIconDuration>k__BackingField: 1
   iconSprite:
     _serializedList:
     - Key: 1
@@ -68,3 +72,4 @@ MonoBehaviour:
   ropeOffset: 0.45
   <moveUpSpeed>k__BackingField: 0.3
   <moveDownSpeed>k__BackingField: 10
+  <cigarretteTransform>k__BackingField: {fileID: 0}
