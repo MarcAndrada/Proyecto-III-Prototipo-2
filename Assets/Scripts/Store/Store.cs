@@ -26,6 +26,9 @@ public class Store : MonoBehaviour
     [SerializeField] private Transform buttonContainer;
     [SerializeField] private InventoryManager inventory;
     
+    [Space(10)]
+    [SerializeField] private MoneyController moneyController;
+    
     private int[] randomItemIndexes;
     private List<Button> generatedButtons = new List<Button>();
 
@@ -68,6 +71,25 @@ public class Store : MonoBehaviour
     }
     private void BuyItem(int buttonIndex)
     {
+        int itemIndex = randomItemIndexes[buttonIndex];
+        GameObject selectedItem = shopItems[itemIndex];
+
+        if (moneyController.GetCoinAmount() >= itemPrices[itemIndex])
+        {
+            if (inventory.AddItem(selectedItem))
+            {
+                moneyController.RemoveCoins(itemPrices[itemIndex]);
+                generatedButtons[buttonIndex].interactable = false;
+            }
+            else
+            {
+                Debug.Log("Inventario lleno.");
+            }
+        }
+        else
+        {
+            Debug.Log("No tienes dinero");
+        }
         
     }
 }

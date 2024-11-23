@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class MoneyController : MonoBehaviour
 {
@@ -22,6 +24,15 @@ public class MoneyController : MonoBehaviour
     {
         moneyCanvas.UpdateCoins(totalCoins);
     }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            AddCoins(1);
+        }
+    }
+
     public void AddCoins(int _addedCoins)
     {
         totalCoins += _addedCoins;
