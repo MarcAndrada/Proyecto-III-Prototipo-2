@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -137,8 +136,12 @@ public class TurnController : MonoBehaviour
 
     private void HoverButtonsLoop()
     {
+        List <Store.ItemType> usedItemsType = 
+            GameManager.Instance.state == GameManager.GameState.PLAYER_TURN
+            ? GameManager.Instance.playerItemsUsed
+            : GameManager.Instance.enemyItemsUsed;
 
-        bool haveToMultiply = lastIconType == selectedIcons[currentLoopId].type;
+        bool haveToMultiply = lastIconType == selectedIcons[currentLoopId].type || usedItemsType.Contains(Store.ItemType.JOKER);
 
         switch (selectedIcons[currentLoopId].type)
         {
@@ -241,7 +244,16 @@ public class TurnController : MonoBehaviour
         {
             item.iconImage.gameObject.SetActive(false);
         }
+
         GameManager.Instance.FinishActionState(); //Aqui acaba la accion de RESULT y empieza la de START
+
+        List<Store.ItemType> usedItemsType =
+            GameManager.Instance.state == GameManager.GameState.PLAYER_TURN
+            ? GameManager.Instance.playerItemsUsed
+            : GameManager.Instance.enemyItemsUsed;
+
+        if(usedItemsType.Contains(Store.ItemType.JOKER))
+            usedItemsType.Remove(Store.ItemType.JOKER);
     }
 
 

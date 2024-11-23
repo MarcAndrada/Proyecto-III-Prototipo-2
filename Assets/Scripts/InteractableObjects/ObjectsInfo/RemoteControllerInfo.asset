@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: RemoteControllerInfo
   m_EditorClassIdentifier: 
   <objectName>k__BackingField: Remote Control
-  <objectDescription>k__BackingField: Disables the opponent Slot and loses his turn
+  <objectDescription>k__BackingField: 

@@ -13,5 +13,4 @@ MonoBehaviour:
   m_Name: BlackCoinInfo
   m_EditorClassIdentifier: 
   <objectName>k__BackingField: Red Coin
-  <objectDescription>k__BackingField: Grants you to be the first to play in the next
-    round
+  <objectDescription>k__BackingField: 

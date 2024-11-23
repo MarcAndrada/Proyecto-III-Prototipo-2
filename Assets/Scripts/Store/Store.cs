@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -11,9 +10,8 @@ public class Store : MonoBehaviour
         JOKER,
         INTERRUPTOR,
         CIGARRETTE,
-        BALANCE,
-        JOYSTICK,
-        RED_COIN
+        RED_COIN,
+        BALANCE
     }
     [Header("Items")]
     [SerializeField] private GameObject[] shopItems;

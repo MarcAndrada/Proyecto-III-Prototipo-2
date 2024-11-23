@@ -73,6 +73,8 @@ public class PlayerLookActionsController : MonoBehaviour
 
     private void ResetCamera()
     {
+        cameraController.DeactivateTriggers();
+        cameraController.SetCanMove();
         cameraController.SetMovementCameraTriggers("Main", cameraController.GetCameraPositionAndRotation("Main"));
     }
     private void LookAt(string _direction)

@@ -79,26 +79,23 @@ public class CameraSwitcher : MonoBehaviour
         if(!canMove)
             return;
 
-        if (_destiny.Item1 != cameraDestinyPos || _destiny.Item2 != cameraDestinyRot)
+        canMove = false;
+
+        SetCameraDestination(_destiny);
+
+        //SetActiveCamera(newVCam);
+        DeactivateTriggers();
+        if (_direction == "Top")
+            AddEventTrigger(bottom, "Main");
+        else if (_direction == "Left")
+            AddEventTrigger(right, "Main");
+        else if (_direction == "Right")
+            AddEventTrigger(left, "Main");
+        else if (_direction == "Main")
         {
-            canMove = false;
-
-            SetCameraDestination(_destiny);
-
-            //SetActiveCamera(newVCam);
-            DeactivateTriggers();
-            if (_direction == "Top")
-                AddEventTrigger(bottom, "Main");
-            else if (_direction == "Left")
-                AddEventTrigger(right, "Main");
-            else if (_direction == "Right")
-                AddEventTrigger(left, "Main");
-            else if (_direction == "Main")
-            {
-                AddEventTrigger(top, "Top");
-                AddEventTrigger(left, "Left");
-                AddEventTrigger(right, "Right");
-            }
+            AddEventTrigger(top, "Top");
+            AddEventTrigger(left, "Left");
+            AddEventTrigger(right, "Right");
         }
     }
     public void SetCameraDestination((Vector3, Quaternion) _destiny)
@@ -106,7 +103,7 @@ public class CameraSwitcher : MonoBehaviour
         cameraDestinyPos = _destiny.Item1;
         cameraDestinyRot = _destiny.Item2;
     }
-    private void SetCanMove()
+    public void SetCanMove()
     {
         canMove = true;
     }

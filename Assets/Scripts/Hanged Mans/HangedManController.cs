@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class HangedManController : MonoBehaviour
@@ -13,6 +11,8 @@ public class HangedManController : MonoBehaviour
     [SerializeField]
     private GameObject body;
 
+    private int currentHealth;
+
     [Header("Explosion Effect")]
     [SerializeField] private ParticleSystem bloodParticles;
     [SerializeField] private GameObject fleshObject;
@@ -21,7 +21,7 @@ public class HangedManController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        int currentHealth = isPlayer ? GameManager.Instance.playerHangedManHealth : GameManager.Instance.enemyHangedManHealth;
+        currentHealth = isPlayer ? GameManager.Instance.playerHangedManHealth : GameManager.Instance.enemyHangedManHealth;
         CalculateDestinyPos(currentHealth);
         transform.position = destinyPosition;
     }
@@ -29,19 +29,19 @@ public class HangedManController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        currentHealth = isPlayer ? GameManager.Instance.playerHangedManHealth : GameManager.Instance.enemyHangedManHealth;
         if(GameManager.Instance.actionState == GameManager.ActionState.RESULTS)
         {
-            int currentHealth = isPlayer ? GameManager.Instance.playerHangedManHealth : GameManager.Instance.enemyHangedManHealth;
             CalculateDestinyPos(currentHealth);
             MoveBodyToDestiny();
-            CheckIfCrushBody(currentHealth);
         }
+            CheckIfCrushBody(currentHealth);
     }
 
     private void CalculateDestinyPos(int _currentHealth)
     {
         destinyPosition = 
-            new Vector3(transform.position.x, minYAlive, transform.position.z) +
+            new Vector3(transform.position.x, minYAlive - GameManager.Instance.ropeOffset, transform.position.z) +
             (Vector3.up * _currentHealth * GameManager.Instance.ropeOffset);
     }
     private void MoveBodyToDestiny()
@@ -84,18 +84,15 @@ public class HangedManController : MonoBehaviour
     private void CheckIfCrushBody(int _currentHealth)
     {
         if (_currentHealth > 0 
-            || Vector3.Distance(new Vector3(transform.position.x, minYAlive, transform.position.z), transform.position) < 1 
-            && body.activeInHierarchy
+            || transform.position.y - minYAlive > 0.5f
+            || playerExploded
             )
             return;
-        
+
         //Triturar al player
-        if (!playerExploded)
-        {
-            playerExploded = true;
-            FleshExplode();
-            body.SetActive(false);  
-        }
+        playerExploded = true;
+        FleshExplode();
+        body.SetActive(false);
 
     }
 }

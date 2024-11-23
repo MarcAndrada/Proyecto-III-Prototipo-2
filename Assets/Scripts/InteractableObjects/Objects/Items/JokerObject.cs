@@ -4,6 +4,11 @@ public class JokerObject : InteractableObject
 {
     public override void ActivateObject()
     {
-        Debug.Log("Jocker clicado");
+        if (GameManager.Instance.state == GameManager.GameState.PLAYER_TURN)
+            GameManager.Instance.playerItemsUsed.Add(Store.ItemType.JOKER);
+        else if (GameManager.Instance.state == GameManager.GameState.AI_TURN)
+            GameManager.Instance.enemyItemsUsed.Add(Store.ItemType.JOKER);
+
+        Destroy(gameObject);
     }
 }

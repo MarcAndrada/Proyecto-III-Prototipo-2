@@ -13,5 +13,4 @@ MonoBehaviour:
   m_Name: JoystickInfo
   m_EditorClassIdentifier: 
   <objectName>k__BackingField: Joystick
-  <objectDescription>k__BackingField: Turn all the movements into good or bad, if
-    that movement was previously the selected option it'll get a X2
+  <objectDescription>k__BackingField: 

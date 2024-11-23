@@ -139,22 +139,24 @@ public class GameManager : MonoBehaviour
         {
             case ActionState.START:
                 actionState = ActionState.WHEEL_SPIN;
+                playerLookController.AddAction(PlayerLookActionsController.LookAtActions.LOCK_MAIN, 1);
                 break;
             case ActionState.WHEEL_SPIN:
+                playerLookController.AddAction(PlayerLookActionsController.LookAtActions.NORMAL_CAMERA, 1);
                 actionState = ActionState.ACTION;
                 break;
             case ActionState.ACTION:
                 actionState = ActionState.SHOWING_ACTION;
-                playerLookController.AddAction(PlayerLookActionsController.LookAtActions.LOCK_MAIN, 0);
+                playerLookController.AddAction(PlayerLookActionsController.LookAtActions.LOCK_MAIN, 1);
                 break;
             case ActionState.SHOWING_ACTION:
                 actionState = ActionState.RESULTS;
-                playerLookController.AddAction(PlayerLookActionsController.LookAtActions.RESULTS, 0);
+                playerLookController.AddAction(PlayerLookActionsController.LookAtActions.RESULTS, 1);
                 break;
             case ActionState.RESULTS:
 
                 //Cambiar la camara del player a la central y setearle los triggers que tocan
-                playerLookController.AddAction(PlayerLookActionsController.LookAtActions.NORMAL_CAMERA, 0);
+                playerLookController.AddAction(PlayerLookActionsController.LookAtActions.NORMAL_CAMERA, 1);
                 //Cambiar de turno y empezar de nuevo las acciones
                 ChangeToNextGameState();
                 actionState = ActionState.START;
