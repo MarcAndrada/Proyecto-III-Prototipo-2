@@ -5,7 +5,7 @@ public class InventoryManager : MonoBehaviour
     [SerializeField] private Transform[] inventorySlots;
     [SerializeField] private GameObject[] storedItems;
 
-    void Start()
+    void Awake()
     {
         storedItems = new GameObject[inventorySlots.Length];
     }
@@ -16,12 +16,16 @@ public class InventoryManager : MonoBehaviour
         {
             if (storedItems[i] == null)
             {
-                storedItems[i] = Instantiate(item, inventorySlots[i].position, Quaternion.identity);
-                storedItems[i].transform.SetParent(inventorySlots[i]);
+                storedItems[i] = Instantiate(item, inventorySlots[i]);
+                storedItems[i].transform.position = inventorySlots[i].position;
                 return true;
             }
         }
         return false;
     }
 
+    public GameObject[] GetStoredItems()
+    {
+        return storedItems;
+    }
 }

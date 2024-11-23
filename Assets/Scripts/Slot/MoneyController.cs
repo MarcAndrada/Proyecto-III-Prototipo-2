@@ -58,7 +58,8 @@ public class MoneyController : MonoBehaviour
             coinList.Add(newCoin);
         }
 
-        moneyCanvas.UpdateCoins(totalCoins) ;
+        if(moneyCanvas)
+            moneyCanvas.UpdateCoins(totalCoins) ;
     }
 
     public bool RemoveCoins(int _coinAmount)
@@ -76,8 +77,8 @@ public class MoneyController : MonoBehaviour
             //Quitar la ultima moneda de la lista
             coinList.RemoveAt(coinList.Count - 1);
         }
-
-        moneyCanvas.UpdateCoins(totalCoins);
+        if(moneyCanvas)
+            moneyCanvas.UpdateCoins(totalCoins);
 
         return true;
     }

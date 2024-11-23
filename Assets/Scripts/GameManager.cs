@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour
     [HideInInspector]
     public List<Store.ItemType> enemyItemsUsed;
 
+    [Space, Header("Item Prefabs"), SerializedDictionary("Item", "Prefab")]
+    public SerializedDictionary<Store.ItemType, GameObject> itemsPrefabs;
 
     [field: SerializeField]
     public PlayerLookActionsController playerLookController {  get; private set; }
@@ -79,6 +81,8 @@ public class GameManager : MonoBehaviour
 
         state = GameState.COIN_FLIP;
         actionState = ActionState.START;
+        AddRandomItem(true);
+        AddRandomItem(false);
 
         FlipCoin();
     }
@@ -102,6 +106,9 @@ public class GameManager : MonoBehaviour
         switch (_nextState)
         {
             case GameState.COIN_FLIP:
+                //Dar nuevos items
+                AddRandomItem(true);
+                AddRandomItem(false);
                 //Mirar hacia donde se haga el giro de moneda
                 FlipCoin();
                 break;
@@ -125,7 +132,8 @@ public class GameManager : MonoBehaviour
 
                 }
 
-                ChangeToNextGameState();
+                enemySlot.GetComponent<EnemyBehaviour>().StartTurn();
+
 
                 break;
             default:
@@ -139,15 +147,24 @@ public class GameManager : MonoBehaviour
         {
             case ActionState.START:
                 actionState = ActionState.WHEEL_SPIN;
-                playerLookController.AddAction(PlayerLookActionsController.LookAtActions.LOCK_MAIN, 1);
+                if(state == GameState.PLAYER_TURN)
+                    playerLookController.AddAction(PlayerLookActionsController.LookAtActions.LOCK_MAIN, 1);
+                else
+                    playerLookController.AddAction(PlayerLookActionsController.LookAtActions.ENEMY_TURN, 1);
                 break;
             case ActionState.WHEEL_SPIN:
-                playerLookController.AddAction(PlayerLookActionsController.LookAtActions.NORMAL_CAMERA, 1);
+                if (state == GameState.PLAYER_TURN)
+                    playerLookController.AddAction(PlayerLookActionsController.LookAtActions.NORMAL_CAMERA, 1);
+                else
+                    playerLookController.AddAction(PlayerLookActionsController.LookAtActions.ENEMY_TURN, 1);
                 actionState = ActionState.ACTION;
                 break;
             case ActionState.ACTION:
                 actionState = ActionState.SHOWING_ACTION;
-                playerLookController.AddAction(PlayerLookActionsController.LookAtActions.LOCK_MAIN, 1);
+                if (state == GameState.PLAYER_TURN)
+                    playerLookController.AddAction(PlayerLookActionsController.LookAtActions.LOCK_MAIN, 1);
+                else
+                    playerLookController.AddAction(PlayerLookActionsController.LookAtActions.ENEMY_TURN, 1);
                 break;
             case ActionState.SHOWING_ACTION:
                 actionState = ActionState.RESULTS;
@@ -258,5 +275,24 @@ public class GameManager : MonoBehaviour
             playerItemsUsed.Add(_itemUsed);
         else if (state == GameState.AI_TURN)
             playerItemsUsed.Add(_itemUsed);
+    }
+
+    public void AddRandomItem(bool _toPlayer)
+    {
+        Store.ItemType randomItem = (Store.ItemType)Random.Range(0, (int)Store.ItemType.BALANCE + 1);
+
+        GameObject itemObject = Instantiate(itemsPrefabs[randomItem], Vector3.zero, Quaternion.identity);
+
+        if (_toPlayer)
+        {
+            if (!playerSlot.GetComponentInChildren<InventoryManager>().AddItem(itemObject))
+                Destroy(itemObject);
+
+        }
+        else
+        {
+            if (!enemySlot.GetComponentInChildren<InventoryManager>().AddItem(itemObject))
+                Destroy(itemObject);
+        }
     }
 }

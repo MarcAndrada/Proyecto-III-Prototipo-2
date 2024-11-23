@@ -46,6 +46,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerItemsUsed: 
   enemyItemsUsed: 
+  itemsPrefabs:
+    _serializedList:
+    - Key: 0
+      Value: {fileID: 2676114155494150353, guid: 45d7feb7df185c446a086b1baab24a38, type: 3}
+    - Key: 1
+      Value: {fileID: 4874469392982039728, guid: 3f6b5e4a4047e9040a8e61efe599995d, type: 3}
+    - Key: 2
+      Value: {fileID: 4226870186988666106, guid: bde9788f043d8044b9ec89f93bac9104, type: 3}
+    - Key: 3
+      Value: {fileID: 658043596217429569, guid: 6a1caffdbae0797479e11ef9ee3a4ae7, type: 3}
+    - Key: 4
+      Value: {fileID: 4117750167068455708, guid: 49da5920032a3914e877e3b25051cbb2, type: 3}
   <playerLookController>k__BackingField: {fileID: 0}
   <state>k__BackingField: 0
   <actionState>k__BackingField: 0

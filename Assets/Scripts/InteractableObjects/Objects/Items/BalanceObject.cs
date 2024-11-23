@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class BalanceObject : InteractableObject
 {
-    [Space, Header("Item Prefabs"), SerializedDictionary("Item", "Prefab")]
-    public SerializedDictionary<Store.ItemType, GameObject> itemsPrefabs;
+
 
     private List<Store.ItemType> itemsGenerated = new List<Store.ItemType>();
     public override void ActivateObject()
@@ -48,7 +47,7 @@ public class BalanceObject : InteractableObject
 
                 itemsGenerated.Add(item);
 
-                GameObject itemObject = Instantiate(itemsPrefabs[item], Vector3.zero, Quaternion.identity);
+                GameObject itemObject = Instantiate(GameManager.Instance.itemsPrefabs[item], Vector3.zero, Quaternion.identity);
                 inventoryManager.AddItem(itemObject);
             }
         }
