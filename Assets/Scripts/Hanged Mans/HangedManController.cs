@@ -13,6 +13,11 @@ public class HangedManController : MonoBehaviour
     [SerializeField]
     private GameObject body;
 
+    [Header("Explosion Effect")]
+    [SerializeField] private ParticleSystem bloodParticles;
+    [SerializeField] private GameObject fleshObject;
+    private bool playerExploded = false;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -51,6 +56,31 @@ public class HangedManController : MonoBehaviour
         transform.position = Vector3.Lerp(transform.position, destinyPosition, Time.deltaTime * currentSpeed);
     }
 
+    private void FleshExplode()
+    {
+        // Activate blood particles at the body's position
+        if (bloodParticles != null)
+        {
+            ParticleSystem instantiatedParticles = Instantiate(bloodParticles, body.transform.position, Quaternion.identity);
+            instantiatedParticles.Play();
+        }
+
+        for (int i = 0; i < 5; i++)
+        {
+            if (fleshObject != null)
+            {
+                GameObject flesh = Instantiate(fleshObject, body.transform.position, Random.rotation);
+
+                Rigidbody rb = flesh.GetComponent<Rigidbody>();
+                if (rb != null)
+                {
+                    Vector3 randomDirection = Random.insideUnitSphere.normalized; 
+                    float randomForce = Random.Range(5f, 10f);                  
+                    rb.AddForce(randomDirection * randomForce, ForceMode.Impulse);
+                }
+            }
+        }
+    }
     private void CheckIfCrushBody(int _currentHealth)
     {
         if (_currentHealth > 0 
@@ -58,9 +88,14 @@ public class HangedManController : MonoBehaviour
             && body.activeInHierarchy
             )
             return;
-
+        
         //Triturar al player
-        body.SetActive(false);  
+        if (!playerExploded)
+        {
+            playerExploded = true;
+            FleshExplode();
+            body.SetActive(false);  
+        }
 
     }
 }
