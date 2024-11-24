@@ -32,7 +32,7 @@ public class PlayerSlotController : MonoBehaviour
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-        if (!Physics.Raycast(ray, out RaycastHit hit, 1000, interactableMask))
+        if (!Physics.Raycast(ray, out RaycastHit hit, 10, interactableMask))
         {
             if(hoveredObject)
             {

@@ -38,7 +38,8 @@ public class GameManager : MonoBehaviour
     public int slotHeight { get; private set; }
     [field: SerializeField]
     public int actionResultIconDuration { get; private set; }
-
+    private bool playerTurnSkipped;
+    private bool enemyTurnSkipped;
     [Space, Header("Slot Icons"), SerializedDictionary("Type", "Sprite")]
     public SerializedDictionary<SlotIcon.IconType, Sprite> iconSprite;
     [field: SerializeField]
@@ -95,8 +96,10 @@ public class GameManager : MonoBehaviour
             case GameState.COIN_FLIP:
                 break;
             case GameState.PLAYER_TURN:
+                playerSlot.GetComponent<ItemsFeedbackController>().ClearItemScreen();
                 break;
             case GameState.AI_TURN:
+                enemySlot.GetComponent<ItemsFeedbackController>().ClearItemScreen();
                 break;
             default:
                 break;
@@ -110,6 +113,16 @@ public class GameManager : MonoBehaviour
                 //Dar nuevos items
                 AddRandomItem(true);
                 AddRandomItem(false);
+
+                if (playerTurnSkipped)
+                    enemySlot.GetComponent<ItemsFeedbackController>().TurnOnRivalScreen();
+
+                if (enemyTurnSkipped)
+                    playerSlot.GetComponent<ItemsFeedbackController>().TurnOnRivalScreen();
+
+                playerTurnSkipped = false;
+                enemyTurnSkipped = false;
+
                 //Mirar hacia donde se haga el giro de moneda
                 FlipCoin();
                 break;
@@ -119,21 +132,19 @@ public class GameManager : MonoBehaviour
                 {
                     ChangeToNextGameState();
                     enemyItemsUsed.Remove(Store.ItemType.INTERRUPTOR);
+                    playerTurnSkipped = true;
                 }
                 break;
             case GameState.AI_TURN:
                 //Resetear los Items del enemigo
                 if (UsedItem(playerItemsUsed, Store.ItemType.INTERRUPTOR))
                 {
-                    Debug.Log("Turno Skipeado");
                     playerItemsUsed.Remove(Store.ItemType.INTERRUPTOR);
                     ChangeToNextGameState();
-
+                    enemyTurnSkipped = true;
                 }
 
                 enemySlot.GetComponent<EnemyBehaviour>().StartTurn();
-
-
                 break;
             default:
                 break;
@@ -271,9 +282,15 @@ public class GameManager : MonoBehaviour
     public void ItemUsed(Store.ItemType _itemUsed)
     {
         if (state == GameState.PLAYER_TURN)
+        {
             playerItemsUsed.Add(_itemUsed);
+            playerSlot.GetComponent<ItemsFeedbackController>().ItemUsed(_itemUsed);
+        }
         else if (state == GameState.AI_TURN)
+        {
             enemyItemsUsed.Add(_itemUsed);
+            enemySlot.GetComponent<ItemsFeedbackController>().ItemUsed(_itemUsed);
+        }
     }
 
     public void AddRandomItem(bool _toPlayer)
@@ -290,6 +307,12 @@ public class GameManager : MonoBehaviour
         }
         else
         {
+            if (randomItem == Store.ItemType.CIGARRETTE)
+            {
+                Destroy(itemObject);
+                AddRandomItem(_toPlayer);
+                return;
+            }
             if (!enemySlot.GetComponentInChildren<InventoryManager>().AddItem(itemObject))
                 Destroy(itemObject);
         }

@@ -9,6 +9,6 @@ public class JokerPathCanvasController : MonoBehaviour
 
     void Update()
     {
-        jokerCanvas.SetActive(GameManager.Instance.playerItemsUsed.Contains(Store.ItemType.JOKER));  
+          
     }
 }
