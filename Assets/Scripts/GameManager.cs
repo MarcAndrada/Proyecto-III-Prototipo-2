@@ -121,8 +121,6 @@ public class GameManager : MonoBehaviour
                 }
                 break;
             case GameState.AI_TURN:
-                
-
                 //Resetear los Items del enemigo
                 if (UsedItem(playerItemsUsed, Store.ItemType.INTERRUPTOR))
                 {

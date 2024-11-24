@@ -35,10 +35,8 @@ public class CameraSwitcher : MonoBehaviour
 
         canMove = true;
 
-        AddEventTrigger(top, "Top");
-        AddEventTrigger(left, "Left");
-        AddEventTrigger(right, "Right");
-
+        MainEnabled();
+        
         Cursor.lockState = CursorLockMode.Confined;        
     }
 
@@ -86,16 +84,26 @@ public class CameraSwitcher : MonoBehaviour
         //SetActiveCamera(newVCam);
         DeactivateTriggers();
         if (_direction == "Top")
+        {
+            DisableAllObjects();
+            bottom.gameObject.SetActive(true);
             AddEventTrigger(bottom, "Main");
+        }
         else if (_direction == "Left")
+        {
+            DisableAllObjects();
+            right.gameObject.SetActive(true);
             AddEventTrigger(right, "Main");
+        }
         else if (_direction == "Right")
+        {
+            DisableAllObjects();
+            left.gameObject.SetActive(true);
             AddEventTrigger(left, "Main");
+        }
         else if (_direction == "Main")
         {
-            AddEventTrigger(top, "Top");
-            AddEventTrigger(left, "Left");
-            AddEventTrigger(right, "Right");
+            MainEnabled();
         }
     }
     public void SetCameraDestination((Vector3, Quaternion) _destiny)
@@ -109,6 +117,18 @@ public class CameraSwitcher : MonoBehaviour
     }
 
 
+    private void MainEnabled()
+    {
+        DisableAllObjects();
+            
+        top.gameObject.SetActive(true);
+        left.gameObject.SetActive(true);
+        right.gameObject.SetActive(true);
+
+        AddEventTrigger(top, "Top");
+        AddEventTrigger(left, "Left");
+        AddEventTrigger(right, "Right");
+    }
     private void MoveCamera()
     {
         mainCamera.transform.position = Vector3.Lerp(mainCamera.transform.position, cameraDestinyPos, Time.deltaTime * cameraMoveSpeed);
@@ -136,10 +156,18 @@ public class CameraSwitcher : MonoBehaviour
     }
     public void DeactivateTriggers()
     {
+        DisableAllObjects();
         foreach (EventTrigger.Entry entry in entriesEnter)
         {
             entry.callback.RemoveAllListeners();
         }
     }
-   
+    
+    public void DisableAllObjects()
+    {
+        bottom.gameObject.SetActive(false);
+        top.gameObject.SetActive(false);
+        left.gameObject.SetActive(false);
+        right.gameObject.SetActive(false);
+    }
 }
