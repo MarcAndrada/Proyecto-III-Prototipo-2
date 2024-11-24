@@ -7,10 +7,7 @@
     <list default="true" id="aeccacd7-3bc8-4ec3-bb74-a2081e3ac631" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Proyecto-III-Prototipo-2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Proyecto-III-Prototipo-2/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Blender/Screens.blend" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Blender/Screens.blend" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/SlotsTextures/EnemySlotTexture.renderTexture" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/SlotsTextures/EnemySlotTexture.renderTexture" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Models/Screens/Screens.fbx" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Screens/Screens.fbx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Map.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Map.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Camera/CameraSwitcher.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Camera/CameraSwitcher.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -24,6 +21,7 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Camera/CameraSwitcher.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Decorative/CrowdFloatingEffect.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Decorative/LightController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Store/VirtualScreen.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.universal@14.0.8/Runtime/Passes/CopyDepthPass.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.universal@14.0.8/Runtime/ScriptableRenderer.cs" root0="SKIP_HIGHLIGHTING" />
@@ -102,7 +100,7 @@
       <workItem from="1732229529889" duration="866000" />
       <workItem from="1732328796179" duration="1158000" />
       <workItem from="1732330230586" duration="1578000" />
-      <workItem from="1732406886131" duration="1390000" />
+      <workItem from="1732406886131" duration="2410000" />
     </task>
     <servers />
   </component>

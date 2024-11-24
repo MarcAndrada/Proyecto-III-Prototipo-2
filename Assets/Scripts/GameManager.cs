@@ -64,7 +64,8 @@ public class GameManager : MonoBehaviour
     public Transform cigarretteTransform {  get; private set; }
     [field: SerializeField]
     public ParticleSystem segarroSmoke { get; private set; }
-
+    [field: SerializeField]
+    public LightController lightController { get; private set; }
 
     private void Awake()
     {
