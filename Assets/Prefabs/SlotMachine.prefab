@@ -175,14 +175,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4272171236472929692}
-  m_LocalRotation: {x: 0.5200352, y: 0.4791278, z: -0.5200352, w: 0.4791278}
-  m_LocalPosition: {x: 1.24, y: 14.946, z: 0}
+  m_LocalRotation: {x: 0.5, y: 0.5, z: -0.5, w: 0.5}
+  m_LocalPosition: {x: 1.02, y: 13, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3734619150468793020}
   m_RootOrder: -2
-  m_LocalEulerAnglesHint: {x: 94.688995, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 90, z: 0}
 --- !u!108 &3230279284611148094
 Light:
   m_ObjectHideFlags: 0
@@ -195,7 +195,7 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 1, g: 0.8393754, b: 0.25, a: 1}
-  m_Intensity: 650
+  m_Intensity: 300
   m_Range: 419.96
   m_SpotAngle: 67.19061
   m_InnerSpotAngle: 37.97191
@@ -602,6 +602,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8321c08e61dd3b6458c5c2a7c203da0d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8919050051823833107}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8321c08e61dd3b6458c5c2a7c203da0d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4058196157807014828}
     - targetCorrespondingSourceObject: {fileID: 6821887585681450876, guid: 8321c08e61dd3b6458c5c2a7c203da0d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 384406336612758965}
@@ -1642,6 +1645,22 @@ MonoBehaviour:
   displayInfoPivot: {fileID: 0}
   objectName: {fileID: 0}
   objectDescription: {fileID: 0}
+--- !u!114 &4058196157807014828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4080218347111716870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 155146b89213a3d4dbd2a4664b74553a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jokerObject: {fileID: 0}
+  interruptorObject: {fileID: 0}
+  rivalScreenBlack: {fileID: 0}
+  redCoinObject: {fileID: 0}
 --- !u!1 &4547043918925809588 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 812030516051141347, guid: 8321c08e61dd3b6458c5c2a7c203da0d, type: 3}

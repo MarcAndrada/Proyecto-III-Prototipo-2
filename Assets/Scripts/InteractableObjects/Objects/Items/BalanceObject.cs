@@ -27,15 +27,17 @@ public class BalanceObject : InteractableObject
 
         if (moneyCont.GetCoinAmount() < 0)
             return;
+        
+        
         moneyCont.RemoveCoins(moneyCont.GetCoinAmount());
+        GameManager.Instance.ItemUsed(Store.ItemType.BALANCE);
+
 
         int randNum = Random.Range(0, 2);
 
         if (randNum == 0)
         {
             //Dar 3 objetos   
-            Debug.Log("JACKPOT");
-
             for (int i = 0; i < 3; i++)
             {
                 Store.ItemType item = (Store.ItemType)Random.Range(0, (int)Store.ItemType.BALANCE);
@@ -50,10 +52,6 @@ public class BalanceObject : InteractableObject
                 GameObject itemObject = Instantiate(GameManager.Instance.itemsPrefabs[item], Vector3.zero, Quaternion.identity);
                 inventoryManager.AddItem(itemObject);
             }
-        }
-        else
-        {
-            Debug.Log("Cagaste");
         }
 
         Destroy(gameObject);

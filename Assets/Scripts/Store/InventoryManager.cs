@@ -24,6 +24,16 @@ public class InventoryManager : MonoBehaviour
         return false;
     }
 
+    public void RemoveItem(GameObject _objectoToRemove)
+    {
+        for (int i = 0; i < storedItems.Length; i++)
+        {
+            if (storedItems[i] == _objectoToRemove)
+                storedItems[i] = null;
+        }
+        
+    }
+
     public GameObject[] GetStoredItems()
     {
         return storedItems;

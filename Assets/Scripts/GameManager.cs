@@ -114,6 +114,14 @@ public class GameManager : MonoBehaviour
                 AddRandomItem(true);
                 AddRandomItem(false);
 
+                playerItemsUsed.Remove(Store.ItemType.BALANCE);
+                playerItemsUsed.Remove(Store.ItemType.JOKER);
+                playerItemsUsed.Remove(Store.ItemType.CIGARRETTE);
+
+                enemyItemsUsed.Remove(Store.ItemType.BALANCE);
+                enemyItemsUsed.Remove(Store.ItemType.JOKER);
+                enemyItemsUsed.Remove(Store.ItemType.CIGARRETTE);
+
                 if (playerTurnSkipped)
                     enemySlot.GetComponent<ItemsFeedbackController>().TurnOnRivalScreen();
 
@@ -130,9 +138,9 @@ public class GameManager : MonoBehaviour
 
                 if (UsedItem(enemyItemsUsed, Store.ItemType.INTERRUPTOR))
                 {
-                    ChangeToNextGameState();
-                    enemyItemsUsed.Remove(Store.ItemType.INTERRUPTOR);
                     playerTurnSkipped = true;
+                    enemyItemsUsed.Remove(Store.ItemType.INTERRUPTOR);
+                    ChangeToNextGameState();
                 }
                 break;
             case GameState.AI_TURN:
@@ -237,7 +245,6 @@ public class GameManager : MonoBehaviour
     {
         if(UsedItem(playerItemsUsed, Store.ItemType.RED_COIN))
         {
-            Debug.Log("Trucado para que empieze el player");
             stateOrder = 0;
             playerItemsUsed.Remove(Store.ItemType.RED_COIN);
             ChangeToNextGameState();
@@ -307,12 +314,6 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            if (randomItem == Store.ItemType.CIGARRETTE)
-            {
-                Destroy(itemObject);
-                AddRandomItem(_toPlayer);
-                return;
-            }
             if (!enemySlot.GetComponentInChildren<InventoryManager>().AddItem(itemObject))
                 Destroy(itemObject);
         }

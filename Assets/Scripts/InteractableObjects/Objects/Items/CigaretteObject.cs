@@ -17,10 +17,20 @@ public class CigaretteObject : InteractableObject
 
     public override void ActivateObject()
     {
+        GameManager.Instance.ItemUsed(Store.ItemType.CIGARRETTE);
         starterPos = transform.position;
         starterRot = transform.rotation;
 
-        cigarretteProcess = GameManager.Instance.state == GameManager.GameState.PLAYER_TURN? 0 : 1;
+        if(GameManager.Instance.state == GameManager.GameState.PLAYER_TURN)
+        {
+            cigarretteProcess = 0;
+            GameManager.Instance.playerSlot.GetComponentInChildren<InventoryManager>().RemoveItem(gameObject);
+        }
+        else
+        {
+            cigarretteProcess = 1;
+        }
+        
         usingCigarrette = true;
 
         foreach (Outline item in outline)

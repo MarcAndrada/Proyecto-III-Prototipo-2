@@ -10,6 +10,17 @@ public class ItemsFeedbackController : MonoBehaviour
     private GameObject rivalScreenBlack;
     [SerializeField]
     private GameObject redCoinObject;
+    [SerializeField]
+    private GameObject balanceObject;
+    [SerializeField]
+    private GameObject cigarretteObject;
+
+    private void Start()
+    {
+        ClearItemScreen();
+        TurnOnRivalScreen();
+    }
+
     public void ItemUsed(Store.ItemType _item)
     {
         switch (_item)
@@ -27,6 +38,14 @@ public class ItemsFeedbackController : MonoBehaviour
                 if(redCoinObject)
                     redCoinObject.SetActive(true);
                 break;
+            case Store.ItemType.BALANCE:
+                if(balanceObject)
+                    balanceObject.SetActive(true);
+                break;
+            case Store.ItemType.CIGARRETTE:
+                if(cigarretteObject)
+                    cigarretteObject.SetActive(true);
+                break;
             default:
                 break;
         }
@@ -40,6 +59,10 @@ public class ItemsFeedbackController : MonoBehaviour
             interruptorObject.SetActive(false);
         if(redCoinObject)
             redCoinObject.SetActive(false);
+        if(balanceObject)
+            balanceObject.SetActive(false);
+        if (cigarretteObject)
+            cigarretteObject.SetActive(false);
     }
 
     public void TurnOnRivalScreen()
