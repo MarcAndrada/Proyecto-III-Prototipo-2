@@ -19,12 +19,15 @@ public class CigaretteObject : InteractableObject
     {
         starterPos = transform.position;
         starterRot = transform.rotation;
-        cigarretteProcess = 0;
+
+        cigarretteProcess = GameManager.Instance.state == GameManager.GameState.PLAYER_TURN? 0 : 1;
         usingCigarrette = true;
+
         foreach (Outline item in outline)
         {
             item.enabled = false;
         }
+
         objectInfo = null;
         outline.Clear();
 

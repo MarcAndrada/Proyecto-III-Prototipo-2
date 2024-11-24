@@ -22,12 +22,13 @@ public class MoneyController : MonoBehaviour
 
     private void Start()
     {
-        moneyCanvas.UpdateCoins(totalCoins);
+        if(moneyCanvas)
+            moneyCanvas.UpdateCoins(totalCoins);
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.I))
+        if (moneyCanvas && Input.GetKeyDown(KeyCode.I))
         {
             AddCoins(1);
         }

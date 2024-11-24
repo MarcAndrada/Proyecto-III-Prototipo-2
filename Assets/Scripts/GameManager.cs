@@ -273,7 +273,7 @@ public class GameManager : MonoBehaviour
         if (state == GameState.PLAYER_TURN)
             playerItemsUsed.Add(_itemUsed);
         else if (state == GameState.AI_TURN)
-            playerItemsUsed.Add(_itemUsed);
+            enemyItemsUsed.Add(_itemUsed);
     }
 
     public void AddRandomItem(bool _toPlayer)
