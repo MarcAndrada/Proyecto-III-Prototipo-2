@@ -1,13 +1,30 @@
-using AYellowpaper.SerializedCollections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class BalanceObject : InteractableObject
 {
-
+    int randNum;
 
     private List<Store.ItemType> itemsGenerated = new List<Store.ItemType>();
     public override void ActivateObject()
+    {
+        transform.parent = null;
+
+        animator.enabled = true;
+        //Play a la animacion
+        randNum = Random.Range(0, 2);
+        string animString;
+        if (randNum == 0)
+            animString = "Win";
+        else
+            animString = "Lose";
+
+        animator.SetTrigger(animString);
+        
+        gameObject.layer = LayerMask.NameToLayer("Default");
+    }
+
+    public override void UseObject()
     {
         InventoryManager inventoryManager = null;
         MoneyController moneyCont = null;
@@ -25,16 +42,10 @@ public class BalanceObject : InteractableObject
             inventoryManager = GameManager.Instance.enemySlot.GetComponentInChildren<InventoryManager>();
         }
 
-        if (moneyCont.GetCoinAmount() < 0)
-            return;
-        
-        
+
         moneyCont.RemoveCoins(moneyCont.GetCoinAmount());
         GameManager.Instance.ItemUsed(Store.ItemType.BALANCE);
-
-
-        int randNum = Random.Range(0, 2);
-
+        
         if (randNum == 0)
         {
             //Dar 3 objetos   
@@ -43,17 +54,13 @@ public class BalanceObject : InteractableObject
                 Store.ItemType item = (Store.ItemType)Random.Range(0, (int)Store.ItemType.BALANCE);
                 if (itemsGenerated.Contains(item))
                 {
-                        i--;
-                        continue;
+                    i--;
+                    continue;
                 }
 
+                inventoryManager.AddItem(item);
                 itemsGenerated.Add(item);
-
-                GameObject itemObject = Instantiate(GameManager.Instance.itemsPrefabs[item], Vector3.zero, Quaternion.identity);
-                inventoryManager.AddItem(itemObject);
             }
         }
-
-        Destroy(gameObject);
     }
 }

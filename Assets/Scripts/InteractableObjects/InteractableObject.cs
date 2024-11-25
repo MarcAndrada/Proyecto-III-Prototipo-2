@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,9 +9,12 @@ public abstract class InteractableObject : MonoBehaviour
     private List<GameManager.ActionState> interactableActions;
 
     protected List<Outline> outline;
-    
+    protected Animator animator;
+
     protected virtual void Awake()
     {
+        animator = GetComponent<Animator>();
+
         outline = new List<Outline>();
         Outline[] objectOutlines = GetComponents<Outline>();
 
@@ -60,7 +62,20 @@ public abstract class InteractableObject : MonoBehaviour
         return objectInfo;
     }
 
-    public abstract void ActivateObject();
+    public virtual void ActivateObject()
+    {
+        transform.parent = null;
+
+        animator.enabled = true;
+        //Play a la animacion
+        animator.SetTrigger("DoAction");
+        gameObject.layer = LayerMask.NameToLayer("Default");
+    }
+    public abstract void UseObject();
+    public void DestroyObject()
+    {
+        Destroy(gameObject);
+    }
 
     public bool CanInteract()
     {

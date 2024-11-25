@@ -18,6 +18,7 @@ public class CigaretteObject : InteractableObject
     public override void ActivateObject()
     {
         GameManager.Instance.ItemUsed(Store.ItemType.CIGARRETTE);
+
         starterPos = transform.position;
         starterRot = transform.rotation;
 
@@ -82,6 +83,10 @@ public class CigaretteObject : InteractableObject
 
         if (smokeProcess >= 1)
             Destroy(gameObject);
+    }
 
+    public override void UseObject()
+    {
+        throw new System.NotImplementedException();
     }
 }

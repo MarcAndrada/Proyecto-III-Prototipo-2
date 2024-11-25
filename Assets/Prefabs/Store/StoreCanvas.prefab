@@ -223,14 +223,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e310e87cdff9da84cbfbf653832899e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shopItems:
-  - {fileID: 2308261581491567461, guid: 6a1caffdbae0797479e11ef9ee3a4ae7, type: 3}
-  - {fileID: 2676114155494150353, guid: 45d7feb7df185c446a086b1baab24a38, type: 3}
-  - {fileID: 4874469392982039728, guid: 3f6b5e4a4047e9040a8e61efe599995d, type: 3}
-  - {fileID: 4226870186988666106, guid: bde9788f043d8044b9ec89f93bac9104, type: 3}
-  - {fileID: 4226870186988666106, guid: bde9788f043d8044b9ec89f93bac9104, type: 3}
-  - {fileID: 4226870186988666106, guid: bde9788f043d8044b9ec89f93bac9104, type: 3}
-  - {fileID: 4226870186988666106, guid: bde9788f043d8044b9ec89f93bac9104, type: 3}
+  shopItems: 000000000100000003000000020000000200000002000000
   itemSprites:
   - {fileID: 21300000, guid: 68ad159cc3a183a47a596b32537c5e29, type: 3}
   - {fileID: 21300000, guid: bf5486f64469db74084205bb75d23ee0, type: 3}

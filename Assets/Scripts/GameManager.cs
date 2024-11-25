@@ -114,13 +114,16 @@ public class GameManager : MonoBehaviour
                 AddRandomItem(true);
                 AddRandomItem(false);
 
-                playerItemsUsed.Remove(Store.ItemType.BALANCE);
-                playerItemsUsed.Remove(Store.ItemType.JOKER);
-                playerItemsUsed.Remove(Store.ItemType.CIGARRETTE);
+                for (int i = 0; i < 10; i++)
+                {
+                    playerItemsUsed.Remove(Store.ItemType.BALANCE);
+                    playerItemsUsed.Remove(Store.ItemType.JOKER);
+                    playerItemsUsed.Remove(Store.ItemType.CIGARRETTE);
 
-                enemyItemsUsed.Remove(Store.ItemType.BALANCE);
-                enemyItemsUsed.Remove(Store.ItemType.JOKER);
-                enemyItemsUsed.Remove(Store.ItemType.CIGARRETTE);
+                    enemyItemsUsed.Remove(Store.ItemType.BALANCE);
+                    enemyItemsUsed.Remove(Store.ItemType.JOKER);
+                    enemyItemsUsed.Remove(Store.ItemType.CIGARRETTE);
+                }
 
                 if (playerTurnSkipped)
                     enemySlot.GetComponent<ItemsFeedbackController>().TurnOnRivalScreen();
@@ -136,6 +139,9 @@ public class GameManager : MonoBehaviour
                 break;
             case GameState.PLAYER_TURN:
 
+                if (playerTurnSkipped)
+                    enemySlot.GetComponent<ItemsFeedbackController>().TurnOnRivalScreen();
+
                 if (UsedItem(enemyItemsUsed, Store.ItemType.INTERRUPTOR))
                 {
                     playerTurnSkipped = true;
@@ -144,12 +150,16 @@ public class GameManager : MonoBehaviour
                 }
                 break;
             case GameState.AI_TURN:
+
+                if (enemyTurnSkipped)
+                    playerSlot.GetComponent<ItemsFeedbackController>().TurnOnRivalScreen();
+
                 //Resetear los Items del enemigo
                 if (UsedItem(playerItemsUsed, Store.ItemType.INTERRUPTOR))
                 {
+                    enemyTurnSkipped = true;
                     playerItemsUsed.Remove(Store.ItemType.INTERRUPTOR);
                     ChangeToNextGameState();
-                    enemyTurnSkipped = true;
                 }
 
                 enemySlot.GetComponent<EnemyBehaviour>().StartTurn();
@@ -258,7 +268,7 @@ public class GameManager : MonoBehaviour
             return;
         }
 
-        stateOrder = Random.Range(0,2);
+        stateOrder = Random.Range(0,1);
 
         if (stateOrder == 0)
             Debug.Log("Empieza a tirar el player");
@@ -303,19 +313,13 @@ public class GameManager : MonoBehaviour
     public void AddRandomItem(bool _toPlayer)
     {
         Store.ItemType randomItem = (Store.ItemType)Random.Range(0, (int)Store.ItemType.BALANCE + 1);
-
-        GameObject itemObject = Instantiate(itemsPrefabs[randomItem], Vector3.zero, Quaternion.identity);
-
         if (_toPlayer)
         {
-            if (!playerSlot.GetComponentInChildren<InventoryManager>().AddItem(itemObject))
-                Destroy(itemObject);
-
+            playerSlot.GetComponentInChildren<InventoryManager>().AddItem(randomItem);
         }
         else
         {
-            if (!enemySlot.GetComponentInChildren<InventoryManager>().AddItem(itemObject))
-                Destroy(itemObject);
+            enemySlot.GetComponentInChildren<InventoryManager>().AddItem(randomItem);
         }
     }
 }

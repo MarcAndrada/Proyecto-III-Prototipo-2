@@ -28,8 +28,13 @@ public class ButtonObject : InteractableObject
     {
         if (CanInteract())
         {
-            turnController.DirectionButtonPressed(starterPos, buttonDirection);
-            base.StopHovering();
+            UseObject();
         }
+    }
+
+    public override void UseObject()
+    {
+        turnController.DirectionButtonPressed(starterPos, buttonDirection);
+        base.StopHovering();
     }
 }

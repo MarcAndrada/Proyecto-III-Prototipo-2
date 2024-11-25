@@ -14,7 +14,7 @@ public class Store : MonoBehaviour
         BALANCE
     }
     [Header("Items")]
-    [SerializeField] private GameObject[] shopItems;
+    [SerializeField] private ItemType[] shopItems;
     [SerializeField] private Sprite[] itemSprites;
     [SerializeField] private int[] itemPrices;
     
@@ -70,7 +70,7 @@ public class Store : MonoBehaviour
     private void BuyItem(int buttonIndex)
     {
         int itemIndex = randomItemIndexes[buttonIndex];
-        GameObject selectedItem = shopItems[itemIndex];
+        ItemType selectedItem = shopItems[itemIndex];
 
         if (moneyController.GetCoinAmount() >= itemPrices[itemIndex])
         {

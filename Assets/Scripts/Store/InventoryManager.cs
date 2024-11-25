@@ -10,14 +10,15 @@ public class InventoryManager : MonoBehaviour
         storedItems = new GameObject[inventorySlots.Length];
     }
 
-    public bool AddItem(GameObject item)
+    public bool AddItem(Store.ItemType _type)
     {
         for (int i = 0; i < storedItems.Length; i++)
         {
             if (storedItems[i] == null)
-            {
-                storedItems[i] = Instantiate(item, inventorySlots[i]);
-                storedItems[i].transform.position = inventorySlots[i].position;
+            { 
+                GameObject newObject = Instantiate(GameManager.Instance.itemsPrefabs[_type], inventorySlots[i]);
+                storedItems[i] = newObject;
+                newObject.transform.localPosition = Vector3.zero;
                 return true;
             }
         }
