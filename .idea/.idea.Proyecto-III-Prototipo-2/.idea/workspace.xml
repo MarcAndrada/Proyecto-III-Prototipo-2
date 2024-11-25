@@ -5,10 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aeccacd7-3bc8-4ec3-bb74-a2081e3ac631" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Proyecto-III-Prototipo-2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Proyecto-III-Prototipo-2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Decorative/CoinFlip.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Decorative/CoinFlip.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Hanged Mans/HangedManController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Hanged Mans/HangedManController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,7 +100,7 @@
       <workItem from="1732330230586" duration="1578000" />
       <workItem from="1732406886131" duration="3012000" />
       <workItem from="1732552423821" duration="5830000" />
-      <workItem from="1732561608480" duration="1668000" />
+      <workItem from="1732561608480" duration="2146000" />
     </task>
     <servers />
   </component>

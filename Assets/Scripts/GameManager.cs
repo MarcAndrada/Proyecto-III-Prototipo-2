@@ -99,12 +99,6 @@ public class GameManager : MonoBehaviour
         {
             HandleCoinFlipResult();
         }
-        
-        Debug.Log(UsedItem(playerItemsUsed, Store.ItemType.RED_COIN));
-        Debug.Log(UsedItem(enemyItemsUsed, Store.ItemType.RED_COIN));
-        Debug.Log(UsedItem(playerItemsUsed, Store.ItemType.INTERRUPTOR));
-        Debug.Log(UsedItem(enemyItemsUsed, Store.ItemType.INTERRUPTOR));
-
     }
 
     private void ChangeGameState(GameState _nextState)
@@ -310,7 +304,6 @@ public class GameManager : MonoBehaviour
         
         if(UsedItem(playerItemsUsed, Store.ItemType.RED_COIN))
         {
-            Debug.Log(stateOrder);
             stateOrder = 0;
             playerItemsUsed.Remove(Store.ItemType.RED_COIN);
             playerLookController.AddAction(PlayerLookActionsController.LookAtActions.NORMAL_CAMERA, 1);
@@ -319,7 +312,6 @@ public class GameManager : MonoBehaviour
         }
         else if (UsedItem(enemyItemsUsed, Store.ItemType.RED_COIN))
         {
-            Debug.Log(stateOrder);
             stateOrder = 1;
             enemyItemsUsed.Remove(Store.ItemType.RED_COIN);
             ChangeToNextGameState();
