@@ -18,7 +18,6 @@ public class HangedManController : MonoBehaviour
     [SerializeField] private GameObject fleshObject;
     private bool playerExploded = false;
     
-    // Start is called before the first frame update
     void Start()
     {
         currentHealth = isPlayer ? GameManager.Instance.playerHangedManHealth : GameManager.Instance.enemyHangedManHealth;
@@ -26,7 +25,6 @@ public class HangedManController : MonoBehaviour
         transform.position = destinyPosition;
     }
 
-    // Update is called once per frame
     void Update()
     {
         currentHealth = isPlayer ? GameManager.Instance.playerHangedManHealth : GameManager.Instance.enemyHangedManHealth;
@@ -61,7 +59,8 @@ public class HangedManController : MonoBehaviour
         // Activate blood particles at the body's position
         if (bloodParticles != null)
         {
-            ParticleSystem instantiatedParticles = Instantiate(bloodParticles, body.transform.position, Quaternion.identity);
+            Vector3 particleRotation = new Vector3(0f, 90f, 0f);
+            ParticleSystem instantiatedParticles = Instantiate(bloodParticles, body.transform.position, Quaternion.Euler(particleRotation));
             instantiatedParticles.Play();
         }
 
