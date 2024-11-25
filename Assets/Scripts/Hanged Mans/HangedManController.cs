@@ -14,8 +14,10 @@ public class HangedManController : MonoBehaviour
     private int currentHealth;
 
     [Header("Explosion Effect")]
-    [SerializeField] private ParticleSystem bloodParticles;
-    [SerializeField] private GameObject fleshObject;
+    [SerializeField] 
+    private ParticleSystem bloodParticles;
+    [SerializeField] 
+    private GameObject fleshObject;
     private bool playerExploded = false;
     
     void Start()
@@ -33,7 +35,7 @@ public class HangedManController : MonoBehaviour
             CalculateDestinyPos(currentHealth);
             MoveBodyToDestiny();
         }
-            CheckIfCrushBody(currentHealth);
+        CheckIfCrushBody(currentHealth);
     }
 
     private void CalculateDestinyPos(int _currentHealth)
@@ -91,6 +93,5 @@ public class HangedManController : MonoBehaviour
         playerExploded = true;
         FleshExplode();
         body.SetActive(false);
-
     }
 }

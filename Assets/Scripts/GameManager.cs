@@ -70,7 +70,10 @@ public class GameManager : MonoBehaviour
     
     [field: Space, Header("Coin"), SerializeField]
     public CoinFlip turnCoin { get; private set; }
+    [field: SerializeField]
+    private ScrollingText scrollingText;
     private bool waitingForCoinFlip = false;
+    private bool gameEnded = false;
 
     private void Awake()
     {
@@ -103,6 +106,8 @@ public class GameManager : MonoBehaviour
 
     private void ChangeGameState(GameState _nextState)
     {
+        if (gameEnded) return;
+
         switch (state)
         {
             case GameState.COIN_FLIP:
@@ -180,6 +185,8 @@ public class GameManager : MonoBehaviour
 
     public void FinishActionState()
     {
+        if (gameEnded) return;
+        
         switch (actionState)
         {
             case ActionState.START:
@@ -211,6 +218,7 @@ public class GameManager : MonoBehaviour
                 //Cambiar la camara del player a la central y setearle los triggers que tocan
                 playerLookController.AddAction(PlayerLookActionsController.LookAtActions.NORMAL_CAMERA, 1);
                 //Cambiar de turno y empezar de nuevo las acciones
+                WinLoseCondition();
                 ChangeToNextGameState();
                 actionState = ActionState.START;
                 break;
@@ -264,28 +272,23 @@ public class GameManager : MonoBehaviour
         playerLookController.AddAction(PlayerLookActionsController.LookAtActions.ENEMY_TURN, 1);
         if (enemyTurnSkipped)
         {
-            Debug.Log("Interruptor by player");
+            scrollingText.SetText("Your Turn");
             turnCoin.SetResult(true);
-            
         }
         else if(playerTurnSkipped)
         {
-            Debug.Log("Interruptor by enemy");
+            scrollingText.SetText("Enemy Turn");
             turnCoin.SetResult(false);
         }
         else
         {
             if (UsedItem(playerItemsUsed, Store.ItemType.RED_COIN))
             {
-                Debug.Log("RedCoin by player");
-                turnCoin.UsingRedCoin();
                 turnCoin.FlipCoinRed();
                 turnCoin.SetResult(true);
             }
             else if (UsedItem(enemyItemsUsed, Store.ItemType.RED_COIN))
             {
-                Debug.Log("RedCoin by enemy");
-                turnCoin.UsingRedCoin();
                 turnCoin.FlipCoinRed();
                 turnCoin.SetResult(false);
             }
@@ -312,6 +315,7 @@ public class GameManager : MonoBehaviour
         {
             stateOrder = 0;
             playerItemsUsed.Remove(Store.ItemType.RED_COIN);
+            scrollingText.SetText("Your Turn");
             playerLookController.AddAction(PlayerLookActionsController.LookAtActions.NORMAL_CAMERA, 1);
             ChangeToNextGameState();
             return;
@@ -320,17 +324,20 @@ public class GameManager : MonoBehaviour
         {
             stateOrder = 1;
             enemyItemsUsed.Remove(Store.ItemType.RED_COIN);
+            scrollingText.SetText("Enemy Turn");
             ChangeToNextGameState();
             return;
         }
 
         if (stateOrder == 0)
         {
-            Debug.Log("Empieza a tirar el player");
+            scrollingText.SetText("Your Turn");
             playerLookController.AddAction(PlayerLookActionsController.LookAtActions.NORMAL_CAMERA, 1);
         }
         else
-            Debug.Log("Empieza tirando el enemigo");
+        {
+            scrollingText.SetText("Enemy Turn");
+        }
         
         ChangeToNextGameState();
     }
@@ -342,6 +349,21 @@ public class GameManager : MonoBehaviour
             enemyHangedManHealth = Mathf.Clamp(enemyHangedManHealth + _healthChange, 0, maxHealth);
     }
 
+    private void WinLoseCondition()
+    {
+        if (playerHangedManHealth <= 0)
+        {
+            gameEnded = true;
+            playerLookController.AddAction(PlayerLookActionsController.LookAtActions.NORMAL_CAMERA, 1);
+            scrollingText.SetTextLoop("YOU LOSE");
+        }
+        if (enemyHangedManHealth <= 0)
+        {
+            gameEnded = true;
+            playerLookController.AddAction(PlayerLookActionsController.LookAtActions.NORMAL_CAMERA, 1);
+            scrollingText.SetTextLoop("YOU WIN");
+        }
+    }
     private bool UsedItem(List<Store.ItemType> _itemList, Store.ItemType _itemToSearch)
     {
         foreach (Store.ItemType item in _itemList)

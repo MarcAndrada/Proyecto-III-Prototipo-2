@@ -119,6 +119,8 @@ public class CoinFlip : MonoBehaviour
     }
     public void FlipCoinRed()
     {
+        usingRedCoin = true;
+
         if (isFlipping) return;
 
         coinImage.sprite = normalSpriteRed;
@@ -171,10 +173,5 @@ public class CoinFlip : MonoBehaviour
     public void SetResult(bool _isHeads)
     {
         isHeads = _isHeads;
-    }
-
-    public void UsingRedCoin()
-    {
-        usingRedCoin = true;
     }
 }
