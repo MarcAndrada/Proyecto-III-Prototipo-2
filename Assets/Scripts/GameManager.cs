@@ -1,6 +1,8 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using AYellowpaper.SerializedCollections;
+using Random = UnityEngine.Random;
 
 public class GameManager : MonoBehaviour
 {
@@ -65,8 +67,12 @@ public class GameManager : MonoBehaviour
     public Transform cigarretteTransform {  get; private set; }
     [field: SerializeField]
     public ParticleSystem segarroSmoke { get; private set; }
-    [field: SerializeField]
+    
+    [field: Space, Header("Cinematic"), SerializeField]
     public LightController lightController { get; private set; }
+    [field: SerializeField]
+    public CoinFlip turnCoin { get; private set; }
+    private bool waitingForCoinFlip = false;
 
     private void Awake()
     {
@@ -88,7 +94,15 @@ public class GameManager : MonoBehaviour
 
         FlipCoin();
     }
-    
+
+    private void Update()
+    {
+        if (waitingForCoinFlip && !turnCoin.GetIsFlipping())
+        {
+            HandleCoinFlipResult();
+        }
+    }
+
     private void ChangeGameState(GameState _nextState)
     {
         switch (state)
@@ -253,6 +267,9 @@ public class GameManager : MonoBehaviour
 
     private void FlipCoin()
     {
+        turnCoin.FlipCoin();
+        waitingForCoinFlip = true;
+        /*
         if(UsedItem(playerItemsUsed, Store.ItemType.RED_COIN))
         {
             stateOrder = 0;
@@ -276,8 +293,22 @@ public class GameManager : MonoBehaviour
             Debug.Log("Empieza tirando el enemigo");
 
         ChangeToNextGameState();
+        */
     }
 
+    private void HandleCoinFlipResult()
+    {
+        waitingForCoinFlip = false;
+
+        stateOrder = turnCoin.Result() ? 0 : 1;
+
+        if (stateOrder == 0)
+            Debug.Log("Empieza a tirar el player");
+        else
+            Debug.Log("Empieza tirando el enemigo");
+
+        ChangeToNextGameState();
+    }
     public void ChangeHealth(bool _isPlayer, int _healthChange)
     {
         if (_isPlayer)

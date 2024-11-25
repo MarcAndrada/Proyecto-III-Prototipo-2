@@ -6,9 +6,17 @@
   <component name="ChangeListManager">
     <list default="true" id="aeccacd7-3bc8-4ec3-bb74-a2081e3ac631" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Proyecto-III-Prototipo-2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Proyecto-III-Prototipo-2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Blender/Screens.blend" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Blender/Screens.blend" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Screens/Screens.fbx" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Screens/Screens.fbx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Effects/BloodParticles.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Effects/BloodParticles.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Map.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Map.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/BackwardMove.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/BackwardMove.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/ForwardMove.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/ForwardMove.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Money.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Money.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Rotate.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Rotate.png.meta" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,6 +28,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Camera/CameraSwitcher.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Decorative/CoinFlip.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Decorative/CrowdFloatingEffect.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Decorative/LightController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Store/VirtualScreen.cs" root0="FORCE_HIGHLIGHTING" />
@@ -100,7 +109,8 @@
       <workItem from="1732229529889" duration="866000" />
       <workItem from="1732328796179" duration="1158000" />
       <workItem from="1732330230586" duration="1578000" />
-      <workItem from="1732406886131" duration="2410000" />
+      <workItem from="1732406886131" duration="3012000" />
+      <workItem from="1732552423821" duration="2666000" />
     </task>
     <servers />
   </component>
