@@ -56,7 +56,6 @@ public class HangedManController : MonoBehaviour
 
     private void FleshExplode()
     {
-        // Activate blood particles at the body's position
         if (bloodParticles != null)
         {
             Vector3 particleRotation = new Vector3(0f, 90f, 0f);

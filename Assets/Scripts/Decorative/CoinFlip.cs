@@ -168,6 +168,11 @@ public class CoinFlip : MonoBehaviour
         return isHeads;
     }
 
+    public void SetResult(bool _isHeads)
+    {
+        isHeads = _isHeads;
+    }
+
     public void UsingRedCoin()
     {
         usingRedCoin = true;

@@ -69,8 +69,6 @@ public class GameManager : MonoBehaviour
     public ParticleSystem segarroSmoke { get; private set; }
     
     [field: Space, Header("Cinematic"), SerializeField]
-    public LightController lightController { get; private set; }
-    [field: SerializeField]
     public CoinFlip turnCoin { get; private set; }
     private bool waitingForCoinFlip = false;
 
@@ -101,6 +99,12 @@ public class GameManager : MonoBehaviour
         {
             HandleCoinFlipResult();
         }
+        
+        Debug.Log(UsedItem(playerItemsUsed, Store.ItemType.RED_COIN));
+        Debug.Log(UsedItem(enemyItemsUsed, Store.ItemType.RED_COIN));
+        Debug.Log(UsedItem(playerItemsUsed, Store.ItemType.INTERRUPTOR));
+        Debug.Log(UsedItem(enemyItemsUsed, Store.ItemType.INTERRUPTOR));
+
     }
 
     private void ChangeGameState(GameState _nextState)
@@ -213,7 +217,6 @@ public class GameManager : MonoBehaviour
                 playerLookController.AddAction(PlayerLookActionsController.LookAtActions.RESULTS, 1);
                 break;
             case ActionState.RESULTS:
-
                 //Cambiar la camara del player a la central y setearle los triggers que tocan
                 playerLookController.AddAction(PlayerLookActionsController.LookAtActions.NORMAL_CAMERA, 1);
                 //Cambiar de turno y empezar de nuevo las acciones
@@ -267,16 +270,36 @@ public class GameManager : MonoBehaviour
 
     private void FlipCoin()
     {
-        if (UsedItem(playerItemsUsed, Store.ItemType.RED_COIN))
+        playerLookController.AddAction(PlayerLookActionsController.LookAtActions.ENEMY_TURN, 1);
+        if (UsedItem(playerItemsUsed, Store.ItemType.INTERRUPTOR))
         {
-            turnCoin.UsingRedCoin();
-            turnCoin.FlipCoinRed();
+            turnCoin.SetResult(true);
+        }
+        else if(UsedItem(enemyItemsUsed, Store.ItemType.INTERRUPTOR))
+        {
+            turnCoin.SetResult(false);
         }
         else
         {
-            turnCoin.FlipCoin();
+            if (UsedItem(playerItemsUsed, Store.ItemType.RED_COIN))
+            {
+                turnCoin.UsingRedCoin();
+                turnCoin.FlipCoinRed();
+                turnCoin.SetResult(true);
+            }
+            else if (UsedItem(enemyItemsUsed, Store.ItemType.RED_COIN))
+            {
+                turnCoin.UsingRedCoin();
+                turnCoin.FlipCoinRed();
+                turnCoin.SetResult(false);
+            }
+            else
+            {
+                turnCoin.FlipCoin();
+            }
         }
         waitingForCoinFlip = true;
+
     }
 
     private void HandleCoinFlipResult()
@@ -287,24 +310,30 @@ public class GameManager : MonoBehaviour
         
         if(UsedItem(playerItemsUsed, Store.ItemType.RED_COIN))
         {
+            Debug.Log(stateOrder);
             stateOrder = 0;
             playerItemsUsed.Remove(Store.ItemType.RED_COIN);
+            playerLookController.AddAction(PlayerLookActionsController.LookAtActions.NORMAL_CAMERA, 1);
             ChangeToNextGameState();
             return;
         }
         else if (UsedItem(enemyItemsUsed, Store.ItemType.RED_COIN))
         {
+            Debug.Log(stateOrder);
             stateOrder = 1;
             enemyItemsUsed.Remove(Store.ItemType.RED_COIN);
             ChangeToNextGameState();
             return;
         }
-        
+
         if (stateOrder == 0)
+        {
             Debug.Log("Empieza a tirar el player");
+            playerLookController.AddAction(PlayerLookActionsController.LookAtActions.NORMAL_CAMERA, 1);
+        }
         else
             Debug.Log("Empieza tirando el enemigo");
-
+        
         ChangeToNextGameState();
     }
     public void ChangeHealth(bool _isPlayer, int _healthChange)
