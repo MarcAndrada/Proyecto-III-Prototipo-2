@@ -142,33 +142,30 @@ public class GameManager : MonoBehaviour
 
                 if (enemyTurnSkipped)
                     playerSlot.GetComponent<ItemsFeedbackController>().TurnOnRivalScreen();
-
-                playerTurnSkipped = false;
-                enemyTurnSkipped = false;
-
+                
                 //Mirar hacia donde se haga el giro de moneda
                 FlipCoin();
                 break;
             case GameState.PLAYER_TURN:
-
                 if (playerTurnSkipped)
                     enemySlot.GetComponent<ItemsFeedbackController>().TurnOnRivalScreen();
 
                 if (UsedItem(enemyItemsUsed, Store.ItemType.INTERRUPTOR))
                 {
+                    Debug.Log("Skip player turn");
                     playerTurnSkipped = true;
                     enemyItemsUsed.Remove(Store.ItemType.INTERRUPTOR);
                     ChangeToNextGameState();
                 }
                 break;
             case GameState.AI_TURN:
-
                 if (enemyTurnSkipped)
                     playerSlot.GetComponent<ItemsFeedbackController>().TurnOnRivalScreen();
 
                 //Resetear los Items del enemigo
                 if (UsedItem(playerItemsUsed, Store.ItemType.INTERRUPTOR))
                 {
+                    Debug.Log("Skip enemy turn");
                     enemyTurnSkipped = true;
                     playerItemsUsed.Remove(Store.ItemType.INTERRUPTOR);
                     ChangeToNextGameState();
@@ -265,24 +262,29 @@ public class GameManager : MonoBehaviour
     private void FlipCoin()
     {
         playerLookController.AddAction(PlayerLookActionsController.LookAtActions.ENEMY_TURN, 1);
-        if (UsedItem(playerItemsUsed, Store.ItemType.INTERRUPTOR))
+        if (enemyTurnSkipped)
         {
+            Debug.Log("Interruptor by player");
             turnCoin.SetResult(true);
+            
         }
-        else if(UsedItem(enemyItemsUsed, Store.ItemType.INTERRUPTOR))
+        else if(playerTurnSkipped)
         {
+            Debug.Log("Interruptor by enemy");
             turnCoin.SetResult(false);
         }
         else
         {
             if (UsedItem(playerItemsUsed, Store.ItemType.RED_COIN))
             {
+                Debug.Log("RedCoin by player");
                 turnCoin.UsingRedCoin();
                 turnCoin.FlipCoinRed();
                 turnCoin.SetResult(true);
             }
             else if (UsedItem(enemyItemsUsed, Store.ItemType.RED_COIN))
             {
+                Debug.Log("RedCoin by enemy");
                 turnCoin.UsingRedCoin();
                 turnCoin.FlipCoinRed();
                 turnCoin.SetResult(false);
@@ -292,6 +294,10 @@ public class GameManager : MonoBehaviour
                 turnCoin.FlipCoin();
             }
         }
+        
+        playerTurnSkipped = false;
+        enemyTurnSkipped = false;
+        
         waitingForCoinFlip = true;
 
     }
