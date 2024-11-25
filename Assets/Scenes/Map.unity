@@ -10113,6 +10113,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   headsSprite: {fileID: 21300000, guid: 3013be4f74536ce468318b05ecb319cf, type: 3}
   tailsSprite: {fileID: 21300000, guid: 569790bbf50fc9e49845d9a3eddcaa08, type: 3}
+  normalSprite: {fileID: 21300000, guid: 87202f7e020668d438e5e7d4622b926b, type: 3}
+  headsSpriteRed: {fileID: 21300000, guid: b452115c44677924eb149a985bbd11d4, type: 3}
+  tailsSpriteRed: {fileID: 21300000, guid: b452115c44677924eb149a985bbd11d4, type: 3}
+  normalSpriteRed: {fileID: 21300000, guid: b452115c44677924eb149a985bbd11d4, type: 3}
   coinImage: {fileID: 331514386}
   flipDuration: 3
   deactivateDelay: 2
@@ -10552,6 +10556,38 @@ PrefabInstance:
       propertyPath: moneyController
       value: 
       objectReference: {fileID: 1707523023}
+    - target: {fileID: 1820814523010609379, guid: f9cfdede9f9048144abe22c636804ec5, type: 3}
+      propertyPath: itemPrices.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1820814523010609379, guid: f9cfdede9f9048144abe22c636804ec5, type: 3}
+      propertyPath: itemSprites.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1820814523010609379, guid: f9cfdede9f9048144abe22c636804ec5, type: 3}
+      propertyPath: itemPrices.Array.data[0]
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1820814523010609379, guid: f9cfdede9f9048144abe22c636804ec5, type: 3}
+      propertyPath: itemPrices.Array.data[1]
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1820814523010609379, guid: f9cfdede9f9048144abe22c636804ec5, type: 3}
+      propertyPath: itemPrices.Array.data[2]
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1820814523010609379, guid: f9cfdede9f9048144abe22c636804ec5, type: 3}
+      propertyPath: itemSprites.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: bf5486f64469db74084205bb75d23ee0, type: 3}
+    - target: {fileID: 1820814523010609379, guid: f9cfdede9f9048144abe22c636804ec5, type: 3}
+      propertyPath: itemSprites.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: 26f2e6d58d82c2c43acef724184c825c, type: 3}
+    - target: {fileID: 1820814523010609379, guid: f9cfdede9f9048144abe22c636804ec5, type: 3}
+      propertyPath: itemSprites.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300000, guid: 68ad159cc3a183a47a596b32537c5e29, type: 3}
     - target: {fileID: 2742966609020525426, guid: f9cfdede9f9048144abe22c636804ec5, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

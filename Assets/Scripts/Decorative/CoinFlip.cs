@@ -7,12 +7,19 @@ public class CoinFlip : MonoBehaviour
 {
     [SerializeField] private Sprite headsSprite;
     [SerializeField] private Sprite tailsSprite;
+    [SerializeField] private Sprite normalSprite;
+    [Space(5)]
+    [SerializeField] private Sprite headsSpriteRed;
+    [SerializeField] private Sprite tailsSpriteRed;
+    [SerializeField] private Sprite normalSpriteRed;
+    [Space(5)]
     [SerializeField] private Image coinImage;
     
     private bool isFlipping = false;
     private bool isHeads;
     private bool shouldDeactivate = false;
     private RectTransform rectTransform;
+    private bool usingRedCoin;
     
     [Header("Timers")]
     [SerializeField] private float flipDuration = 1f;
@@ -38,6 +45,7 @@ public class CoinFlip : MonoBehaviour
 
     private void Start()
     {
+        usingRedCoin = false;
         originalPosition = rectTransform.anchoredPosition;
         targetPosition = originalPosition + new Vector2(0, -Screen.height * 2f);
     }
@@ -50,9 +58,14 @@ public class CoinFlip : MonoBehaviour
 
             coinImage.transform.localScale = new Vector3(1, Mathf.Sin(flipTime * Mathf.PI * 4), 1);
 
-            if (flipTime >= flipDuration)
+            if (flipTime >= flipDuration && !usingRedCoin)
             {
                 EndFlip();
+            }
+            if (flipTime >= flipDuration && usingRedCoin)
+            {
+                EndFlipRed();
+                usingRedCoin = false;
             }
         }
         
@@ -94,14 +107,30 @@ public class CoinFlip : MonoBehaviour
     {
         if (isFlipping) return;
 
+        coinImage.sprite = normalSprite;
+        
         isFlipping = true;
         flipTime = 0f;
-        coinImage.gameObject.SetActive(true);
-        isHeads = Random.value > 0.5f;
         
+        coinImage.gameObject.SetActive(true);
+        
+        isHeads = Random.Range(0, 2) == 0;
         rectTransform.anchoredPosition = originalPosition;
     }
+    public void FlipCoinRed()
+    {
+        if (isFlipping) return;
 
+        coinImage.sprite = normalSpriteRed;
+        
+        isFlipping = true;
+        flipTime = 0f;
+        
+        coinImage.gameObject.SetActive(true);
+        
+        isHeads = Random.Range(0, 2) == 0;
+        rectTransform.anchoredPosition = originalPosition;
+    }
     private void EndFlip()
     {
         coinImage.sprite = isHeads ? headsSprite : tailsSprite;
@@ -115,6 +144,20 @@ public class CoinFlip : MonoBehaviour
         deactivateTimer = 0f;
         shouldDeactivate = true;
     }
+    private void EndFlipRed()
+    {
+        coinImage.sprite = isHeads ? headsSpriteRed : tailsSpriteRed;
+
+        coinImage.transform.localScale = Vector3.one;
+
+        isFlipping = false;
+        
+        vibrationTime = vibrationDuration;
+        
+        deactivateTimer = 0f;
+        shouldDeactivate = true;
+    }
+
 
     public bool GetIsFlipping()
     {
@@ -123,5 +166,10 @@ public class CoinFlip : MonoBehaviour
     public bool Result()
     {
         return isHeads;
+    }
+
+    public void UsingRedCoin()
+    {
+        usingRedCoin = true;
     }
 }

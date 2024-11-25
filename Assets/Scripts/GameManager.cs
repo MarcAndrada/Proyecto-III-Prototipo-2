@@ -267,9 +267,24 @@ public class GameManager : MonoBehaviour
 
     private void FlipCoin()
     {
-        turnCoin.FlipCoin();
+        if (UsedItem(playerItemsUsed, Store.ItemType.RED_COIN))
+        {
+            turnCoin.UsingRedCoin();
+            turnCoin.FlipCoinRed();
+        }
+        else
+        {
+            turnCoin.FlipCoin();
+        }
         waitingForCoinFlip = true;
-        /*
+    }
+
+    private void HandleCoinFlipResult()
+    {
+        waitingForCoinFlip = false;
+
+        stateOrder = turnCoin.Result() ? 0 : 1;
+        
         if(UsedItem(playerItemsUsed, Store.ItemType.RED_COIN))
         {
             stateOrder = 0;
@@ -284,24 +299,7 @@ public class GameManager : MonoBehaviour
             ChangeToNextGameState();
             return;
         }
-
-        stateOrder = Random.Range(0,1);
-
-        if (stateOrder == 0)
-            Debug.Log("Empieza a tirar el player");
-        else
-            Debug.Log("Empieza tirando el enemigo");
-
-        ChangeToNextGameState();
-        */
-    }
-
-    private void HandleCoinFlipResult()
-    {
-        waitingForCoinFlip = false;
-
-        stateOrder = turnCoin.Result() ? 0 : 1;
-
+        
         if (stateOrder == 0)
             Debug.Log("Empieza a tirar el player");
         else
