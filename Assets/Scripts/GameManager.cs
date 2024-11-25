@@ -68,7 +68,7 @@ public class GameManager : MonoBehaviour
     [field: SerializeField]
     public ParticleSystem segarroSmoke { get; private set; }
     
-    [field: Space, Header("Cinematic"), SerializeField]
+    [field: Space, Header("Coin"), SerializeField]
     public CoinFlip turnCoin { get; private set; }
     private bool waitingForCoinFlip = false;
 

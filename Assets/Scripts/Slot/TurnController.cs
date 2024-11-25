@@ -19,8 +19,7 @@ public class TurnController : MonoBehaviour
 
     [SerializeField]
     private IconUI[] iconsUI;
-
-
+    
     private Vector2Int currentPosition;
     private Vector2Int currentDirection;
 
@@ -40,9 +39,6 @@ public class TurnController : MonoBehaviour
 
     private SlotMachineController slotMachine;
     private MoneyController moneyController;
-
-    
-
 
     private void Awake()
     {
@@ -148,7 +144,7 @@ public class TurnController : MonoBehaviour
             case SlotIcon.IconType.NONE:
                 break;
             case SlotIcon.IconType.COIN:
-                //Añadir moneda
+                //Aï¿½adir moneda
                 roundCoins++;
                 if (haveToMultiply)
                     roundCoinM++;
@@ -226,11 +222,11 @@ public class TurnController : MonoBehaviour
 
     private void GetRewards()
     {
-        //Añadir las monedas
+        //Aï¿½adir las monedas
         moneyController.AddCoins(roundCoins * roundCoinM);
-        //Añadir los movimientos frontales
+        //Aï¿½adir los movimientos frontales
         GameManager.Instance.ChangeHealth(isPlayer, roundUpMovements * roundUpMovementM);
-        //Añadir los movimientos traseros
+        //Aï¿½adir los movimientos traseros
         GameManager.Instance.ChangeHealth(!isPlayer, -roundDownMovements * roundDownMovementM);
         
         DisableAllConnectionImages();
