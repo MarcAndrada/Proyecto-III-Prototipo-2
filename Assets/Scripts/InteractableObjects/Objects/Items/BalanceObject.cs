@@ -42,7 +42,6 @@ public class BalanceObject : InteractableObject
             inventoryManager = GameManager.Instance.enemySlot.GetComponentInChildren<InventoryManager>();
         }
 
-
         moneyCont.RemoveCoins(moneyCont.GetCoinAmount());
         GameManager.Instance.ItemUsed(Store.ItemType.BALANCE);
         

@@ -55,8 +55,6 @@ public abstract class InteractableObject : MonoBehaviour
             }
         }
     }
-
-
     public InteractableObjectsInfo GetObjectInfo()
     {
         return objectInfo;

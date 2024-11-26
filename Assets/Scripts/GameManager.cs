@@ -75,6 +75,13 @@ public class GameManager : MonoBehaviour
     private bool waitingForCoinFlip = false;
     private bool gameEnded = false;
 
+    [Space, Header("Buttons Materials"), SerializeField]
+    private Material buttonMaterialActive;
+    [SerializeField]
+    private Material buttonMaterialDisabled;
+    [SerializeField] 
+    private Renderer[] buttons;
+    
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -92,7 +99,10 @@ public class GameManager : MonoBehaviour
         actionState = ActionState.START;
         AddRandomItem(true);
         AddRandomItem(false);
-
+        
+        foreach (Renderer item in buttons)
+            item.material = buttonMaterialDisabled;
+        
         FlipCoin();
     }
 
@@ -185,6 +195,7 @@ public class GameManager : MonoBehaviour
 
     public void FinishActionState()
     {
+
         if (gameEnded) return;
         
         switch (actionState)
@@ -198,7 +209,12 @@ public class GameManager : MonoBehaviour
                 break;
             case ActionState.WHEEL_SPIN:
                 if (state == GameState.PLAYER_TURN)
+                {
+                    foreach (Renderer item in buttons)
+                        item.material = buttonMaterialActive;
+                    
                     playerLookController.AddAction(PlayerLookActionsController.LookAtActions.NORMAL_CAMERA, 1);
+                }
                 else
                     playerLookController.AddAction(PlayerLookActionsController.LookAtActions.ENEMY_TURN, 1);
                 actionState = ActionState.ACTION;
@@ -206,7 +222,12 @@ public class GameManager : MonoBehaviour
             case ActionState.ACTION:
                 actionState = ActionState.SHOWING_ACTION;
                 if (state == GameState.PLAYER_TURN)
+                {
+                    foreach (Renderer item in buttons)
+                        item.material = buttonMaterialDisabled;
+                    
                     playerLookController.AddAction(PlayerLookActionsController.LookAtActions.LOCK_MAIN, 1);
+                }
                 else
                     playerLookController.AddAction(PlayerLookActionsController.LookAtActions.ENEMY_TURN, 1);
                 break;

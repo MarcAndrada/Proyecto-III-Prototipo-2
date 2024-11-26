@@ -28,7 +28,7 @@ public class EnemyBehaviour : MonoBehaviour
 
     void Start()
     {
-        //Añadir un item random al inventario
+        //Aï¿½adir un item random al inventario
         GameManager.Instance.AddRandomItem(false);
     }
 
@@ -76,6 +76,7 @@ public class EnemyBehaviour : MonoBehaviour
             {
                 //Usar Item
                 items[i].GetComponent<InteractableObject>().ActivateObject();
+                items[i] = null;
                 Invoke("Behaviour", actionDelay);
                 return;
             }
