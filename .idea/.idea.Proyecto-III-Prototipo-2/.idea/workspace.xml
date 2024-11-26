@@ -4,15 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aeccacd7-3bc8-4ec3-bb74-a2081e3ac631" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Proyecto-III-Prototipo-2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Proyecto-III-Prototipo-2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Map.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Map.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Decorative/CoinFlip.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Decorative/CoinFlip.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Hanged Mans/HangedManController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Hanged Mans/HangedManController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Fonts/ARCADE_I SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Fonts/ARCADE_I SDF.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Fonts/ARCADE_N SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Fonts/ARCADE_N SDF.asset" afterDir="false" />
-    </list>
+    <list default="true" id="aeccacd7-3bc8-4ec3-bb74-a2081e3ac631" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -106,7 +98,7 @@
       <workItem from="1732330230586" duration="1578000" />
       <workItem from="1732406886131" duration="3012000" />
       <workItem from="1732552423821" duration="5830000" />
-      <workItem from="1732561608480" duration="10682000" />
+      <workItem from="1732561608480" duration="10989000" />
     </task>
     <servers />
   </component>
