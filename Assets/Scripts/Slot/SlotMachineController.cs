@@ -15,7 +15,9 @@ public class SlotMachineController : MonoBehaviour
 
     [SerializeField]
     private SlotCanvasController slotCanvasController;
-    
+
+    [SerializeField]
+    private AudioSource slotAS;
     // Start is called before the first frame update
     void Start()
     {
@@ -44,6 +46,8 @@ public class SlotMachineController : MonoBehaviour
         slotCanvasController.animator.SetTrigger("SpinWheel");
         
         GameManager.Instance.FinishActionState(); //Acabar con el estado previo y empezar el de SPIN_WHEEL
+
+        slotAS.Play();
     }
 
     public void RandomizeIcons()

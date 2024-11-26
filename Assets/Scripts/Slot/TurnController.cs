@@ -40,6 +40,13 @@ public class TurnController : MonoBehaviour
     private SlotMachineController slotMachine;
     private MoneyController moneyController;
 
+    [Space, SerializeField]
+    private AudioClip[] hoveredClips;
+    [SerializeField]
+    private AudioClip rotateClip;
+    [SerializeField]
+    private AudioSource source;
+
     private void Awake()
     {
         slotMachine = GetComponent<SlotMachineController>();
@@ -138,6 +145,7 @@ public class TurnController : MonoBehaviour
             : GameManager.Instance.enemyItemsUsed;
 
         bool haveToMultiply = lastIconType == selectedIcons[currentLoopId].type || usedItemsType.Contains(Store.ItemType.JOKER);
+        int currentMultiplier = 1;
 
         switch (selectedIcons[currentLoopId].type)
         {
@@ -148,18 +156,25 @@ public class TurnController : MonoBehaviour
                 roundCoins++;
                 if (haveToMultiply)
                     roundCoinM++;
+
+                currentMultiplier = roundCoinM;
                 break;
             case SlotIcon.IconType.MOVE_FORWARD:
                 //Mover el enemigo hacia adelante
                 roundDownMovements++;
                 if (haveToMultiply)
                     roundDownMovementM++;
+
+                currentMultiplier = roundDownMovementM;
+
                 break;
             case SlotIcon.IconType.MOVE_BACKWARDS:
                 //Mover el tuyo hacia delante
                 roundUpMovements++;
                 if (haveToMultiply)
                     roundUpMovementM++;
+
+                currentMultiplier = roundUpMovementM;
                 break;
             default:
                 break;
@@ -167,7 +182,16 @@ public class TurnController : MonoBehaviour
 
 
         if (selectedIcons[currentLoopId].type != SlotIcon.IconType.ROTATE)
+        {
             lastIconType = selectedIcons[currentLoopId].type;
+            source.clip = hoveredClips[Mathf.Clamp(currentMultiplier - 1, 0, hoveredClips.Length - 1)];
+            source.Play();
+        }
+        else
+        {
+            source.clip = rotateClip;
+            source.Play();
+        }
 
         selectedIcons[currentLoopId].backgroundImage.enabled = true;
 

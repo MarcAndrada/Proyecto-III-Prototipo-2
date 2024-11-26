@@ -6,14 +6,19 @@ public class ButtonObject : InteractableObject
     private Vector2Int starterPos;
     [SerializeField]
     private Vector2Int buttonDirection;
-
+    
     [Space, SerializeField]
     private TurnController turnController;
-
+    [Space, SerializeField]
+    private AudioSource hoverAS;
+    [SerializeField]
+    private AudioSource pressedAS;
     public override void OnHover()
     {
         if (!CanInteract())
             return;
+        if (!outline[0].enabled)
+            hoverAS.Play();
         base.OnHover();
         turnController.DisplayTurnDirection(starterPos, buttonDirection);
     }
@@ -35,6 +40,7 @@ public class ButtonObject : InteractableObject
     public override void UseObject()
     {
         turnController.DirectionButtonPressed(starterPos, buttonDirection);
+        pressedAS.Play();
         base.StopHovering();
     }
 }

@@ -38,6 +38,16 @@ public class CoinFlip : MonoBehaviour
     private Vector2 originalPosition;
     private Vector2 targetPosition;
 
+
+    [Space, Header("Audio"), SerializeField]
+    private AudioClip coinFlip;
+    [SerializeField]
+    private AudioClip[] playerWin;
+    [SerializeField]
+    private AudioClip[] enemyWin;
+    [SerializeField]
+    private AudioClip redCoinEnd;
+
     private void Awake()
     {
         rectTransform = GetComponent<RectTransform>(); 
@@ -116,6 +126,8 @@ public class CoinFlip : MonoBehaviour
         
         isHeads = Random.Range(0, 2) == 0;
         rectTransform.anchoredPosition = originalPosition;
+
+        AmbientSoundController.instance.PlaySound(coinFlip, 1, Random.Range(0.9f, 1.1f));
     }
     public void FlipCoinRed()
     {
@@ -132,6 +144,8 @@ public class CoinFlip : MonoBehaviour
         
         isHeads = Random.Range(0, 2) == 0;
         rectTransform.anchoredPosition = originalPosition;
+
+        AmbientSoundController.instance.PlaySound(coinFlip, 0.8f, Random.Range(0.9f, 1.1f));
     }
     private void EndFlip()
     {
@@ -145,6 +159,18 @@ public class CoinFlip : MonoBehaviour
         
         deactivateTimer = 0f;
         shouldDeactivate = true;
+
+        AudioClip nextClip;
+
+        if (isHeads)
+            nextClip = playerWin[Random.Range(0, playerWin.Length)];
+        else
+            nextClip = enemyWin[Random.Range(0, enemyWin.Length)];
+
+        AmbientSoundController.instance.PlaySound(nextClip, 0.4f, Random.Range(0.9f, 1.1f));
+
+
+
     }
     private void EndFlipRed()
     {
@@ -158,6 +184,9 @@ public class CoinFlip : MonoBehaviour
         
         deactivateTimer = 0f;
         shouldDeactivate = true;
+
+        AmbientSoundController.instance.PlaySound(redCoinEnd, 0.4f, Random.Range(0.9f, 1.1f));
+
     }
 
 
