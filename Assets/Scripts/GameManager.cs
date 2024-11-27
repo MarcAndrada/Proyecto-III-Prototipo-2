@@ -162,7 +162,8 @@ public class GameManager : MonoBehaviour
 
                 if (enemyTurnSkipped)
                     playerSlot.GetComponent<ItemsFeedbackController>().TurnOnRivalScreen();
-                
+
+
                 //Mirar hacia donde se haga el giro de moneda
                 FlipCoin();
                 break;
@@ -175,10 +176,9 @@ public class GameManager : MonoBehaviour
                     Debug.Log("Skip player turn");
                     playerTurnSkipped = true;
                     enemyItemsUsed.Remove(Store.ItemType.INTERRUPTOR);
-                    enemyItemsUsed.Remove(Store.ItemType.INTERRUPTOR);
-                    enemyItemsUsed.Remove(Store.ItemType.INTERRUPTOR);
-                    enemyItemsUsed.Remove(Store.ItemType.INTERRUPTOR);
-                    enemyItemsUsed.Remove(Store.ItemType.INTERRUPTOR);
+                    enemyItemsUsed.Remove(Store.ItemType.RED_COIN);
+                    playerItemsUsed.Remove(Store.ItemType.RED_COIN);
+
                     ChangeToNextGameState();
                 }
                 break;
@@ -192,10 +192,9 @@ public class GameManager : MonoBehaviour
                     Debug.Log("Skip enemy turn");
                     enemyTurnSkipped = true;
                     playerItemsUsed.Remove(Store.ItemType.INTERRUPTOR);
-                    playerItemsUsed.Remove(Store.ItemType.INTERRUPTOR);
-                    playerItemsUsed.Remove(Store.ItemType.INTERRUPTOR);
-                    playerItemsUsed.Remove(Store.ItemType.INTERRUPTOR);
-                    playerItemsUsed.Remove(Store.ItemType.INTERRUPTOR);
+                    playerItemsUsed.Remove(Store.ItemType.RED_COIN);
+                    enemyItemsUsed.Remove(Store.ItemType.RED_COIN);
+
                     ChangeToNextGameState();
                 }
 
@@ -308,20 +307,22 @@ public class GameManager : MonoBehaviour
         {
             scrollingText.SetText("Your Turn");
             turnCoin.SetResult(true);
+            Debug.Log("Enemy turn skipped");
         }
         else if(playerTurnSkipped)
         {
             scrollingText.SetText("Enemy Turn");
             turnCoin.SetResult(false);
+            Debug.Log("Player turn skipped");
         }
         else
         {
-            if (UsedItem(playerItemsUsed, Store.ItemType.RED_COIN))
+            if (UsedItem(playerItemsUsed, Store.ItemType.RED_COIN) && !playerTurnSkipped && !enemyTurnSkipped)
             {
                 turnCoin.FlipCoinRed();
                 turnCoin.SetResult(true);
             }
-            else if (UsedItem(enemyItemsUsed, Store.ItemType.RED_COIN))
+            else if (UsedItem(enemyItemsUsed, Store.ItemType.RED_COIN) && !playerTurnSkipped && !enemyTurnSkipped)
             {
                 turnCoin.FlipCoinRed();
                 turnCoin.SetResult(false);
@@ -330,38 +331,42 @@ public class GameManager : MonoBehaviour
             {
                 turnCoin.FlipCoin();
             }
-        }
-        
-        playerTurnSkipped = false;
-        enemyTurnSkipped = false;
-        
-        waitingForCoinFlip = true;
 
+        }
+
+        waitingForCoinFlip = true;
     }
 
     private void HandleCoinFlipResult()
     {
         waitingForCoinFlip = false;
 
-        stateOrder = turnCoin.Result() ? 0 : 1;
+        if (playerTurnSkipped || enemyTurnSkipped)
+        {
+            stateOrder = turnCoin.Result() ? 0 : 1;
+
+            if (UsedItem(playerItemsUsed, Store.ItemType.RED_COIN))
+            {
+                stateOrder = 0;
+                playerItemsUsed.Remove(Store.ItemType.RED_COIN);
+                scrollingText.SetText("Your Turn");
+                playerLookController.AddAction(PlayerLookActionsController.LookAtActions.NORMAL_CAMERA, 1);
+                ChangeToNextGameState();
+                return;
+            }
+            else if (UsedItem(enemyItemsUsed, Store.ItemType.RED_COIN))
+            {
+                stateOrder = 1;
+                enemyItemsUsed.Remove(Store.ItemType.RED_COIN);
+                scrollingText.SetText("Enemy Turn");
+                ChangeToNextGameState();
+                return;
+            }
+
+            playerTurnSkipped = false;
+            enemyTurnSkipped = false;
+        }
         
-        if(UsedItem(playerItemsUsed, Store.ItemType.RED_COIN))
-        {
-            stateOrder = 0;
-            playerItemsUsed.Remove(Store.ItemType.RED_COIN);
-            scrollingText.SetText("Your Turn");
-            playerLookController.AddAction(PlayerLookActionsController.LookAtActions.NORMAL_CAMERA, 1);
-            ChangeToNextGameState();
-            return;
-        }
-        else if (UsedItem(enemyItemsUsed, Store.ItemType.RED_COIN))
-        {
-            stateOrder = 1;
-            enemyItemsUsed.Remove(Store.ItemType.RED_COIN);
-            scrollingText.SetText("Enemy Turn");
-            ChangeToNextGameState();
-            return;
-        }
 
         if (stateOrder == 0)
         {
@@ -412,11 +417,17 @@ public class GameManager : MonoBehaviour
     {
         if (state == GameState.PLAYER_TURN)
         {
+            if (playerItemsUsed.Contains(_itemUsed))
+                return;
+
             playerItemsUsed.Add(_itemUsed);
             playerSlot.GetComponent<ItemsFeedbackController>().ItemUsed(_itemUsed);
         }
         else if (state == GameState.AI_TURN)
         {
+            if (enemyItemsUsed.Contains(_itemUsed))
+                return;
+
             enemyItemsUsed.Add(_itemUsed);
             enemySlot.GetComponent<ItemsFeedbackController>().ItemUsed(_itemUsed);
         }
