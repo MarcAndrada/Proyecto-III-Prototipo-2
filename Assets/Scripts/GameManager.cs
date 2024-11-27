@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
     public GameState state { get; private set; }
     [field: SerializeField]
     public ActionState actionState { get; private set; }
-    int stateOrder;
+    public int stateOrder { get; private set; }
 
 
     [field: Space, Header("Slot"), SerializeField]
@@ -42,6 +42,7 @@ public class GameManager : MonoBehaviour
     public int actionResultIconDuration { get; private set; }
     private bool playerTurnSkipped;
     private bool enemyTurnSkipped;
+
     [Space, Header("Slot Icons"), SerializedDictionary("Type", "Sprite")]
     public SerializedDictionary<SlotIcon.IconType, Sprite> iconSprite;
     [field: SerializeField]
@@ -72,10 +73,11 @@ public class GameManager : MonoBehaviour
     public Transform cigarretteTransform {  get; private set; }
     [field: SerializeField]
     public ParticleSystem segarroSmoke { get; private set; }
-    
+
     [field: Space, Header("Coin"), SerializeField]
+    private CoinFlip coinController;
+    [SerializeField]
     private ScrollingText scrollingText;
-    private bool waitingForCoinFlip = false;
     private bool gameEnded = false;
 
     [Space, Header("Buttons Materials"), SerializeField]
@@ -147,15 +149,42 @@ public class GameManager : MonoBehaviour
                     enemyItemsUsed.Remove(Store.ItemType.CIGARRETTE);
                 }
 
-                if (playerTurnSkipped)
+                if (UsedItem(enemyItemsUsed, Store.ItemType.INTERRUPTOR) || playerTurnSkipped)
+                {
+                    if (!playerTurnSkipped)
+                    {
+                        stateOrder = 0;
+                        ChangeToNextGameState();
+                        return;
+                    }
+
                     enemySlot.GetComponent<ItemsFeedbackController>().TurnOnRivalScreen();
+                    playerTurnSkipped = false;
+                    enemyItemsUsed.Remove(Store.ItemType.INTERRUPTOR);
+                    enemyItemsUsed.Remove(Store.ItemType.RED_COIN);
+                    playerItemsUsed.Remove(Store.ItemType.RED_COIN);
+                    CheckSkippedTurn();
+                }
 
-                if (enemyTurnSkipped)
+                if (UsedItem(playerItemsUsed, Store.ItemType.INTERRUPTOR) || enemyTurnSkipped)
+                {
+                    if (!enemyTurnSkipped)
+                    {
+                        stateOrder = 1;
+                        ChangeToNextGameState();
+                        return;
+                    }
+
                     playerSlot.GetComponent<ItemsFeedbackController>().TurnOnRivalScreen();
+                    enemyTurnSkipped = false;
+                    playerItemsUsed.Remove(Store.ItemType.INTERRUPTOR);
+                    playerItemsUsed.Remove(Store.ItemType.RED_COIN);
+                    enemyItemsUsed.Remove(Store.ItemType.RED_COIN);
+                    CheckSkippedTurn();
+                }
 
-
-                //Mirar hacia donde se haga el giro de moneda
                 FlipCoin();
+
                 break;
             case GameState.PLAYER_TURN:
                 if (playerTurnSkipped)
@@ -169,8 +198,13 @@ public class GameManager : MonoBehaviour
                     enemyItemsUsed.Remove(Store.ItemType.RED_COIN);
                     playerItemsUsed.Remove(Store.ItemType.RED_COIN);
 
+
                     ChangeToNextGameState();
+                    scrollingText.SetText("Skipped Player Turn");
+                    return;
                 }
+
+                scrollingText.SetText("Your Turn");
                 break;
             case GameState.AI_TURN:
                 if (enemyTurnSkipped)
@@ -186,8 +220,11 @@ public class GameManager : MonoBehaviour
                     enemyItemsUsed.Remove(Store.ItemType.RED_COIN);
 
                     ChangeToNextGameState();
+                    scrollingText.SetText("Skipped Enemy Turn");
+                    return;
                 }
 
+                scrollingText.SetText("Enemy Turn");
                 enemySlot.GetComponent<EnemyBehaviour>().StartTurn();
                 break;
             default:
@@ -250,7 +287,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void ChangeToNextGameState()
+    public void ChangeToNextGameState()
     {
         if (stateOrder == 0) //El player tira primero
         {
@@ -293,74 +330,49 @@ public class GameManager : MonoBehaviour
     private void FlipCoin()
     {
         playerLookController.AddAction(PlayerLookActionsController.LookAtActions.ENEMY_TURN, 1);
-        if (enemyTurnSkipped)
+
+        if (UsedItem(playerItemsUsed, Store.ItemType.RED_COIN))
         {
-            scrollingText.SetText("Your Turn");
+            //Animacion Moneda Roja
+
             stateOrder = 0;
-            Debug.Log("Enemy turn skipped");
+            playerItemsUsed.Remove(Store.ItemType.RED_COIN);
+            coinController.PlayAnim("RedCoin");
+            return;
         }
-        else if(playerTurnSkipped)
+        else if (UsedItem(enemyItemsUsed, Store.ItemType.RED_COIN))
         {
-            scrollingText.SetText("Enemy Turn");
+            //Anim moneda Roja
             stateOrder = 1;
-            Debug.Log("Player turn skipped");
-        }
-        else
-        {
-            if (UsedItem(playerItemsUsed, Store.ItemType.RED_COIN) && !playerTurnSkipped && !enemyTurnSkipped)
-            {
-                turnCoin.FlipCoinRed();
-                turnCoin.SetResult(true);
-            }
-            else if (UsedItem(enemyItemsUsed, Store.ItemType.RED_COIN) && !playerTurnSkipped && !enemyTurnSkipped)
-            {
-                turnCoin.FlipCoinRed();
-                turnCoin.SetResult(false);
-            }
-            else
-            {
-                stateOrder = Random;
-
-                if (UsedItem(playerItemsUsed, Store.ItemType.RED_COIN))
-                {
-                    stateOrder = 0;
-                    playerItemsUsed.Remove(Store.ItemType.RED_COIN);
-                    scrollingText.SetText("Your Turn");
-                    playerLookController.AddAction(PlayerLookActionsController.LookAtActions.NORMAL_CAMERA, 1);
-                    ChangeToNextGameState();
-                    return;
-                }
-                else if (UsedItem(enemyItemsUsed, Store.ItemType.RED_COIN))
-                {
-                    stateOrder = 1;
-                    enemyItemsUsed.Remove(Store.ItemType.RED_COIN);
-                    scrollingText.SetText("Enemy Turn");
-                    ChangeToNextGameState();
-                    return;
-                }
-            }
-
+            enemyItemsUsed.Remove(Store.ItemType.RED_COIN);
+            coinController.PlayAnim("RedCoin");
+            return;
         }
 
-        if (stateOrder == 0)
-        {
-            scrollingText.SetText("Your Turn");
-            playerLookController.AddAction(PlayerLookActionsController.LookAtActions.NORMAL_CAMERA, 1);
-        }
-        else
-        {
-            scrollingText.SetText("Enemy Turn");
-        }
 
-        ChangeToNextGameState();
+        stateOrder = Random.Range(0, 2);
+
+        //Animacion moneda normal
+        //(Esta animacion llama a una evento que llama al ChangeToNextGameState();)
+        string stateString = stateOrder == 0 ? "PlayerCoin" : "EnemyCoin";
+        coinController.PlayAnim(stateString);
+
 
     }
-
-    private void HandleCoinFlipResult()
+    private void CheckSkippedTurn()
     {
-        waitingForCoinFlip = false;
-
-        
+        if (enemyTurnSkipped)
+        {
+            playerItemsUsed.Remove(Store.ItemType.RED_COIN);
+            enemyItemsUsed.Remove(Store.ItemType.RED_COIN);
+            ChangeToNextGameState();
+        }
+        else if (playerTurnSkipped)
+        {
+            playerItemsUsed.Remove(Store.ItemType.RED_COIN);
+            enemyItemsUsed.Remove(Store.ItemType.RED_COIN);
+            ChangeToNextGameState();
+        }
     }
     public void ChangeHealth(bool _isPlayer, int _healthChange)
     {

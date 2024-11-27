@@ -88,8 +88,9 @@ MonoBehaviour:
   <moveDownSpeed>k__BackingField: 10
   <cigarretteTransform>k__BackingField: {fileID: 0}
   <segarroSmoke>k__BackingField: {fileID: 0}
-  <turnCoin>k__BackingField: {fileID: 0}
+  coinController: {fileID: 0}
   scrollingText: {fileID: 0}
+  coinFlipClip: {fileID: 8300000, guid: b948949d4fe933d4a85051f3119e266e, type: 3}
   buttonMaterialActive: {fileID: 0}
   buttonMaterialDisabled: {fileID: 0}
   buttons: []

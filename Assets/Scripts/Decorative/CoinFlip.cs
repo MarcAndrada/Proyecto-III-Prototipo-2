@@ -1,43 +1,10 @@
-using System;
 using UnityEngine;
-using UnityEngine.UI;
-using Random = UnityEngine.Random;
+using UnityEngine.Rendering;
 
 public class CoinFlip : MonoBehaviour
 {
-    [SerializeField] private Sprite headsSprite;
-    [SerializeField] private Sprite tailsSprite;
-    [SerializeField] private Sprite normalSprite;
-    [Space(5)]
-    [SerializeField] private Sprite headsSpriteRed;
-    [SerializeField] private Sprite tailsSpriteRed;
-    [SerializeField] private Sprite normalSpriteRed;
-    [Space(5)]
-    [SerializeField] private Image coinImage;
-    
-    private bool isFlipping = false;
-    private bool isHeads;
-    private bool shouldDeactivate = false;
-    private RectTransform rectTransform;
-    private bool usingRedCoin;
-    
-    [Header("Timers")]
-    [SerializeField] private float flipDuration = 1f;
-    [SerializeField] private float deactivateDelay = 1f;
-    [SerializeField] private float slideDuration = 0.5f;
-    [SerializeField] private float vibrationDuration = 0.2f;
-    [SerializeField] private float vibrationIntensity = 10f;
-    
-    private float flipTime = 0f;
-    private float deactivateTimer = 0f;
-    private float slideTime = 0f;
-    private float vibrationTime = 0f;
 
-    // Original Positions
-    private Vector3 originalScale;
-    private Vector2 originalPosition;
-    private Vector2 targetPosition;
-
+    private Animator animator;
 
     [Space, Header("Audio"), SerializeField]
     private AudioClip coinFlip;
@@ -48,159 +15,43 @@ public class CoinFlip : MonoBehaviour
     [SerializeField]
     private AudioClip redCoinEnd;
 
+    private string lastAnim;
     private void Awake()
     {
-        rectTransform = GetComponent<RectTransform>(); 
+        animator = GetComponent<Animator>();
     }
 
-    private void Start()
+    public void GoNextState()
     {
-        usingRedCoin = false;
-        originalPosition = rectTransform.anchoredPosition;
-        targetPosition = originalPosition + new Vector2(0, -Screen.height * 2f);
-    }
-    
-    void Update()
-    {
-        if (isFlipping)
-        {
-            flipTime += Time.deltaTime;
+        GameManager.Instance.ChangeToNextGameState();
 
-            coinImage.transform.localScale = new Vector3(1, Mathf.Sin(flipTime * Mathf.PI * 4), 1);
-
-            if (flipTime >= flipDuration && !usingRedCoin)
-            {
-                EndFlip();
-            }
-            if (flipTime >= flipDuration && usingRedCoin)
-            {
-                EndFlipRed();
-                usingRedCoin = false;
-            }
-        }
-        
-        if (shouldDeactivate)
-        {
-            deactivateTimer += Time.deltaTime;
-
-            if (deactivateTimer >= deactivateDelay)
-            {
-                slideTime += Time.deltaTime;
-
-                float t = Mathf.Clamp01(slideTime / slideDuration);
-                rectTransform.anchoredPosition = Vector2.Lerp(originalPosition, targetPosition, t);
-
-                if (slideTime >= slideDuration)
-                {
-                    coinImage.gameObject.SetActive(false);
-                    shouldDeactivate = false;
-                    slideTime = 0f; 
-                    rectTransform.anchoredPosition = originalPosition;
-                }
-            }
-        }
-        
-        if (vibrationTime > 0f)
-        {
-            vibrationTime -= Time.deltaTime;
-            Vector2 vibration = new Vector2(Random.Range(-vibrationIntensity, vibrationIntensity), Random.Range(-vibrationIntensity, vibrationIntensity));
-            rectTransform.anchoredPosition += vibration;
-
-            if (vibrationTime <= 0f)
-            {
-                rectTransform.anchoredPosition = originalPosition;
-            }
-        }
-    }
-
-    public void FlipCoin()
-    {
-        if (isFlipping) return;
-
-        coinImage.sprite = normalSprite;
-        
-        isFlipping = true;
-        flipTime = 0f;
-        
-        coinImage.gameObject.SetActive(true);
-        
-        isHeads = Random.Range(0, 2) == 0;
-        rectTransform.anchoredPosition = originalPosition;
-
-        AmbientSoundController.instance.PlaySound(coinFlip, 1, Random.Range(0.9f, 1.1f));
-    }
-    public void FlipCoinRed()
-    {
-        usingRedCoin = true;
-
-        if (isFlipping) return;
-
-        coinImage.sprite = normalSpriteRed;
-        
-        isFlipping = true;
-        flipTime = 0f;
-        
-        coinImage.gameObject.SetActive(true);
-        
-        isHeads = Random.Range(0, 2) == 0;
-        rectTransform.anchoredPosition = originalPosition;
-
-        AmbientSoundController.instance.PlaySound(coinFlip, 0.8f, Random.Range(0.9f, 1.1f));
-    }
-    private void EndFlip()
-    {
-        coinImage.sprite = isHeads ? headsSprite : tailsSprite;
-
-        coinImage.transform.localScale = Vector3.one;
-
-        isFlipping = false;
-        
-        vibrationTime = vibrationDuration;
-        
-        deactivateTimer = 0f;
-        shouldDeactivate = true;
-
-        AudioClip nextClip;
-
-        if (isHeads)
-            nextClip = playerWin[Random.Range(0, playerWin.Length)];
+        if (GameManager.Instance.stateOrder == 0)
+            GameManager.Instance.playerLookController.AddAction(PlayerLookActionsController.LookAtActions.NORMAL_CAMERA, 1);
         else
-            nextClip = enemyWin[Random.Range(0, enemyWin.Length)];
+            GameManager.Instance.playerLookController.AddAction(PlayerLookActionsController.LookAtActions.ENEMY_TURN, 1);
 
-        AmbientSoundController.instance.PlaySound(nextClip, 0.4f, Random.Range(0.9f, 1.1f));
+        switch (lastAnim)
+        {
+            case "PlayerCoin":
+                AmbientSoundController.instance.PlaySound(playerWin[Random.Range(0, playerWin.Length)], 1, Random.Range(0.4f, 0.7f));
+                break;
+            case "EnemyCoin":
+                AmbientSoundController.instance.PlaySound(enemyWin[Random.Range(0, enemyWin.Length)], 1, Random.Range(0.4f, 0.7f));
+                break;
+            case "RedCoin":
+                AmbientSoundController.instance.PlaySound(redCoinEnd, 1, Random.Range(0.4f, 0.7f));
+                break;
 
-
-
-    }
-    private void EndFlipRed()
-    {
-        coinImage.sprite = isHeads ? headsSpriteRed : tailsSpriteRed;
-
-        coinImage.transform.localScale = Vector3.one;
-
-        isFlipping = false;
-        
-        vibrationTime = vibrationDuration;
-        
-        deactivateTimer = 0f;
-        shouldDeactivate = true;
-
-        AmbientSoundController.instance.PlaySound(redCoinEnd, 0.4f, Random.Range(0.9f, 1.1f));
+            default:
+                break;
+        }
 
     }
 
-
-    public bool GetIsFlipping()
+    public void PlayAnim(string _animString)
     {
-        return isFlipping;
-    }
-    public bool Result()
-    {
-        return isHeads;
-    }
-
-    public void SetResult(bool _isHeads)
-    {
-        isHeads = _isHeads;
+        lastAnim = _animString;
+        animator.SetTrigger(_animString);
+        AmbientSoundController.instance.PlaySound(coinFlip, 1, 1);
     }
 }
