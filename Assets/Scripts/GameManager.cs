@@ -74,8 +74,6 @@ public class GameManager : MonoBehaviour
     public ParticleSystem segarroSmoke { get; private set; }
     
     [field: Space, Header("Coin"), SerializeField]
-    public CoinFlip turnCoin { get; private set; }
-    [field: SerializeField]
     private ScrollingText scrollingText;
     private bool waitingForCoinFlip = false;
     private bool gameEnded = false;
@@ -109,14 +107,6 @@ public class GameManager : MonoBehaviour
             item.material = buttonMaterialDisabled;
         
         FlipCoin();
-    }
-
-    private void Update()
-    {
-        if (waitingForCoinFlip && !turnCoin.GetIsFlipping())
-        {
-            HandleCoinFlipResult();
-        }
     }
 
     private void ChangeGameState(GameState _nextState)
@@ -306,13 +296,13 @@ public class GameManager : MonoBehaviour
         if (enemyTurnSkipped)
         {
             scrollingText.SetText("Your Turn");
-            turnCoin.SetResult(true);
+            stateOrder = 0;
             Debug.Log("Enemy turn skipped");
         }
         else if(playerTurnSkipped)
         {
             scrollingText.SetText("Enemy Turn");
-            turnCoin.SetResult(false);
+            stateOrder = 1;
             Debug.Log("Player turn skipped");
         }
         else
@@ -329,44 +319,28 @@ public class GameManager : MonoBehaviour
             }
             else
             {
-                turnCoin.FlipCoin();
+                stateOrder = Random;
+
+                if (UsedItem(playerItemsUsed, Store.ItemType.RED_COIN))
+                {
+                    stateOrder = 0;
+                    playerItemsUsed.Remove(Store.ItemType.RED_COIN);
+                    scrollingText.SetText("Your Turn");
+                    playerLookController.AddAction(PlayerLookActionsController.LookAtActions.NORMAL_CAMERA, 1);
+                    ChangeToNextGameState();
+                    return;
+                }
+                else if (UsedItem(enemyItemsUsed, Store.ItemType.RED_COIN))
+                {
+                    stateOrder = 1;
+                    enemyItemsUsed.Remove(Store.ItemType.RED_COIN);
+                    scrollingText.SetText("Enemy Turn");
+                    ChangeToNextGameState();
+                    return;
+                }
             }
 
         }
-
-        waitingForCoinFlip = true;
-    }
-
-    private void HandleCoinFlipResult()
-    {
-        waitingForCoinFlip = false;
-
-        if (playerTurnSkipped || enemyTurnSkipped)
-        {
-            stateOrder = turnCoin.Result() ? 0 : 1;
-
-            if (UsedItem(playerItemsUsed, Store.ItemType.RED_COIN))
-            {
-                stateOrder = 0;
-                playerItemsUsed.Remove(Store.ItemType.RED_COIN);
-                scrollingText.SetText("Your Turn");
-                playerLookController.AddAction(PlayerLookActionsController.LookAtActions.NORMAL_CAMERA, 1);
-                ChangeToNextGameState();
-                return;
-            }
-            else if (UsedItem(enemyItemsUsed, Store.ItemType.RED_COIN))
-            {
-                stateOrder = 1;
-                enemyItemsUsed.Remove(Store.ItemType.RED_COIN);
-                scrollingText.SetText("Enemy Turn");
-                ChangeToNextGameState();
-                return;
-            }
-
-            playerTurnSkipped = false;
-            enemyTurnSkipped = false;
-        }
-        
 
         if (stateOrder == 0)
         {
@@ -377,8 +351,16 @@ public class GameManager : MonoBehaviour
         {
             scrollingText.SetText("Enemy Turn");
         }
-        
+
         ChangeToNextGameState();
+
+    }
+
+    private void HandleCoinFlipResult()
+    {
+        waitingForCoinFlip = false;
+
+        
     }
     public void ChangeHealth(bool _isPlayer, int _healthChange)
     {
