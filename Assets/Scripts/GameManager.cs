@@ -200,7 +200,7 @@ public class GameManager : MonoBehaviour
 
 
                     ChangeToNextGameState();
-                    scrollingText.SetText("Skipped Player Turn");
+                    scrollingText.SetText("Skipped Your Turn");
                     return;
                 }
 
