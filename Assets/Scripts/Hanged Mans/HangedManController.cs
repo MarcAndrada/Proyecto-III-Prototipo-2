@@ -6,7 +6,7 @@ public class HangedManController : MonoBehaviour
     private bool isPlayer;
 
     [SerializeField]
-    private float minYAlive;   
+    private float minYAlive;
     private Vector3 destinyPosition;
     [SerializeField]
     private GameObject body;
@@ -14,23 +14,39 @@ public class HangedManController : MonoBehaviour
     private int currentHealth;
 
     [Header("Explosion Effect")]
-    [SerializeField] 
+    [SerializeField]
     private ParticleSystem bloodParticles;
-    [SerializeField] 
+    [SerializeField]
     private GameObject fleshObject;
     private bool playerExploded = false;
-    
+
+    [Space, Header("SFX"), SerializeField]
+    private AudioClip upClip;
+    [SerializeField]
+    private AudioClip downClip;
+    [SerializeField]
+    private AudioClip crushClip;
+    [SerializeField]
+    private AudioClip fluidClip;
+    private AudioSource source;
+    private bool canSoundFluids;
+    private void Awake()
+    {
+        source = GetComponent<AudioSource>();
+    }
+
     void Start()
     {
         currentHealth = isPlayer ? GameManager.Instance.playerHangedManHealth : GameManager.Instance.enemyHangedManHealth;
         CalculateDestinyPos(currentHealth);
         transform.position = destinyPosition;
+        canSoundFluids = false;
     }
 
     void Update()
     {
         currentHealth = isPlayer ? GameManager.Instance.playerHangedManHealth : GameManager.Instance.enemyHangedManHealth;
-        if(GameManager.Instance.actionState == GameManager.ActionState.RESULTS)
+        if (GameManager.Instance.actionState == GameManager.ActionState.RESULTS)
         {
             CalculateDestinyPos(currentHealth);
             MoveBodyToDestiny();
@@ -40,7 +56,7 @@ public class HangedManController : MonoBehaviour
 
     private void CalculateDestinyPos(int _currentHealth)
     {
-        destinyPosition = 
+        destinyPosition =
             new Vector3(transform.position.x, minYAlive - GameManager.Instance.ropeOffset, transform.position.z) +
             (Vector3.up * _currentHealth * GameManager.Instance.ropeOffset);
     }
@@ -48,7 +64,7 @@ public class HangedManController : MonoBehaviour
     {
         float currentSpeed;
 
-        if(GameManager.Instance.state == GameManager.GameState.PLAYER_TURN)
+        if (GameManager.Instance.state == GameManager.GameState.PLAYER_TURN)
             currentSpeed = isPlayer ? GameManager.Instance.moveUpSpeed : GameManager.Instance.moveDownSpeed;
         else
             currentSpeed = isPlayer ? GameManager.Instance.moveDownSpeed : GameManager.Instance.moveUpSpeed;
@@ -74,8 +90,8 @@ public class HangedManController : MonoBehaviour
                 Rigidbody rb = flesh.GetComponent<Rigidbody>();
                 if (rb != null)
                 {
-                    Vector3 randomDirection = Random.insideUnitSphere.normalized; 
-                    float randomForce = Random.Range(5f, 10f);                  
+                    Vector3 randomDirection = Random.insideUnitSphere.normalized;
+                    float randomForce = Random.Range(5f, 10f);
                     rb.AddForce(randomDirection * randomForce, ForceMode.Impulse);
                 }
             }
@@ -83,15 +99,42 @@ public class HangedManController : MonoBehaviour
     }
     private void CheckIfCrushBody(int _currentHealth)
     {
-        if (_currentHealth > 0 
+        if (_currentHealth > 0
             || transform.position.y - minYAlive > 0.5f
             || playerExploded
             )
+        {
+            if (canSoundFluids && !source.isPlaying)
+            {
+                source.clip = fluidClip;
+                source.loop = true;
+                source.Play();
+            }
             return;
+        }
+
 
         //Triturar al player
         playerExploded = true;
         FleshExplode();
+        source.clip = crushClip;
+        source.Play();
+        
         body.SetActive(false);
+        canSoundFluids = true;
+
+
+
+    }
+
+    public void PlayDownSound()
+    {
+        source.clip = upClip;
+        source.Play();
+    }
+    public void PlayUpSound()
+    {
+        source.clip = downClip;
+        source.Play();
     }
 }

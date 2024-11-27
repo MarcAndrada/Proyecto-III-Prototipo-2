@@ -49,19 +49,24 @@ public class GameManager : MonoBehaviour
     [field: SerializeField]
     public float iconYOffset { get; private set; }
 
-    [Space, Header("Hanged mans"), SerializeField]
+    [field: Space, Header("Hanged mans"), SerializeField]
+    public GameObject playerDummy {  get; private set; }
+    [field: SerializeField]
+    public GameObject enemyDummy {  get; private set; }
+    [SerializeField]
     private int maxHealth;
     [field: SerializeField]
     public int playerHangedManHealth { get; private set; }
     [field: SerializeField]
     public int enemyHangedManHealth { get; private set; }
-
     [field: SerializeField]
     public float ropeOffset;
     [field: SerializeField]
     public float moveUpSpeed { get; private set; }
     [field: SerializeField]
     public float moveDownSpeed { get; private set; }
+
+    
 
     [field: Space, Header("Cigarrette"), SerializeField]
     public Transform cigarretteTransform {  get; private set; }
@@ -170,6 +175,10 @@ public class GameManager : MonoBehaviour
                     Debug.Log("Skip player turn");
                     playerTurnSkipped = true;
                     enemyItemsUsed.Remove(Store.ItemType.INTERRUPTOR);
+                    enemyItemsUsed.Remove(Store.ItemType.INTERRUPTOR);
+                    enemyItemsUsed.Remove(Store.ItemType.INTERRUPTOR);
+                    enemyItemsUsed.Remove(Store.ItemType.INTERRUPTOR);
+                    enemyItemsUsed.Remove(Store.ItemType.INTERRUPTOR);
                     ChangeToNextGameState();
                 }
                 break;
@@ -182,6 +191,10 @@ public class GameManager : MonoBehaviour
                 {
                     Debug.Log("Skip enemy turn");
                     enemyTurnSkipped = true;
+                    playerItemsUsed.Remove(Store.ItemType.INTERRUPTOR);
+                    playerItemsUsed.Remove(Store.ItemType.INTERRUPTOR);
+                    playerItemsUsed.Remove(Store.ItemType.INTERRUPTOR);
+                    playerItemsUsed.Remove(Store.ItemType.INTERRUPTOR);
                     playerItemsUsed.Remove(Store.ItemType.INTERRUPTOR);
                     ChangeToNextGameState();
                 }

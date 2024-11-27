@@ -30,6 +30,16 @@ public class Store : MonoBehaviour
     private int[] randomItemIndexes;
     private List<Button> generatedButtons = new List<Button>();
 
+    [Space, Header("SFX"), SerializeField]
+    private AudioClip buyClip;
+    [SerializeField]
+    private AudioClip noMoneyClip;
+    [SerializeField]
+    private AudioClip fullInventoryClip;
+    [SerializeField]
+    private AudioSource source;
+
+
     void Start()
     {
         if (!buttonContainer)
@@ -78,15 +88,19 @@ public class Store : MonoBehaviour
             {
                 moneyController.RemoveCoins(itemPrices[itemIndex]);
                 generatedButtons[buttonIndex].interactable = false;
+                source.clip = buyClip;
+                source.Play();
             }
             else
             {
-                Debug.Log("Inventario lleno.");
+                source.clip = fullInventoryClip;
+                source.Play();
             }
         }
         else
         {
-            Debug.Log("No tienes dinero");
+            source.clip = noMoneyClip;
+            source.Play();
         }
         
     }

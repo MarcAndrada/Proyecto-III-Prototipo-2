@@ -45,7 +45,11 @@ public class TurnController : MonoBehaviour
     [SerializeField]
     private AudioClip rotateClip;
     [SerializeField]
+    private AudioClip jokerClip;
+    [SerializeField]
     private AudioSource source;
+    [SerializeField]
+    private AudioSource jokerSource;
 
     private void Awake()
     {
@@ -145,6 +149,7 @@ public class TurnController : MonoBehaviour
             : GameManager.Instance.enemyItemsUsed;
 
         bool haveToMultiply = lastIconType == selectedIcons[currentLoopId].type || usedItemsType.Contains(Store.ItemType.JOKER);
+
         int currentMultiplier = 1;
 
         switch (selectedIcons[currentLoopId].type)
@@ -184,13 +189,36 @@ public class TurnController : MonoBehaviour
         if (selectedIcons[currentLoopId].type != SlotIcon.IconType.ROTATE)
         {
             lastIconType = selectedIcons[currentLoopId].type;
-            source.clip = hoveredClips[Mathf.Clamp(currentMultiplier - 1, 0, hoveredClips.Length - 1)];
-            source.Play();
+            if (source)
+            {
+                source.clip = hoveredClips[Mathf.Clamp(currentMultiplier - 1, 0, hoveredClips.Length - 1)];
+                source.Play();
+            }
+            else
+                AmbientSoundController.instance.PlaySound(hoveredClips[Mathf.Clamp(currentMultiplier - 1, 0, hoveredClips.Length - 1)], 1, UnityEngine.Random.Range(0.9f, 1.1f));
+
+            if (usedItemsType.Contains(Store.ItemType.JOKER))
+            {
+                if (jokerSource)
+                {
+                    jokerSource.pitch = UnityEngine.Random.Range(0.9f, 1.1f);
+                    jokerSource.Play();
+                }
+                else
+                    AmbientSoundController.instance.PlaySound(jokerClip, 1, UnityEngine.Random.Range(0.9f, 1.1f));
+            }
         }
         else
         {
-            source.clip = rotateClip;
-            source.Play();
+            if (source)
+            {
+                source.clip = rotateClip;
+                source.Play();
+            }
+            else
+                AmbientSoundController.instance.PlaySound(rotateClip, 1, UnityEngine.Random.Range(0.9f, 1.1f));
+
+           
         }
 
         selectedIcons[currentLoopId].backgroundImage.enabled = true;
@@ -250,9 +278,26 @@ public class TurnController : MonoBehaviour
         moneyController.AddCoins(roundCoins * roundCoinM);
         //A�adir los movimientos frontales
         GameManager.Instance.ChangeHealth(isPlayer, roundUpMovements * roundUpMovementM);
+
+        if(roundUpMovements != 0)
+        {
+            if (isPlayer)
+                GameManager.Instance.playerDummy.GetComponent<HangedManController>().PlayUpSound();
+            else
+                GameManager.Instance.enemyDummy.GetComponent<HangedManController>().PlayUpSound();
+        }
+
         //A�adir los movimientos traseros
         GameManager.Instance.ChangeHealth(!isPlayer, -roundDownMovements * roundDownMovementM);
-        
+        if (roundDownMovements != 0)
+        {
+            if (isPlayer)
+                GameManager.Instance.playerDummy.GetComponent<HangedManController>().PlayDownSound();
+            else
+                GameManager.Instance.enemyDummy.GetComponent<HangedManController>().PlayDownSound();
+
+        }
+
         DisableAllConnectionImages();
 
         Invoke("FinishTurn", 2.5f);

@@ -78,6 +78,8 @@ MonoBehaviour:
       Value: {fileID: 21300000, guid: b6d7d3ee5c80a984588d8c898889df0f, type: 3}
   <iconXOffset>k__BackingField: 400
   <iconYOffset>k__BackingField: 300
+  <playerDummy>k__BackingField: {fileID: 0}
+  <enemyDummy>k__BackingField: {fileID: 0}
   maxHealth: 25
   <playerHangedManHealth>k__BackingField: 20
   <enemyHangedManHealth>k__BackingField: 20
@@ -86,4 +88,8 @@ MonoBehaviour:
   <moveDownSpeed>k__BackingField: 10
   <cigarretteTransform>k__BackingField: {fileID: 0}
   <segarroSmoke>k__BackingField: {fileID: 0}
-  <lightController>k__BackingField: {fileID: 0}
+  <turnCoin>k__BackingField: {fileID: 0}
+  scrollingText: {fileID: 0}
+  buttonMaterialActive: {fileID: 0}
+  buttonMaterialDisabled: {fileID: 0}
+  buttons: []

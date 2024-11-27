@@ -225,19 +225,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shopItems: 000000000100000003000000020000000200000002000000
   itemSprites:
-  - {fileID: 21300000, guid: 68ad159cc3a183a47a596b32537c5e29, type: 3}
   - {fileID: 21300000, guid: bf5486f64469db74084205bb75d23ee0, type: 3}
   - {fileID: 21300000, guid: 26f2e6d58d82c2c43acef724184c825c, type: 3}
+  - {fileID: 21300000, guid: 68ad159cc3a183a47a596b32537c5e29, type: 3}
   - {fileID: 21300000, guid: 93b6e7a0873b6694cad2c6f78b88c9fc, type: 3}
   - {fileID: 21300000, guid: 93b6e7a0873b6694cad2c6f78b88c9fc, type: 3}
   - {fileID: 21300000, guid: 93b6e7a0873b6694cad2c6f78b88c9fc, type: 3}
-  - {fileID: 21300000, guid: 93b6e7a0873b6694cad2c6f78b88c9fc, type: 3}
-  itemPrices: 070000000a0000000f00000003000000030000000300000003000000
+  itemPrices: 0a0000000f00000007000000030000000300000003000000
   maxItems: 6
   buttonPrefab: {fileID: 3425665127037356398, guid: c2a64a46ee2eccd458df0e6d04358330, type: 3}
   buttonContainer: {fileID: 4037281434866042558}
   inventory: {fileID: 0}
   moneyController: {fileID: 0}
+  buyClip: {fileID: 8300000, guid: 109ca7bd5a06daf4984abcfdb4344646, type: 3}
+  noMoneyClip: {fileID: 8300000, guid: 5d29398f5b8c6e842a11af0ca38f9cb2, type: 3}
+  fullInventoryClip: {fileID: 8300000, guid: 29a572685212f5842ae905ca39494063, type: 3}
 --- !u!1001 &474148478303674122
 PrefabInstance:
   m_ObjectHideFlags: 0

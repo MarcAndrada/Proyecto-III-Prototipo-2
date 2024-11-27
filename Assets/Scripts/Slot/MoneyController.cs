@@ -56,6 +56,7 @@ public class MoneyController : MonoBehaviour
                 );
 
             coinList.Add(newCoin);
+
         }
 
         if(moneyCanvas)

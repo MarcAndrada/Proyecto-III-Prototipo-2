@@ -15,6 +15,14 @@ public class CigaretteObject : InteractableObject
     [SerializeField]
     private float smokeSpeed;
 
+    private AudioSource source;
+
+    protected override void Awake()
+    {
+        base.Awake();
+        source = GetComponent<AudioSource>();
+    }
+
     public override void ActivateObject()
     {
         GameManager.Instance.ItemUsed(Store.ItemType.CIGARRETTE);
@@ -29,6 +37,7 @@ public class CigaretteObject : InteractableObject
         }
         else
         {
+            source.Play();
             cigarretteProcess = 1;
         }
         
@@ -68,6 +77,7 @@ public class CigaretteObject : InteractableObject
         if(cigarretteProcess <= 1)
         {
             transform.parent = GameManager.Instance.cigarretteTransform;
+            source.Play();
         }
     }
 

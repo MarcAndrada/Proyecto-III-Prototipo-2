@@ -15,6 +15,13 @@ public class ItemsFeedbackController : MonoBehaviour
     [SerializeField]
     private GameObject cigarretteObject;
 
+    [Space, SerializeField]
+    private AudioSource source;
+    [SerializeField]
+    private AudioClip turnOnScreenClip;
+    [SerializeField]
+    private AudioClip turnOffScreenClip;
+
     private void Start()
     {
         ClearItemScreen();
@@ -32,7 +39,16 @@ public class ItemsFeedbackController : MonoBehaviour
             case Store.ItemType.INTERRUPTOR:
                 if(interruptorObject)
                     interruptorObject.SetActive(true);
+                
                 rivalScreenBlack.SetActive(true);
+                if (source)
+                {
+                    source.clip = turnOffScreenClip;
+                    source.Play();
+                }
+                else
+                    AmbientSoundController.instance.PlaySound(turnOffScreenClip, 1, 1);
+
                 break;
             case Store.ItemType.RED_COIN:
                 if(redCoinObject)
@@ -68,5 +84,13 @@ public class ItemsFeedbackController : MonoBehaviour
     public void TurnOnRivalScreen()
     {
         rivalScreenBlack.SetActive(false);
+
+        if (source)
+        {
+            source.clip = turnOnScreenClip;
+            source.Play();
+        }
+        else
+            AmbientSoundController.instance.PlaySound(turnOnScreenClip, 1, 1);
     }
 }

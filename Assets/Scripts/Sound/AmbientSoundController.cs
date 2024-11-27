@@ -37,7 +37,7 @@ public class AmbientSoundController : MonoBehaviour
     {
         foreach (AudioSource source in sources) 
         {
-            if (source.clip == null || source.isPlaying)
+            if (source.clip == null || !source.isPlaying)
                 return source;
         }
 

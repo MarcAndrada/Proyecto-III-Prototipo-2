@@ -6,6 +6,21 @@ public class BalanceObject : InteractableObject
     int randNum;
 
     private List<Store.ItemType> itemsGenerated = new List<Store.ItemType>();
+
+    private AudioSource source;
+    [SerializeField]
+    private AudioClip balanceMovingClip;
+    [SerializeField]
+    private AudioClip winClip;
+    [SerializeField]
+    private AudioClip loseClip;
+
+    protected override void Awake()
+    {
+        base.Awake();
+        source = GetComponent<AudioSource>();
+    }
+
     public override void ActivateObject()
     {
         transform.parent = null;
@@ -47,6 +62,9 @@ public class BalanceObject : InteractableObject
         
         if (randNum == 0)
         {
+            source.clip = winClip;
+            source.Play();
+
             //Dar 3 objetos   
             for (int i = 0; i < 3; i++)
             {
@@ -61,5 +79,16 @@ public class BalanceObject : InteractableObject
                 itemsGenerated.Add(item);
             }
         }
+        else
+        {
+            source.clip = loseClip; 
+            source.Play();
+        }
+    }
+
+    public void PlayBalanceSound()
+    {
+        source.clip = balanceMovingClip;
+        source.Play();
     }
 }
