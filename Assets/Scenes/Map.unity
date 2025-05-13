@@ -6273,11 +6273,19 @@ PrefabInstance:
       propertyPath: OutputAudioMixerGroup
       value: 
       objectReference: {fileID: -7008055529638653544, guid: 949c6aeb30ae155449096d5cd229b124, type: 2}
-    - target: {fileID: 2736438983028962021, guid: 62b63a3bb58009049a04dd4012c97b1f, type: 3}
+    - target: {fileID: 1872931340957644120, guid: 62b63a3bb58009049a04dd4012c97b1f, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: -7008055529638653544, guid: 949c6aeb30ae155449096d5cd229b124, type: 2}
+    - target: {fileID: 2606008361994564134, guid: 62b63a3bb58009049a04dd4012c97b1f, type: 3}
       propertyPath: OutputAudioMixerGroup
       value: 
       objectReference: {fileID: -7008055529638653544, guid: 949c6aeb30ae155449096d5cd229b124, type: 2}
     - target: {fileID: 2787296887849645874, guid: 62b63a3bb58009049a04dd4012c97b1f, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: -7008055529638653544, guid: 949c6aeb30ae155449096d5cd229b124, type: 2}
+    - target: {fileID: 2973745082614814093, guid: 62b63a3bb58009049a04dd4012c97b1f, type: 3}
       propertyPath: OutputAudioMixerGroup
       value: 
       objectReference: {fileID: -7008055529638653544, guid: 949c6aeb30ae155449096d5cd229b124, type: 2}
@@ -6349,7 +6357,7 @@ PrefabInstance:
       propertyPath: moneyCanvas
       value: 
       objectReference: {fileID: 8745211915676060490}
-    - target: {fileID: 7314548492548589458, guid: 62b63a3bb58009049a04dd4012c97b1f, type: 3}
+    - target: {fileID: 6247015795913646145, guid: 62b63a3bb58009049a04dd4012c97b1f, type: 3}
       propertyPath: OutputAudioMixerGroup
       value: 
       objectReference: {fileID: -7008055529638653544, guid: 949c6aeb30ae155449096d5cd229b124, type: 2}
@@ -6365,10 +6373,6 @@ PrefabInstance:
       propertyPath: slotCanvasController
       value: 
       objectReference: {fileID: 997125049}
-    - target: {fileID: 7561961005437034185, guid: 62b63a3bb58009049a04dd4012c97b1f, type: 3}
-      propertyPath: OutputAudioMixerGroup
-      value: 
-      objectReference: {fileID: -7008055529638653544, guid: 949c6aeb30ae155449096d5cd229b124, type: 2}
     - target: {fileID: 8490875912054459762, guid: 62b63a3bb58009049a04dd4012c97b1f, type: 3}
       propertyPath: iconsUI.Array.data[0].iconImage
       value: 
