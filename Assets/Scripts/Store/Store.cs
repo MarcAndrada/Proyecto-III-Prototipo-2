@@ -60,7 +60,14 @@ public class Store : MonoBehaviour
         for (int i = 0; i < randomItemIndexes.Length; i++)
         {
             int randomIndex = Random.Range(0, shopItems.Length);
+            if (!GameManager.Instance.itemsPrefabs[shopItems[randomIndex]].unlocked)
+            {
+                i--;
+                continue;
+            }
+
             randomItemIndexes[i] = randomIndex;
+
 
             GameObject buttonObj = Instantiate(buttonPrefab, buttonContainer);
 

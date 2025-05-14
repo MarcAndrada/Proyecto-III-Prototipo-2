@@ -10,7 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 258f25da82e5fdc4d83d81bedd375a86, type: 3}
-  m_Name: LeverInfo
+  m_Name: JokerInfo
   m_EditorClassIdentifier: 
-  <objectName>k__BackingField: Lever
+  <objectName>k__BackingField: Joker
   <objectDescription>k__BackingField: 
+  <objectPrefab>k__BackingField: {fileID: 2676114155494150353, guid: 45d7feb7df185c446a086b1baab24a38, type: 3}
+  unlocked: 0
+  <medalPrefab>k__BackingField: {fileID: 1640251002505431482, guid: 1fe14c8108767324f92fb16661b57ebf, type: 3}

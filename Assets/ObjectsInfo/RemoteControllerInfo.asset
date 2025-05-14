@@ -10,7 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 258f25da82e5fdc4d83d81bedd375a86, type: 3}
-  m_Name: JokerInfo
+  m_Name: RemoteControllerInfo
   m_EditorClassIdentifier: 
-  <objectName>k__BackingField: Joker
+  <objectName>k__BackingField: Remote Control
   <objectDescription>k__BackingField: 
+  <objectPrefab>k__BackingField: {fileID: 8383113559112466339, guid: 3f6b5e4a4047e9040a8e61efe599995d, type: 3}
+  unlocked: 1
