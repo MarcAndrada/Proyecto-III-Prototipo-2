@@ -1096,9 +1096,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: QuitButton
+      - m_Target: {fileID: 217366543}
+        m_TargetAssemblyTypeName: EndCanvasController, Assembly-CSharp
+        m_MethodName: GoMainMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1578,10 +1578,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3461601325117904094, guid: d3c5c2ed8d2cb7f479df90947cc18342, type: 3}
-      propertyPath: maxHealth
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3461601325117904094, guid: d3c5c2ed8d2cb7f479df90947cc18342, type: 3}
       propertyPath: winCanvas
       value: 
@@ -2950,6 +2946,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 217366542}
+  - component: {fileID: 217366543}
   m_Layer: 0
   m_Name: MedalUnlocker
   m_TagString: Untagged
@@ -2973,6 +2970,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &217366543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 217366540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d58e7c4a5eddfba40abe1d429f3e3fcf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &225718343
 GameObject:
   m_ObjectHideFlags: 0
@@ -3057,9 +3066,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: PlayButton
+      - m_Target: {fileID: 217366543}
+        m_TargetAssemblyTypeName: EndCanvasController, Assembly-CSharp
+        m_MethodName: Restart
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7834,9 +7843,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: QuitButton
+      - m_Target: {fileID: 217366543}
+        m_TargetAssemblyTypeName: EndCanvasController, Assembly-CSharp
+        m_MethodName: GoMainMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -15728,10 +15737,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e7870ea4bf2fa25438fc236a0dade187, type: 2}
   - {fileID: 11400000, guid: 9b5e44650973f63408f3022be7bdab3f, type: 2}
   - {fileID: 11400000, guid: 001fc88e07729444da5b9877becbf614, type: 2}
-  sprites:
-  - {fileID: 21300000, guid: 329a6766bf203034d9141d6d1a79f4d0, type: 3}
-  - {fileID: 21300000, guid: 095796928d774694792768f0b9294bb6, type: 3}
-  - {fileID: 21300000, guid: 8b736f77126494a4aa60e85f6388b004, type: 3}
 --- !u!1 &1320350620
 GameObject:
   m_ObjectHideFlags: 0
@@ -22557,9 +22562,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: PlayButton
+      - m_Target: {fileID: 217366543}
+        m_TargetAssemblyTypeName: EndCanvasController, Assembly-CSharp
+        m_MethodName: Restart
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

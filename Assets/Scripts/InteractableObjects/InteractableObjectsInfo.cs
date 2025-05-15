@@ -13,4 +13,6 @@ public class InteractableObjectsInfo : ScriptableObject
     public bool unlocked;
     [field: SerializeField]
     public GameObject medalPrefab { get; private set; }
+    [field: SerializeField]
+    public Sprite medalSprite { get; private set; }
 }

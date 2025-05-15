@@ -1,3 +1,4 @@
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,8 +9,6 @@ public class UnlockMedalController : MonoBehaviour
 
     [SerializeField]
     private InteractableObjectsInfo[] objectsToUnlock;
-    [SerializeField]
-    private Sprite[] sprites;
     private void OnEnable()
     {
         Sprite currentSprite = null;
@@ -18,7 +17,7 @@ public class UnlockMedalController : MonoBehaviour
             if (!objectsToUnlock[i].unlocked)
             {
                 objectsToUnlock[i].unlocked = true;
-                currentSprite = sprites[i];
+                currentSprite = objectsToUnlock[i].medalSprite;
                 break;
             }
         }

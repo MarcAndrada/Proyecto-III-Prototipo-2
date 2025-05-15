@@ -17,3 +17,4 @@ MonoBehaviour:
   <objectPrefab>k__BackingField: {fileID: 658043596217429569, guid: 6a1caffdbae0797479e11ef9ee3a4ae7, type: 3}
   unlocked: 1
   <medalPrefab>k__BackingField: {fileID: 393489330055746441, guid: a35fd05bc192d4e419a7d92ca2a6cda5, type: 3}
+  <medalSprite>k__BackingField: {fileID: 21300000, guid: 329a6766bf203034d9141d6d1a79f4d0, type: 3}
