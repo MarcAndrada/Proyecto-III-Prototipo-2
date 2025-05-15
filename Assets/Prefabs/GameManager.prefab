@@ -1,0 +1,96 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5584664896709711809
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5420247416016986625}
+  - component: {fileID: 3461601325117904094}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5420247416016986625
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5584664896709711809}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.8188409, y: 1.178164, z: -11.225616}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3461601325117904094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5584664896709711809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 357a005aa1ce2a2439e0753d6a5d3c27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerItemsUsed: 
+  enemyItemsUsed: 
+  itemsPrefabs:
+    _serializedList:
+    - Key: 0
+      Value: {fileID: 2676114155494150353, guid: 45d7feb7df185c446a086b1baab24a38, type: 3}
+    - Key: 1
+      Value: {fileID: 8383113559112466339, guid: 3f6b5e4a4047e9040a8e61efe599995d, type: 3}
+    - Key: 2
+      Value: {fileID: 4226870186988666106, guid: bde9788f043d8044b9ec89f93bac9104, type: 3}
+    - Key: 3
+      Value: {fileID: 658043596217429569, guid: 6a1caffdbae0797479e11ef9ee3a4ae7, type: 3}
+    - Key: 4
+      Value: {fileID: 4117750167068455708, guid: 49da5920032a3914e877e3b25051cbb2, type: 3}
+  <playerLookController>k__BackingField: {fileID: 0}
+  <state>k__BackingField: 0
+  <actionState>k__BackingField: 0
+  <playerSlot>k__BackingField: {fileID: 0}
+  <enemySlot>k__BackingField: {fileID: 0}
+  <slotWidth>k__BackingField: 4
+  <slotHeight>k__BackingField: 3
+  <actionResultIconDuration>k__BackingField: 1
+  iconSprite:
+    _serializedList:
+    - Key: 1
+      Value: {fileID: 21300000, guid: 4a8ffd46262aca84c85069fbdfa616dc, type: 3}
+    - Key: 2
+      Value: {fileID: 21300000, guid: 27e2d973fe33479488e667121fb8edbf, type: 3}
+    - Key: 3
+      Value: {fileID: 21300000, guid: 15bea563fa9cd124b975ce4ec400e090, type: 3}
+    - Key: 4
+      Value: {fileID: 21300000, guid: b6d7d3ee5c80a984588d8c898889df0f, type: 3}
+  <iconXOffset>k__BackingField: 400
+  <iconYOffset>k__BackingField: 300
+  <playerDummy>k__BackingField: {fileID: 0}
+  <enemyDummy>k__BackingField: {fileID: 0}
+  maxHealth: 25
+  <playerHangedManHealth>k__BackingField: 20
+  <enemyHangedManHealth>k__BackingField: 20
+  ropeOffset: 0.32
+  <moveUpSpeed>k__BackingField: 2
+  <moveDownSpeed>k__BackingField: 10
+  <cigarretteTransform>k__BackingField: {fileID: 0}
+  <segarroSmoke>k__BackingField: {fileID: 0}
+  coinController: {fileID: 0}
+  scrollingText: {fileID: 0}
+  coinFlipClip: {fileID: 8300000, guid: b948949d4fe933d4a85051f3119e266e, type: 3}
+  buttonMaterialActive: {fileID: 0}
+  buttonMaterialDisabled: {fileID: 0}
+  buttons: []
