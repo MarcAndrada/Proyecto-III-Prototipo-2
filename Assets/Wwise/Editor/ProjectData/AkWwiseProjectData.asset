@@ -1,0 +1,832 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42e1800aa7dec80478c50812c8c0f003, type: 3}
+  m_Name: AkWwiseProjectData
+  m_EditorClassIdentifier: 
+  AcousticTextureWwu:
+  - PhysicalPath: Virtual Acoustics\Default Work Unit.wwu
+    PathAndIcons:
+    - ElementName: Virtual Acoustics
+      ObjectType: 5
+      guid: 00000000000000000000000000000000
+    - ElementName: Default Work Unit
+      ObjectType: 12
+      guid: 394b69fb74011645be98af9caf66d18c
+    ParentPath: Virtual Acoustics\Default Work Unit
+    guid: 394b69fb74011645be98af9caf66d18c
+    GuidInternal: 
+    m_lastTime: -8584534969338501340
+    List: []
+  AuxBusWwu:
+  - PhysicalPath: Master-Mixer Hierarchy\Default Work Unit.wwu
+    PathAndIcons:
+    - ElementName: Master-Mixer Hierarchy
+      ObjectType: 5
+      guid: 00000000000000000000000000000000
+    - ElementName: Default Work Unit
+      ObjectType: 12
+      guid: 291e6f901c6a3147b64d266ef06d132a
+    ParentPath: Master-Mixer Hierarchy\Default Work Unit
+    guid: 291e6f901c6a3147b64d266ef06d132a
+    GuidInternal: 
+    m_lastTime: -8584534969339337126
+    List:
+    - name: Master Audio Bus
+      guid: d8a41415a61d2a41a17e75ca0c2149f3
+      id: 3803692087
+      PathAndIcons:
+      - ElementName: Master-Mixer Hierarchy
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 291e6f901c6a3147b64d266ef06d132a
+      - ElementName: Master Audio Bus
+        ObjectType: 2
+        guid: d8a41415a61d2a41a17e75ca0c2149f3
+      Path: Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus
+  BankWwu:
+  - PhysicalPath: SoundBanks\Default Work Unit.wwu
+    PathAndIcons:
+    - ElementName: SoundBanks
+      ObjectType: 5
+      guid: 00000000000000000000000000000000
+    - ElementName: Default Work Unit
+      ObjectType: 12
+      guid: 878fe54af84f4345a3f8343e9b199dde
+    ParentPath: SoundBanks\Default Work Unit
+    guid: 878fe54af84f4345a3f8343e9b199dde
+    GuidInternal: 
+    m_lastTime: -8584528861332272752
+    List:
+    - name: Main
+      guid: 33e95e4947572b4795b80ad0e1e047a8
+      id: 3161908922
+      PathAndIcons:
+      - ElementName: SoundBanks
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 878fe54af84f4345a3f8343e9b199dde
+      - ElementName: Main
+        ObjectType: 7
+        guid: 33e95e4947572b4795b80ad0e1e047a8
+      Path: SoundBanks\Default Work Unit\Main
+  EventWwu:
+  - PhysicalPath: Events\Default Work Unit.wwu
+    PathAndIcons:
+    - ElementName: Events
+      ObjectType: 5
+      guid: 00000000000000000000000000000000
+    - ElementName: Default Work Unit
+      ObjectType: 12
+      guid: 055532cd20e34a4ab53f985ce759d54a
+    ParentPath: Events\Default Work Unit
+    guid: 055532cd20e34a4ab53f985ce759d54a
+    GuidInternal: 
+    m_lastTime: -8584528860850288256
+    List:
+    - name: BalanceLose
+      guid: 0deb812b4d08304c802355755caadf44
+      id: 4020120096
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 055532cd20e34a4ab53f985ce759d54a
+      - ElementName: BalanceLose
+        ObjectType: 3
+        guid: 0deb812b4d08304c802355755caadf44
+      Path: Events\Default Work Unit\BalanceLose
+      maxAttenuation: 0
+      maxDuration: 2.083159
+      minDuration: 1.8558838
+    - name: BalanceMove
+      guid: 9e9f20878093b342a0e0d7ba21640c6b
+      id: 2412137972
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 055532cd20e34a4ab53f985ce759d54a
+      - ElementName: BalanceMove
+        ObjectType: 3
+        guid: 9e9f20878093b342a0e0d7ba21640c6b
+      Path: Events\Default Work Unit\BalanceMove
+      maxAttenuation: 0
+      maxDuration: 0.83363855
+      minDuration: 0.66165936
+    - name: BalanceWin
+      guid: c46703d23ec6b94986ba58ba58a9431f
+      id: 155621611
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 055532cd20e34a4ab53f985ce759d54a
+      - ElementName: BalanceWin
+        ObjectType: 3
+        guid: c46703d23ec6b94986ba58ba58a9431f
+      Path: Events\Default Work Unit\BalanceWin
+      maxAttenuation: 0
+      maxDuration: 3.3041646
+      minDuration: 2.943676
+    - name: Cigarette
+      guid: 0974eed483a1434687e6dd8788aa9721
+      id: 3307530599
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 055532cd20e34a4ab53f985ce759d54a
+      - ElementName: Cigarette
+        ObjectType: 3
+        guid: 0974eed483a1434687e6dd8788aa9721
+      Path: Events\Default Work Unit\Cigarette
+      maxAttenuation: 0
+      maxDuration: 17.341524
+      minDuration: 16.36822
+    - name: CoinFall
+      guid: a84d7ca23ee316418f96bd1fa1cc7adc
+      id: 2655758413
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 055532cd20e34a4ab53f985ce759d54a
+      - ElementName: CoinFall
+        ObjectType: 3
+        guid: a84d7ca23ee316418f96bd1fa1cc7adc
+      Path: Events\Default Work Unit\CoinFall
+      maxAttenuation: 0
+      maxDuration: 2.3339698
+      minDuration: 1.7485017
+    - name: Crowd
+      guid: 5c0e0374d62c6645b75ec3614d1b3a90
+      id: 2848349012
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 055532cd20e34a4ab53f985ce759d54a
+      - ElementName: Crowd
+        ObjectType: 3
+        guid: 5c0e0374d62c6645b75ec3614d1b3a90
+      Path: Events\Default Work Unit\Crowd
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: DummyCrush
+      guid: 0d54abaf24d88a4aaa79b8da65568ed4
+      id: 3518705528
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 055532cd20e34a4ab53f985ce759d54a
+      - ElementName: DummyCrush
+        ObjectType: 3
+        guid: 0d54abaf24d88a4aaa79b8da65568ed4
+      Path: Events\Default Work Unit\DummyCrush
+      maxAttenuation: 0
+      maxDuration: 0.9753604
+      minDuration: 0.9206176
+    - name: DummyDown
+      guid: 831f71b68033b84593313d2b9ff427a1
+      id: 213344387
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 055532cd20e34a4ab53f985ce759d54a
+      - ElementName: DummyDown
+        ObjectType: 3
+        guid: 831f71b68033b84593313d2b9ff427a1
+      Path: Events\Default Work Unit\DummyDown
+      maxAttenuation: 0
+      maxDuration: 1.251171
+      minDuration: 0.9930551
+    - name: DummyFluids
+      guid: bf81f733d33cb04889c45063fa30a896
+      id: 1059185820
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 055532cd20e34a4ab53f985ce759d54a
+      - ElementName: DummyFluids
+        ObjectType: 3
+        guid: bf81f733d33cb04889c45063fa30a896
+      Path: Events\Default Work Unit\DummyFluids
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: DummyUp
+      guid: f5ef2239160b3449b33378f8172e7309
+      id: 802614564
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 055532cd20e34a4ab53f985ce759d54a
+      - ElementName: DummyUp
+        ObjectType: 3
+        guid: f5ef2239160b3449b33378f8172e7309
+      Path: Events\Default Work Unit\DummyUp
+      maxAttenuation: 0
+      maxDuration: 2.2550144
+      minDuration: 1.7898062
+    - name: FlipRedCoin
+      guid: 811e465aa6bcd34cbfcc91e0dffea9e7
+      id: 762051322
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 055532cd20e34a4ab53f985ce759d54a
+      - ElementName: FlipRedCoin
+        ObjectType: 3
+        guid: 811e465aa6bcd34cbfcc91e0dffea9e7
+      Path: Events\Default Work Unit\FlipRedCoin
+      maxAttenuation: 0
+      maxDuration: 0.80497575
+      minDuration: 0.71715176
+    - name: HoverButton
+      guid: af8c584ccfd7ea41a9477f22b4682f7b
+      id: 2710047957
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 055532cd20e34a4ab53f985ce759d54a
+      - ElementName: HoverButton
+        ObjectType: 3
+        guid: af8c584ccfd7ea41a9477f22b4682f7b
+      Path: Events\Default Work Unit\HoverButton
+      maxAttenuation: 0
+      maxDuration: 0.07637264
+      minDuration: 0.06804028
+    - name: InterruptorPress
+      guid: 05c174381596964885bea11daf6f9d5a
+      id: 3446469450
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 055532cd20e34a4ab53f985ce759d54a
+      - ElementName: InterruptorPress
+        ObjectType: 3
+        guid: 05c174381596964885bea11daf6f9d5a
+      Path: Events\Default Work Unit\InterruptorPress
+      maxAttenuation: 0
+      maxDuration: 2.1189263
+      minDuration: 1.8877485
+    - name: JokerLaugh
+      guid: 5fb65232105e344796173d8b1bc0cc8b
+      id: 2607658113
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 055532cd20e34a4ab53f985ce759d54a
+      - ElementName: JokerLaugh
+        ObjectType: 3
+        guid: 5fb65232105e344796173d8b1bc0cc8b
+      Path: Events\Default Work Unit\JokerLaugh
+      maxAttenuation: 0
+      maxDuration: 2.2660732
+      minDuration: 2.1388881
+    - name: LeverPull
+      guid: 02e7ab13999bc64e9f36751009687ed3
+      id: 2563778470
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 055532cd20e34a4ab53f985ce759d54a
+      - ElementName: LeverPull
+        ObjectType: 3
+        guid: 02e7ab13999bc64e9f36751009687ed3
+      Path: Events\Default Work Unit\LeverPull
+      maxAttenuation: 0
+      maxDuration: 2.0834186
+      minDuration: 1.8561147
+    - name: PressButton
+      guid: b1dfde03f5c4b24ca59dcd318f44cc9a
+      id: 2561485778
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 055532cd20e34a4ab53f985ce759d54a
+      - ElementName: PressButton
+        ObjectType: 3
+        guid: b1dfde03f5c4b24ca59dcd318f44cc9a
+      Path: Events\Default Work Unit\PressButton
+      maxAttenuation: 0
+      maxDuration: 0.4421565
+      minDuration: 0.41734016
+    - name: Saw
+      guid: 7ec097235ca47446895869d846717848
+      id: 443572616
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 055532cd20e34a4ab53f985ce759d54a
+      - ElementName: Saw
+        ObjectType: 3
+        guid: 7ec097235ca47446895869d846717848
+      Path: Events\Default Work Unit\Saw
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: Screen
+      guid: a68948bcd4f13a4a82d6112653ad0ffe
+      id: 804877345
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 055532cd20e34a4ab53f985ce759d54a
+      - ElementName: Screen
+        ObjectType: 3
+        guid: a68948bcd4f13a4a82d6112653ad0ffe
+      Path: Events\Default Work Unit\Screen
+      maxAttenuation: 0
+      maxDuration: 0.21505721
+      minDuration: 0.1217896
+    - name: ShopBuy
+      guid: 244c125a7d662e40b0876ab90c16b657
+      id: 1153606107
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 055532cd20e34a4ab53f985ce759d54a
+      - ElementName: ShopBuy
+        ObjectType: 3
+        guid: 244c125a7d662e40b0876ab90c16b657
+      Path: Events\Default Work Unit\ShopBuy
+      maxAttenuation: 0
+      maxDuration: 2.330819
+      minDuration: 2.0765233
+    - name: ShopInventoryFull
+      guid: 19e99851b5a0a647a9118ec1383927f1
+      id: 1063113708
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 055532cd20e34a4ab53f985ce759d54a
+      - ElementName: ShopInventoryFull
+        ObjectType: 3
+        guid: 19e99851b5a0a647a9118ec1383927f1
+      Path: Events\Default Work Unit\ShopInventoryFull
+      maxAttenuation: 0
+      maxDuration: 0.6193652
+      minDuration: 0.49159047
+    - name: ShopNoMoney
+      guid: 840177bb41715a43a40fe58f5e75d198
+      id: 66472324
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 055532cd20e34a4ab53f985ce759d54a
+      - ElementName: ShopNoMoney
+        ObjectType: 3
+        guid: 840177bb41715a43a40fe58f5e75d198
+      Path: Events\Default Work Unit\ShopNoMoney
+      maxAttenuation: 0
+      maxDuration: 1.0491965
+      minDuration: 0.78600925
+    - name: SlotAnimation
+      guid: ed474ca97f64fb408859ca9364a6cc3a
+      id: 1005173321
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 055532cd20e34a4ab53f985ce759d54a
+      - ElementName: SlotAnimation
+        ObjectType: 3
+        guid: ed474ca97f64fb408859ca9364a6cc3a
+      Path: Events\Default Work Unit\SlotAnimation
+      maxAttenuation: 0
+      maxDuration: 2.6685905
+      minDuration: 2.538458
+    - name: SlotIcon
+      guid: 90b899ccc4679f49a4165afb754b8d66
+      id: 4028009350
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 055532cd20e34a4ab53f985ce759d54a
+      - ElementName: SlotIcon
+        ObjectType: 3
+        guid: 90b899ccc4679f49a4165afb754b8d66
+      Path: Events\Default Work Unit\SlotIcon
+      maxAttenuation: 0
+      maxDuration: 1.9812855
+      minDuration: 0.18361403
+    - name: TurnCoinFlip
+      guid: a9d4f60ba6cb6a4bab549095e79f3a79
+      id: 408639982
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 055532cd20e34a4ab53f985ce759d54a
+      - ElementName: TurnCoinFlip
+        ObjectType: 3
+        guid: a9d4f60ba6cb6a4bab549095e79f3a79
+      Path: Events\Default Work Unit\TurnCoinFlip
+      maxAttenuation: 0
+      maxDuration: 3.9565063
+      minDuration: 3.5248458
+    - name: TurnCoinResult
+      guid: eeeebc14e15c3f4ab425a31d16417955
+      id: 1628677272
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 055532cd20e34a4ab53f985ce759d54a
+      - ElementName: TurnCoinResult
+        ObjectType: 3
+        guid: eeeebc14e15c3f4ab425a31d16417955
+      Path: Events\Default Work Unit\TurnCoinResult
+      maxAttenuation: 0
+      maxDuration: 8.300181
+      minDuration: 2.1374376
+    - name: Ventilation
+      guid: dec43a3f0d2bc744bc9e4ff3ce6a75a3
+      id: 3172605362
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 055532cd20e34a4ab53f985ce759d54a
+      - ElementName: Ventilation
+        ObjectType: 3
+        guid: dec43a3f0d2bc744bc9e4ff3ce6a75a3
+      Path: Events\Default Work Unit\Ventilation
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+  RtpcWwu:
+  - PhysicalPath: Game Parameters\Default Work Unit.wwu
+    PathAndIcons:
+    - ElementName: Game Parameters
+      ObjectType: 5
+      guid: 00000000000000000000000000000000
+    - ElementName: Default Work Unit
+      ObjectType: 12
+      guid: e5af774ece5ba94ba6bec8f724b0eaf5
+    ParentPath: Game Parameters\Default Work Unit
+    guid: e5af774ece5ba94ba6bec8f724b0eaf5
+    GuidInternal: 
+    m_lastTime: -8584534969339676361
+    List: []
+  StateWwu:
+  - PhysicalPath: States\Default Work Unit.wwu
+    PathAndIcons:
+    - ElementName: States
+      ObjectType: 5
+      guid: 00000000000000000000000000000000
+    - ElementName: Default Work Unit
+      ObjectType: 12
+      guid: 5ab71de635f7c146a2c97fd16d86f14c
+    ParentPath: States\Default Work Unit
+    guid: 5ab71de635f7c146a2c97fd16d86f14c
+    GuidInternal: 
+    m_lastTime: -8584528933874951327
+    List:
+    - name: Screen
+      guid: 6753a9a53a6ea7429cc829407ec8c4b2
+      id: 804877345
+      PathAndIcons:
+      - ElementName: States
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 5ab71de635f7c146a2c97fd16d86f14c
+      - ElementName: Screen
+        ObjectType: 9
+        guid: 6753a9a53a6ea7429cc829407ec8c4b2
+      Path: States\Default Work Unit\Screen
+      values:
+      - name: None
+        guid: b5b7ab38f5a01b4aaa1950d4f3772030
+        id: 748895195
+        PathAndIcons:
+        - ElementName: States
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: 5ab71de635f7c146a2c97fd16d86f14c
+        - ElementName: Screen
+          ObjectType: 9
+          guid: 6753a9a53a6ea7429cc829407ec8c4b2
+        - ElementName: None
+          ObjectType: 8
+          guid: b5b7ab38f5a01b4aaa1950d4f3772030
+      - name: ScreenOff
+        guid: aa99a412ede1a747b52996b46fc850bd
+        id: 1092031120
+        PathAndIcons:
+        - ElementName: States
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: 5ab71de635f7c146a2c97fd16d86f14c
+        - ElementName: Screen
+          ObjectType: 9
+          guid: 6753a9a53a6ea7429cc829407ec8c4b2
+        - ElementName: ScreenOff
+          ObjectType: 8
+          guid: aa99a412ede1a747b52996b46fc850bd
+      - name: ScreenOn
+        guid: b2b7b8b3239d1040aa846c51aa727486
+        id: 99209978
+        PathAndIcons:
+        - ElementName: States
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: 5ab71de635f7c146a2c97fd16d86f14c
+        - ElementName: Screen
+          ObjectType: 9
+          guid: 6753a9a53a6ea7429cc829407ec8c4b2
+        - ElementName: ScreenOn
+          ObjectType: 8
+          guid: b2b7b8b3239d1040aa846c51aa727486
+      ValueGuids: []
+      ValueIcons: []
+      valuesInternal: []
+  SwitchWwu:
+  - PhysicalPath: Switches\Default Work Unit.wwu
+    PathAndIcons:
+    - ElementName: Switches
+      ObjectType: 5
+      guid: 00000000000000000000000000000000
+    - ElementName: Default Work Unit
+      ObjectType: 12
+      guid: c7db411c2db012489cd05c4a8ded8bc0
+    ParentPath: Switches\Default Work Unit
+    guid: c7db411c2db012489cd05c4a8ded8bc0
+    GuidInternal: 
+    m_lastTime: -8584528899660998588
+    List:
+    - name: SlotIcon
+      guid: 32b8bced42e93c499b9e0437062e3a33
+      id: 4028009350
+      PathAndIcons:
+      - ElementName: Switches
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: c7db411c2db012489cd05c4a8ded8bc0
+      - ElementName: SlotIcon
+        ObjectType: 11
+        guid: 32b8bced42e93c499b9e0437062e3a33
+      Path: Switches\Default Work Unit\SlotIcon
+      values:
+      - name: Joker
+        guid: f013a01d41d3424eac7c37cc91b5d83f
+        id: 856429646
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: c7db411c2db012489cd05c4a8ded8bc0
+        - ElementName: SlotIcon
+          ObjectType: 11
+          guid: 32b8bced42e93c499b9e0437062e3a33
+        - ElementName: Joker
+          ObjectType: 10
+          guid: f013a01d41d3424eac7c37cc91b5d83f
+      - name: Rotate
+        guid: ed6d129f4f43a54ea1c7e522d576e069
+        id: 1302771492
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: c7db411c2db012489cd05c4a8ded8bc0
+        - ElementName: SlotIcon
+          ObjectType: 11
+          guid: 32b8bced42e93c499b9e0437062e3a33
+        - ElementName: Rotate
+          ObjectType: 10
+          guid: ed6d129f4f43a54ea1c7e522d576e069
+      - name: x1
+        guid: 574243623f63b54b8f7b703eba8dea37
+        id: 1500973332
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: c7db411c2db012489cd05c4a8ded8bc0
+        - ElementName: SlotIcon
+          ObjectType: 11
+          guid: 32b8bced42e93c499b9e0437062e3a33
+        - ElementName: x1
+          ObjectType: 10
+          guid: 574243623f63b54b8f7b703eba8dea37
+      - name: x2
+        guid: b1bcdfeaae0da74493a633747e6d6184
+        id: 1500973335
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: c7db411c2db012489cd05c4a8ded8bc0
+        - ElementName: SlotIcon
+          ObjectType: 11
+          guid: 32b8bced42e93c499b9e0437062e3a33
+        - ElementName: x2
+          ObjectType: 10
+          guid: b1bcdfeaae0da74493a633747e6d6184
+      - name: x3
+        guid: 2cddd1cab2d1864881f7a2e9117fc1bc
+        id: 1500973334
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: c7db411c2db012489cd05c4a8ded8bc0
+        - ElementName: SlotIcon
+          ObjectType: 11
+          guid: 32b8bced42e93c499b9e0437062e3a33
+        - ElementName: x3
+          ObjectType: 10
+          guid: 2cddd1cab2d1864881f7a2e9117fc1bc
+      ValueGuids: []
+      ValueIcons: []
+      valuesInternal: []
+    - name: TurnCoinFlip
+      guid: 3ac6b94c0a492841b6c6d64c9944e8da
+      id: 408639982
+      PathAndIcons:
+      - ElementName: Switches
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: c7db411c2db012489cd05c4a8ded8bc0
+      - ElementName: TurnCoinFlip
+        ObjectType: 11
+        guid: 3ac6b94c0a492841b6c6d64c9944e8da
+      Path: Switches\Default Work Unit\TurnCoinFlip
+      values:
+      - name: Enemy
+        guid: cf5d8e6a9ca8874b900c45f7317a77e1
+        id: 2299321487
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: c7db411c2db012489cd05c4a8ded8bc0
+        - ElementName: TurnCoinFlip
+          ObjectType: 11
+          guid: 3ac6b94c0a492841b6c6d64c9944e8da
+        - ElementName: Enemy
+          ObjectType: 10
+          guid: cf5d8e6a9ca8874b900c45f7317a77e1
+      - name: Player
+        guid: 771f76c2ebff3e4e9ce1d0746b80bc41
+        id: 1069431850
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: c7db411c2db012489cd05c4a8ded8bc0
+        - ElementName: TurnCoinFlip
+          ObjectType: 11
+          guid: 3ac6b94c0a492841b6c6d64c9944e8da
+        - ElementName: Player
+          ObjectType: 10
+          guid: 771f76c2ebff3e4e9ce1d0746b80bc41
+      - name: RedCoin
+        guid: da376f428581a74b85542da5fae42573
+        id: 3334102693
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: c7db411c2db012489cd05c4a8ded8bc0
+        - ElementName: TurnCoinFlip
+          ObjectType: 11
+          guid: 3ac6b94c0a492841b6c6d64c9944e8da
+        - ElementName: RedCoin
+          ObjectType: 10
+          guid: da376f428581a74b85542da5fae42573
+      ValueGuids: []
+      ValueIcons: []
+      valuesInternal: []
+  TriggerWwu:
+  - PhysicalPath: Triggers\Default Work Unit.wwu
+    PathAndIcons:
+    - ElementName: Triggers
+      ObjectType: 5
+      guid: 00000000000000000000000000000000
+    - ElementName: Default Work Unit
+      ObjectType: 12
+      guid: 31e5c21cf0cc6545bb2cb7140067eccf
+    ParentPath: Triggers\Default Work Unit
+    guid: 31e5c21cf0cc6545bb2cb7140067eccf
+    GuidInternal: 
+    m_lastTime: -8584534969338846391
+    List: []
+  ExpandedFileSystemItemIds: 
+  ExpandedWaapiItemIds: 010000000500000006000000070000000a0000000b0000000f00000010000000190000001a00000092000000
+  AutoSyncSelection: 1
+  autoPopulateEnabled: 1
+  currentDataSource: 0
+  CurrentPluginConfig: 

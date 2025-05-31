@@ -10,15 +10,15 @@ public class ButtonObject : InteractableObject
     [Space, SerializeField]
     private TurnController turnController;
     [Space, SerializeField]
-    private AudioSource hoverAS;
+    private AK.Wwise.Event hoverButtonEvent;
     [SerializeField]
-    private AudioSource pressedAS;
+    private AK.Wwise.Event pressButtonEvent;
     public override void OnHover()
     {
         if (!CanInteract())
             return;
         if (!outline[0].enabled)
-            hoverAS.Play();
+            AkUnitySoundEngine.PostEvent(hoverButtonEvent.Id, gameObject);
         base.OnHover();
         turnController.DisplayTurnDirection(starterPos, buttonDirection);
     }
@@ -40,7 +40,7 @@ public class ButtonObject : InteractableObject
     public override void UseObject()
     {
         turnController.DirectionButtonPressed(starterPos, buttonDirection);
-        pressedAS.Play();
+        AkUnitySoundEngine.PostEvent(pressButtonEvent.Id, gameObject);
         base.StopHovering();
     }
 }

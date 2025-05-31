@@ -16,11 +16,15 @@ public class ItemsFeedbackController : MonoBehaviour
     private GameObject cigarretteObject;
 
     [Space, SerializeField]
-    private AudioSource source;
+    private GameObject tvObject;
     [SerializeField]
-    private AudioClip turnOnScreenClip;
+    private AK.Wwise.Event screenEvent;
     [SerializeField]
-    private AudioClip turnOffScreenClip;
+    private string screenState;
+    [SerializeField]
+    private string screenOnState;
+    [SerializeField]
+    private string screenOffState;
 
     private void Start()
     {
@@ -41,13 +45,13 @@ public class ItemsFeedbackController : MonoBehaviour
                     interruptorObject.SetActive(true);
                 
                 rivalScreenBlack.SetActive(true);
-                if (source)
-                {
-                    source.clip = turnOffScreenClip;
-                    source.Play();
-                }
-                else
-                    AmbientSoundController.instance.PlaySound(turnOffScreenClip, 1, 1);
+
+                AkUnitySoundEngine.SetState(screenState, screenOffState);
+                GameObject soundObject = tvObject;
+                if (!soundObject)
+                    soundObject = gameObject;
+
+                AkUnitySoundEngine.PostEvent(screenEvent.Id, soundObject);
 
                 break;
             case Store.ItemType.RED_COIN:
@@ -85,12 +89,12 @@ public class ItemsFeedbackController : MonoBehaviour
     {
         rivalScreenBlack.SetActive(false);
 
-        if (source)
-        {
-            source.clip = turnOnScreenClip;
-            source.Play();
-        }
-        else
-            AmbientSoundController.instance.PlaySound(turnOnScreenClip, 1, 1);
+
+        AkUnitySoundEngine.SetState(screenState, screenOnState);
+        GameObject soundObject = tvObject;
+        if (!soundObject)
+            soundObject = gameObject;
+
+        AkUnitySoundEngine.PostEvent(screenEvent.Id, soundObject);
     }
 }

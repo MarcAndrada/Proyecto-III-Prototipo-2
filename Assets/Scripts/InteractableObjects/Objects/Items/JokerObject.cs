@@ -2,19 +2,13 @@ using UnityEngine;
 
 public class JokerObject : InteractableObject
 {
-    private AudioSource source;
-
-    protected override void Awake()
-    {
-        base.Awake();
-        source = GetComponent<AudioSource>();
-    }
-
-
+    [SerializeField]
+    private AK.Wwise.Event jokerLaughEvent;
+    
     public override void ActivateObject()
     {
         base.ActivateObject();
-        source.Play();
+        AkUnitySoundEngine.PostEvent(jokerLaughEvent.Id, gameObject);
     }
 
     public override void UseObject()

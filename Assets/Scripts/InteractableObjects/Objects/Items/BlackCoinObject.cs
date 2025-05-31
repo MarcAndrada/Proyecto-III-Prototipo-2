@@ -2,16 +2,11 @@ using UnityEngine;
 
 public class BlackCoinObject : InteractableObject
 {
-    private AudioSource source;
-
-    protected override void Awake()
-    {
-        base.Awake();
-        source = GetComponent<AudioSource>();
-    }
+    [SerializeField]
+    private AK.Wwise.Event redCoinFlipEvent;
     public override void UseObject()
     {
         GameManager.Instance.ItemUsed(Store.ItemType.RED_COIN);
-        source.Play();
+        AkUnitySoundEngine.PostEvent(redCoinFlipEvent.Id, gameObject);
     }
 }

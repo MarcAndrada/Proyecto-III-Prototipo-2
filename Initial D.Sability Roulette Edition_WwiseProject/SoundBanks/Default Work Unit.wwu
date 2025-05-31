@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{4AE58F87-4FF8-4543-A3F8-343E9B199DDE}" SchemaVersion="123">
+	<SoundBanks>
+		<WorkUnit Name="Default Work Unit" ID="{4AE58F87-4FF8-4543-A3F8-343E9B199DDE}" PersistMode="Standalone">
+			<ChildrenList>
+				<SoundBank Name="Main" ID="{495EE933-5747-472B-95B8-0AD0E1E047A8}">
+					<ObjectInclusionList>
+						<ObjectRef Name="ShopBuy" ID="{5A124C24-667D-402E-B087-6AB90C16B657}" WorkUnitID="{CD325505-E320-4A4A-B53F-985CE759D54A}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="SlotAnimation" ID="{A94C47ED-647F-40FB-8859-CA9364A6CC3A}" WorkUnitID="{CD325505-E320-4A4A-B53F-985CE759D54A}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="CoinFall" ID="{A27C4DA8-E33E-4116-8F96-BD1FA1CC7ADC}" WorkUnitID="{CD325505-E320-4A4A-B53F-985CE759D54A}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="HoverButton" ID="{4C588CAF-D7CF-41EA-A947-7F22B4682F7B}" WorkUnitID="{CD325505-E320-4A4A-B53F-985CE759D54A}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="BalanceMove" ID="{87209F9E-9380-42B3-A0E0-D7BA21640C6B}" WorkUnitID="{CD325505-E320-4A4A-B53F-985CE759D54A}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="ShopNoMoney" ID="{BB770184-7141-435A-A40F-E58F5E75D198}" WorkUnitID="{CD325505-E320-4A4A-B53F-985CE759D54A}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Ventilation" ID="{3F3AC4DE-2B0D-44C7-BC9E-4FF3CE6A75A3}" WorkUnitID="{CD325505-E320-4A4A-B53F-985CE759D54A}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Crowd" ID="{74030E5C-2CD6-4566-B75E-C3614D1B3A90}" WorkUnitID="{CD325505-E320-4A4A-B53F-985CE759D54A}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="DummyDown" ID="{B6711F83-3380-45B8-9331-3D2B9FF427A1}" WorkUnitID="{CD325505-E320-4A4A-B53F-985CE759D54A}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Cigarette" ID="{D4EE7409-A183-4643-87E6-DD8788AA9721}" WorkUnitID="{CD325505-E320-4A4A-B53F-985CE759D54A}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Saw" ID="{2397C07E-A45C-4674-8958-69D846717848}" WorkUnitID="{CD325505-E320-4A4A-B53F-985CE759D54A}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="JokerLaugh" ID="{3252B65F-5E10-4734-9617-3D8B1BC0CC8B}" WorkUnitID="{CD325505-E320-4A4A-B53F-985CE759D54A}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="ShopInventoryFull" ID="{5198E919-A0B5-47A6-A911-8EC1383927F1}" WorkUnitID="{CD325505-E320-4A4A-B53F-985CE759D54A}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="InterruptorPress" ID="{3874C105-9615-4896-85BE-A11DAF6F9D5A}" WorkUnitID="{CD325505-E320-4A4A-B53F-985CE759D54A}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="DummyFluids" ID="{33F781BF-3CD3-48B0-89C4-5063FA30A896}" WorkUnitID="{CD325505-E320-4A4A-B53F-985CE759D54A}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="DummyUp" ID="{3922EFF5-0B16-4934-B333-78F8172E7309}" WorkUnitID="{CD325505-E320-4A4A-B53F-985CE759D54A}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="SlotIcon" ID="{CC99B890-67C4-499F-A416-5AFB754B8D66}" WorkUnitID="{CD325505-E320-4A4A-B53F-985CE759D54A}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="BalanceWin" ID="{D20367C4-C63E-49B9-86BA-58BA58A9431F}" WorkUnitID="{CD325505-E320-4A4A-B53F-985CE759D54A}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Screen" ID="{BC4889A6-F1D4-4A3A-82D6-112653AD0FFE}" WorkUnitID="{CD325505-E320-4A4A-B53F-985CE759D54A}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="TurnCoinResult" ID="{14BCEEEE-5CE1-4A3F-B425-A31D16417955}" WorkUnitID="{CD325505-E320-4A4A-B53F-985CE759D54A}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="DummyCrush" ID="{AFAB540D-D824-4A8A-AA79-B8DA65568ED4}" WorkUnitID="{CD325505-E320-4A4A-B53F-985CE759D54A}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="TurnCoinFlip" ID="{0BF6D4A9-CBA6-4B6A-AB54-9095E79F3A79}" WorkUnitID="{CD325505-E320-4A4A-B53F-985CE759D54A}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="BalanceLose" ID="{2B81EB0D-084D-4C30-8023-55755CAADF44}" WorkUnitID="{CD325505-E320-4A4A-B53F-985CE759D54A}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="PressButton" ID="{03DEDFB1-C4F5-4CB2-A59D-CD318F44CC9A}" WorkUnitID="{CD325505-E320-4A4A-B53F-985CE759D54A}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="FlipRedCoin" ID="{5A461E81-BCA6-4CD3-BFCC-91E0DFFEA9E7}" WorkUnitID="{CD325505-E320-4A4A-B53F-985CE759D54A}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="LeverPull" ID="{13ABE702-9B99-4EC6-9F36-751009687ED3}" WorkUnitID="{CD325505-E320-4A4A-B53F-985CE759D54A}" Origin="Manual" Filter="7"/>
+					</ObjectInclusionList>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
+			</ChildrenList>
+		</WorkUnit>
+	</SoundBanks>
+</WwiseDocument>

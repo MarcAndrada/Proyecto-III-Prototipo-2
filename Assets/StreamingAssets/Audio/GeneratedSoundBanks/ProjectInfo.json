@@ -1,0 +1,36 @@
+{
+ "ProjectInfo": {
+  "Project": {
+   "Name": "Initial D.Sability Roulette Edition_WwiseProject",
+   "GUID": "{36A9B65A-979F-4F32-9D5B-BAF8D1BB656E}",
+   "Generator": "2024.1.5.8803"
+  },
+  "CacheRoot": "../../../../Initial D.Sability Roulette Edition_WwiseProject/.cache",
+  "Platforms": [
+   {
+    "Name": "Mac",
+    "GUID": "{0C3B10F3-230C-4CA0-B6FC-8F13A00A9152}",
+    "BasePlatform": "Mac",
+    "BasePlatformGUID": "{9C6217D5-DD11-4795-87C1-6CE02853C540}",
+    "Path": "../../../../Initial D.Sability Roulette Edition_WwiseProject/GeneratedSoundBanks/Mac"
+   },
+   {
+    "Name": "Windows",
+    "GUID": "{7B4DC669-E408-46E0-ADD6-303E5D696EA4}",
+    "BasePlatform": "Windows",
+    "BasePlatformGUID": "{6E0CB257-C6C8-4C5C-8366-2740DFC441EB}",
+    "Path": "../../../../Initial D.Sability Roulette Edition_WwiseProject/GeneratedSoundBanks/Windows"
+   }
+  ],
+  "Languages": [
+   {
+    "Name": "English(US)",
+    "Id": "684519430",
+    "GUID": "{9544D8C2-1F0F-451B-835C-DCA1EB170C4F}",
+    "Default": "true",
+    "UseAsStandIn": "true"
+   }
+  ],
+  "FileHash": "{9B5AF9FF-6AF8-F4EB-2436-C56DC186CFA6}"
+ }
+}

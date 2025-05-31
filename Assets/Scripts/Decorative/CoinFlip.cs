@@ -1,19 +1,25 @@
 using UnityEngine;
-using UnityEngine.Rendering;
-
 public class CoinFlip : MonoBehaviour
 {
 
     private Animator animator;
 
     [Space, Header("Audio"), SerializeField]
-    private AudioClip coinFlip;
+    private GameObject TV_Object;
     [SerializeField]
-    private AudioClip[] playerWin;
+    private GameObject ambienceObject;
     [SerializeField]
-    private AudioClip[] enemyWin;
+    private AK.Wwise.Event turnCoinFlipEvent;
     [SerializeField]
-    private AudioClip redCoinEnd;
+    private AK.Wwise.Event coinFlipResultEvent;
+    [SerializeField]
+    private string coinFlipResultSwitch;
+    [SerializeField]
+    private string playerWinState;
+    [SerializeField]
+    private string enemyWinState;
+    [SerializeField]
+    private string redCoinState;
 
     private string lastAnim;
     private void Awake()
@@ -33,18 +39,20 @@ public class CoinFlip : MonoBehaviour
         switch (lastAnim)
         {
             case "PlayerCoin":
-                AmbientSoundController.instance.PlaySound(playerWin[Random.Range(0, playerWin.Length)], 1, Random.Range(0.4f, 0.7f));
+                AkUnitySoundEngine.SetSwitch(coinFlipResultSwitch, playerWinState, ambienceObject);
                 break;
             case "EnemyCoin":
-                AmbientSoundController.instance.PlaySound(enemyWin[Random.Range(0, enemyWin.Length)], 1, Random.Range(0.4f, 0.7f));
+                AkUnitySoundEngine.SetSwitch(coinFlipResultSwitch, enemyWinState, ambienceObject);
                 break;
             case "RedCoin":
-                AmbientSoundController.instance.PlaySound(redCoinEnd, 1, Random.Range(0.4f, 0.7f));
+                AkUnitySoundEngine.SetSwitch(coinFlipResultSwitch, redCoinState, ambienceObject);
                 break;
 
             default:
                 break;
         }
+        AkUnitySoundEngine.PostEvent(coinFlipResultEvent.Id, ambienceObject);
+
 
     }
 
@@ -52,6 +60,7 @@ public class CoinFlip : MonoBehaviour
     {
         lastAnim = _animString;
         animator.SetTrigger(_animString);
-        AmbientSoundController.instance.PlaySound(coinFlip, 1, 1);
+
+        AkUnitySoundEngine.PostEvent(turnCoinFlipEvent.Id, TV_Object);
     }
 }
