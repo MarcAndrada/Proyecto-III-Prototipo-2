@@ -1,13 +1,10 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class SlotMachineController : MonoBehaviour
 {
     private List<List<SlotIcon>> slotIcons;
 
-    [SerializeField]
-    private GameObject slotCanvas;
     [SerializeField]
     private GameObject slotIconsParents;
     [SerializeField]
@@ -17,9 +14,10 @@ public class SlotMachineController : MonoBehaviour
     private SlotCanvasController slotCanvasController;
 
     [SerializeField]
-    private AudioClip slotClip;
+    private GameObject tvObject;
     [SerializeField]
-    private AudioSource slotAS;
+    private AK.Wwise.Event slotAnimationEvent;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -48,10 +46,11 @@ public class SlotMachineController : MonoBehaviour
         slotCanvasController.animator.SetTrigger("SpinWheel");
         
         GameManager.Instance.FinishActionState(); //Acabar con el estado previo y empezar el de SPIN_WHEEL
-        if (slotAS)
-            slotAS.Play();
-        else
-            AmbientSoundController.instance.PlaySound(slotClip, 0.2f, 1);
+        GameObject soundObject = tvObject;
+        if (!soundObject)
+            soundObject = gameObject;
+        AkUnitySoundEngine.PostEvent(slotAnimationEvent.Id, soundObject);
+
     }
 
     public void RandomizeIcons()

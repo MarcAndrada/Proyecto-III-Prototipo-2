@@ -1,0 +1,89 @@
+Event	ID	Name			Wwise Object Path	Notes
+	66472324	ShopNoMoney			\Default Work Unit\ShopNoMoney	
+	155621611	BalanceWin			\Default Work Unit\BalanceWin	
+	213344387	DummyDown			\Default Work Unit\DummyDown	
+	408639982	TurnCoinFlip			\Default Work Unit\TurnCoinFlip	
+	443572616	Saw			\Default Work Unit\Saw	
+	762051322	FlipRedCoin			\Default Work Unit\FlipRedCoin	
+	802614564	DummyUp			\Default Work Unit\DummyUp	
+	804877345	Screen			\Default Work Unit\Screen	
+	1005173321	SlotAnimation			\Default Work Unit\SlotAnimation	
+	1059185820	DummyFluids			\Default Work Unit\DummyFluids	
+	1063113708	ShopInventoryFull			\Default Work Unit\ShopInventoryFull	
+	1153606107	ShopBuy			\Default Work Unit\ShopBuy	
+	1628677272	TurnCoinResult			\Default Work Unit\TurnCoinResult	
+	2412137972	BalanceMove			\Default Work Unit\BalanceMove	
+	2561485778	PressButton			\Default Work Unit\PressButton	
+	2563778470	LeverPull			\Default Work Unit\LeverPull	
+	2607658113	JokerLaugh			\Default Work Unit\JokerLaugh	
+	2655758413	CoinFall			\Default Work Unit\CoinFall	
+	2710047957	HoverButton			\Default Work Unit\HoverButton	
+	2848349012	Crowd			\Default Work Unit\Crowd	
+	3172605362	Ventilation			\Default Work Unit\Ventilation	
+	3307530599	Cigarette			\Default Work Unit\Cigarette	
+	3446469450	InterruptorPress			\Default Work Unit\InterruptorPress	
+	3518705528	DummyCrush			\Default Work Unit\DummyCrush	
+	4020120096	BalanceLose			\Default Work Unit\BalanceLose	
+	4028009350	SlotIcon			\Default Work Unit\SlotIcon	
+
+Switch Group	ID	Name			Wwise Object Path	Notes
+	408639982	TurnCoinFlip			\Default Work Unit\TurnCoinFlip	
+	4028009350	SlotIcon			\Default Work Unit\SlotIcon	
+
+Switch	ID	Name	Switch Group			Notes
+	1069431850	Player	TurnCoinFlip			
+	2299321487	Enemy	TurnCoinFlip			
+	3334102693	RedCoin	TurnCoinFlip			
+	856429646	Joker	SlotIcon			
+	1302771492	Rotate	SlotIcon			
+	1500973332	x1	SlotIcon			
+	1500973334	x3	SlotIcon			
+	1500973335	x2	SlotIcon			
+
+State Group	ID	Name			Wwise Object Path	Notes
+	804877345	Screen			\Default Work Unit\Screen	
+
+State	ID	Name	State Group			Notes
+	99209978	ScreenOn	Screen			
+	748895195	None	Screen			
+	1092031120	ScreenOff	Screen			
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	3579411	Saw	P:\UnityProjects\Initial D.Sability Roulette Edition\Initial D.Sability Roulette Edition_WwiseProject\.cache\FF\{FF88EC4E-AB22-7AB6-B448-212EC842EDBB}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Envoirment\Saw		347984
+	32100745	NoInventorySpace	P:\UnityProjects\Initial D.Sability Roulette Edition\Initial D.Sability Roulette Edition_WwiseProject\.cache\80\{800BF687-3C90-6410-59A9-C095DE52798D}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Shop\NoInventorySpace		106088
+	39927379	CoinSpin	P:\UnityProjects\Initial D.Sability Roulette Edition\Initial D.Sability Roulette Edition_WwiseProject\.cache\C3\{C3E10FDA-72F1-9429-F1B8-2D177D6F0EA1}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Turn\CoinSpin		658900
+	65282563	RotateIconHover	P:\UnityProjects\Initial D.Sability Roulette Edition\Initial D.Sability Roulette Edition_WwiseProject\.cache\63\{633AF296-5E65-6A92-0536-6B96BAF6996A}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Slot\Icon\RotateIconHover		311512
+	80709279	SlotLeverPull	P:\UnityProjects\Initial D.Sability Roulette Edition\Initial D.Sability Roulette Edition_WwiseProject\.cache\16\{1668C073-61AD-4ECA-A22A-78EE071EE192}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Slot\SlotLeverPull		346984
+	98962512	SmokeCigar	P:\UnityProjects\Initial D.Sability Roulette Edition\Initial D.Sability Roulette Edition_WwiseProject\.cache\93\{93A83DAF-CA9D-D018-EC73-270B56573706}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Objects\SmokeCigar		2972056
+	109088745	RopeUp	P:\UnityProjects\Initial D.Sability Roulette Edition\Initial D.Sability Roulette Edition_WwiseProject\.cache\F0\{F0F4EC1B-7C3D-0B52-D156-7FEB36174E70}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dummy\RopeUp		385820
+	128576854	PlayerStart 1	P:\UnityProjects\Initial D.Sability Roulette Edition\Initial D.Sability Roulette Edition_WwiseProject\.cache\31\{317B3EF5-D1E7-50E0-73A2-CC1C7C842928}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Turn\CoinSpinResult\Player\PlayerStart 1		299356
+	155402771	SlotButtonPressed	P:\UnityProjects\Initial D.Sability Roulette Edition\Initial D.Sability Roulette Edition_WwiseProject\.cache\6B\{6B9A6D34-2927-9000-951B-ADF3A0BCE18F}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Slot\SlotButtonPressed		75872
+	182728152	IconHovered x2	P:\UnityProjects\Initial D.Sability Roulette Edition\Initial D.Sability Roulette Edition_WwiseProject\.cache\57\{57384BCC-2ED4-D163-6CB6-45B119924039}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Slot\Icon\IconHovered x2		37688
+	187294827	JokerLaugh	P:\UnityProjects\Initial D.Sability Roulette Edition\Initial D.Sability Roulette Edition_WwiseProject\.cache\1E\{1EA7BF27-16AD-F95E-183D-025F0EFA3D01}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Objects\Joker\JokerLaugh		422844
+	200323554	BodyFluids	P:\UnityProjects\Initial D.Sability Roulette Edition\Initial D.Sability Roulette Edition_WwiseProject\.cache\54\{542F102C-CD44-1677-0B36-9FA440EA1601}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dummy\BodyFluids		335444
+	210330772	Turn On TV	P:\UnityProjects\Initial D.Sability Roulette Edition\Initial D.Sability Roulette Edition_WwiseProject\.cache\7D\{7D03739F-D355-6402-39C0-A1C0C4D6ECB2}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sceen\Turn On TV		37960
+	213839297	Slot	P:\UnityProjects\Initial D.Sability Roulette Edition\Initial D.Sability Roulette Edition_WwiseProject\.cache\E7\{E7C74892-2708-381E-C846-D17EE488DE4A}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Slot\Slot		397452
+	222682664	JokerHover	P:\UnityProjects\Initial D.Sability Roulette Edition\Initial D.Sability Roulette Edition_WwiseProject\.cache\7B\{7BF83ACA-36C7-6E22-5E14-A648687A4587}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Slot\Icon\JokerHover		202704
+	256452140	Turn Off TV	P:\UnityProjects\Initial D.Sability Roulette Edition\Initial D.Sability Roulette Edition_WwiseProject\.cache\F7\{F79436CC-2317-B007-7CCB-4E615EA1B85A}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sceen\Turn Off TV		25596
+	265208720	BalanceMove	P:\UnityProjects\Initial D.Sability Roulette Edition\Initial D.Sability Roulette Edition_WwiseProject\.cache\31\{3165A075-9F7E-FEA7-0180-F180C1AF841F}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Objects\Balance\BalanceMove		142740
+	400130998	EnemyStart1	P:\UnityProjects\Initial D.Sability Roulette Edition\Initial D.Sability Roulette Edition_WwiseProject\.cache\76\{760A9EC5-A063-163C-A16E-2E08BA9366A7}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Turn\CoinSpinResult\Enemy\EnemyStart1		303700
+	449865577	BodyCrush	P:\UnityProjects\Initial D.Sability Roulette Edition\Initial D.Sability Roulette Edition_WwiseProject\.cache\83\{83B6D7D4-2183-2AB3-79C0-247F581D680F}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dummy\BodyCrush		182032
+	464368143	IconHovered x1	P:\UnityProjects\Initial D.Sability Roulette Edition\Initial D.Sability Roulette Edition_WwiseProject\.cache\97\{97DDB324-455A-D4F4-3619-B139C0E1CA4B}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Slot\Icon\IconHovered x1		36500
+	469748948	SlotButtonHover	P:\UnityProjects\Initial D.Sability Roulette Edition\Initial D.Sability Roulette Edition_WwiseProject\.cache\87\{87263070-2B18-F436-2E16-201F60DFFD03}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Slot\SlotButtonHover		12812
+	477197591	VentilationDucts	P:\UnityProjects\Initial D.Sability Roulette Edition\Initial D.Sability Roulette Edition_WwiseProject\.cache\29\{2966CA9F-C13F-08FE-7D4A-B049132B182E}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Envoirment\VentilationDucts		40053684
+	526492567	InterruptorPressed	P:\UnityProjects\Initial D.Sability Roulette Edition\Initial D.Sability Roulette Edition_WwiseProject\.cache\63\{63610A63-D73B-5A80-35A0-9584DFB93787}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Objects\Interruptor\InterruptorPressed		384240
+	607074482	EnemyStart2	P:\UnityProjects\Initial D.Sability Roulette Edition\Initial D.Sability Roulette Edition_WwiseProject\.cache\81\{8119AF28-8374-58E8-93C3-E83C6B4AECDF}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Turn\CoinSpinResult\Enemy\EnemyStart2		551404
+	641493561	EnemyStart3	P:\UnityProjects\Initial D.Sability Roulette Edition\Initial D.Sability Roulette Edition_WwiseProject\.cache\B9\{B9C7A3D1-77DF-1366-3E0F-2CF4A92C81CF}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Turn\CoinSpinResult\Enemy\EnemyStart3		367000
+	662797147	BalanceWin	P:\UnityProjects\Initial D.Sability Roulette Edition\Initial D.Sability Roulette Edition_WwiseProject\.cache\2B\{2BF5BFA2-7589-A1A6-5692-C56A5CC4BAF8}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Objects\Balance\BalanceWin		462708
+	671295475	CoinFlip	P:\UnityProjects\Initial D.Sability Roulette Edition\Initial D.Sability Roulette Edition_WwiseProject\.cache\19\{1953EE2A-BB6A-896A-A213-79A08C591640}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Objects\RedCoin\CoinFlip		134172
+	673660660	CrowdLoop	P:\UnityProjects\Initial D.Sability Roulette Edition\Initial D.Sability Roulette Edition_WwiseProject\.cache\D0\{D080491C-7A85-5606-6428-88EF9B9CF754}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Envoirment\CrowdLoop		14882912
+	679038946	Buy	P:\UnityProjects\Initial D.Sability Roulette Edition\Initial D.Sability Roulette Edition_WwiseProject\.cache\E6\{E6A5BB36-CA79-36CF-5E48-F77EB77A0394}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Shop\Buy		388176
+	683930648	PlayerStart 2	P:\UnityProjects\Initial D.Sability Roulette Edition\Initial D.Sability Roulette Edition_WwiseProject\.cache\48\{48E4C420-B21E-2E73-0D82-1D63FB8B1B47}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Turn\CoinSpinResult\Player\PlayerStart 2		378824
+	690288760	RedCoinAppeared	P:\UnityProjects\Initial D.Sability Roulette Edition\Initial D.Sability Roulette Edition_WwiseProject\.cache\40\{40295BC5-7121-92D7-1AF3-36E871731EBD}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Turn\CoinSpinResult\RedCoinAppeared		732220
+	734539768	BalanceLose	P:\UnityProjects\Initial D.Sability Roulette Edition\Initial D.Sability Roulette Edition_WwiseProject\.cache\F8\{F887472F-4F59-E1EB-155A-9FC4E63A1FC2}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Objects\Balance\BalanceLose		312144
+	800670875	RopeDown	P:\UnityProjects\Initial D.Sability Roulette Edition\Initial D.Sability Roulette Edition_WwiseProject\.cache\CB\{CBB21D31-40F3-09C2-50C3-B04545B54C72}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dummy\RopeDown		214112
+	860657209	CoinFall	P:\UnityProjects\Initial D.Sability Roulette Edition\Initial D.Sability Roulette Edition_WwiseProject\.cache\D4\{D44F4C2E-8860-2F31-A310-E4CC9E401BC1}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Shop\CoinFall		356592
+	865657016	IconHovered x3	P:\UnityProjects\Initial D.Sability Roulette Edition\Initial D.Sability Roulette Edition_WwiseProject\.cache\B7\{B7D129AC-FF98-FD61-EF0F-B51C65E23714}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Slot\Icon\IconHovered x3		43108
+	950372930	NoMoney	P:\UnityProjects\Initial D.Sability Roulette Edition\Initial D.Sability Roulette Edition_WwiseProject\.cache\4E\{4EAC1584-077F-E28F-24FB-5D0BB5BBAE30}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Shop\NoMoney		160288
+	962549345	PlayerStart 3	P:\UnityProjects\Initial D.Sability Roulette Edition\Initial D.Sability Roulette Edition_WwiseProject\.cache\E0\{E0386F00-FF2F-834A-12F3-336FC071200D}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Turn\CoinSpinResult\Player\PlayerStart 3		480352
+

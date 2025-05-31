@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 258f25da82e5fdc4d83d81bedd375a86, type: 3}
+  m_Name: BlackCoinInfo
+  m_EditorClassIdentifier: 
+  <objectName>k__BackingField: Red Coin
+  <objectDescription>k__BackingField: 
+  <objectPrefab>k__BackingField: {fileID: 658043596217429569, guid: 6a1caffdbae0797479e11ef9ee3a4ae7, type: 3}
+  unlocked: 0
+  <medalPrefab>k__BackingField: {fileID: 393489330055746441, guid: a35fd05bc192d4e419a7d92ca2a6cda5, type: 3}
+  <medalSprite>k__BackingField: {fileID: 21300000, guid: 329a6766bf203034d9141d6d1a79f4d0, type: 3}

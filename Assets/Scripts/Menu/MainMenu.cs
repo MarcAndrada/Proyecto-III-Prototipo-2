@@ -71,16 +71,16 @@ public class MainMenu : MonoBehaviour
         {
             audioOptions.SetActive(false);
             credits.SetActive(true);
-            buttonText.text = "AUDIO";
-            buttonTextShadow.text = "AUDIO";
+            buttonText.text = "MEDALS";
+            buttonTextShadow.text = "MEDALS";
             isInCredits = true;
         }
         else
         {
             audioOptions.SetActive(true);
             credits.SetActive(false);
-            buttonText.text = "CREDITOS";
-            buttonTextShadow.text = "CREDITOS";
+            buttonText.text = "CREDITS";
+            buttonTextShadow.text = "CREDITS";
             isInCredits = false;
         }
     }

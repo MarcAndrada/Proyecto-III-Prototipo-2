@@ -1,4 +1,5 @@
 using UnityEngine;
+using static Unity.VisualScripting.Member;
 
 public class HangedManController : MonoBehaviour
 {
@@ -21,26 +22,19 @@ public class HangedManController : MonoBehaviour
     private bool playerExploded = false;
 
     [Space, Header("SFX"), SerializeField]
-    private AudioClip upClip;
+    private AK.Wwise.Event dummyUpEvent;
     [SerializeField]
-    private AudioClip downClip;
+    private AK.Wwise.Event dummyDownEvent;
     [SerializeField]
-    private AudioClip crushClip;
+    private AK.Wwise.Event dummyCrushEvent;
     [SerializeField]
-    private AudioClip fluidClip;
-    private AudioSource source;
-    private bool canSoundFluids;
-    private void Awake()
-    {
-        source = GetComponent<AudioSource>();
-    }
+    private AK.Wwise.Event dummyFluidEvent;
 
     void Start()
     {
         currentHealth = isPlayer ? GameManager.Instance.playerHangedManHealth : GameManager.Instance.enemyHangedManHealth;
         CalculateDestinyPos(currentHealth);
         transform.position = destinyPosition;
-        canSoundFluids = false;
     }
 
     void Update()
@@ -103,25 +97,17 @@ public class HangedManController : MonoBehaviour
             || transform.position.y - minYAlive > 0.5f
             || playerExploded
             )
-        {
-            if (canSoundFluids && !source.isPlaying)
-            {
-                source.clip = fluidClip;
-                source.loop = true;
-                source.Play();
-            }
             return;
-        }
 
 
         //Triturar al player
         playerExploded = true;
         FleshExplode();
-        source.clip = crushClip;
-        source.Play();
+        AkUnitySoundEngine.PostEvent(dummyCrushEvent.Id, gameObject);
         
         body.SetActive(false);
-        canSoundFluids = true;
+
+        AkUnitySoundEngine.PostEvent(dummyFluidEvent.Id, gameObject);
 
 
 
@@ -129,12 +115,10 @@ public class HangedManController : MonoBehaviour
 
     public void PlayDownSound()
     {
-        source.clip = upClip;
-        source.Play();
+        AkUnitySoundEngine.PostEvent(dummyDownEvent.Id, gameObject);
     }
     public void PlayUpSound()
     {
-        source.clip = downClip;
-        source.Play();
+        AkUnitySoundEngine.PostEvent(dummyUpEvent.Id, gameObject);
     }
 }

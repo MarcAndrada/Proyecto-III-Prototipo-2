@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 using AYellowpaper.SerializedCollections;
@@ -18,7 +17,7 @@ public class GameManager : MonoBehaviour
     public List<Store.ItemType> enemyItemsUsed;
 
     [Space, Header("Item Prefabs"), SerializedDictionary("Item", "Prefab")]
-    public SerializedDictionary<Store.ItemType, GameObject> itemsPrefabs;
+    public SerializedDictionary<Store.ItemType, InteractableObjectsInfo> itemsPrefabs;
 
     [field: SerializeField]
     public PlayerLookActionsController playerLookController {  get; private set; }
@@ -86,7 +85,12 @@ public class GameManager : MonoBehaviour
     private Material buttonMaterialDisabled;
     [SerializeField] 
     private Renderer[] buttons;
-    
+
+    [Space, Header("End Game Canvas"), SerializeField]
+    private GameObject winCanvas;
+    [SerializeField]
+    private GameObject loseCanvas;
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -389,12 +393,16 @@ public class GameManager : MonoBehaviour
             gameEnded = true;
             playerLookController.AddAction(PlayerLookActionsController.LookAtActions.NORMAL_CAMERA, 1);
             scrollingText.SetTextLoop("YOU LOSE");
+            //Mostrar menu de derrota
+            loseCanvas.SetActive(true);
         }
         if (enemyHangedManHealth <= 0)
         {
             gameEnded = true;
             playerLookController.AddAction(PlayerLookActionsController.LookAtActions.NORMAL_CAMERA, 1);
             scrollingText.SetTextLoop("YOU WIN");
+            //Mostrar menu de victoria
+            winCanvas.SetActive(true);
         }
     }
     private bool UsedItem(List<Store.ItemType> _itemList, Store.ItemType _itemToSearch)
@@ -432,6 +440,11 @@ public class GameManager : MonoBehaviour
         Store.ItemType randomItem = (Store.ItemType)Random.Range(0, (int)Store.ItemType.BALANCE + 1);
         if (_toPlayer)
         {
+            if (!itemsPrefabs[randomItem].unlocked)
+            {
+                AddRandomItem(_toPlayer);
+                return;
+            }
             playerSlot.GetComponentInChildren<InventoryManager>().AddItem(randomItem);
         }
         else

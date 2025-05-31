@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{CD325505-E320-4A4A-B53F-985CE759D54A}" SchemaVersion="123">
+	<Events>
+		<WorkUnit Name="Default Work Unit" ID="{CD325505-E320-4A4A-B53F-985CE759D54A}" PersistMode="Standalone">
+			<ChildrenList>
+				<Event Name="CoinFall" ID="{A27C4DA8-E33E-4116-8F96-BD1FA1CC7ADC}">
+					<ChildrenList>
+						<Action Name="" ID="{F99D1DC8-11B5-452B-9DD6-26ED17CACE84}" ShortID="476282616">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="CoinFall" ID="{620E6619-62F1-4784-ABAB-64D25B76CF37}" WorkUnitID="{4FF65B86-7C31-48B1-8BB9-45ECFE2FC08A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="TurnCoinFlip" ID="{0BF6D4A9-CBA6-4B6A-AB54-9095E79F3A79}">
+					<ChildrenList>
+						<Action Name="" ID="{1AAB022B-A160-46F2-AC74-7A99758C9325}" ShortID="527836016">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="CoinSpin" ID="{2BA068A8-F71B-4D07-8512-6CCA6C01D149}" WorkUnitID="{4FF65B86-7C31-48B1-8BB9-45ECFE2FC08A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="TurnCoinResult" ID="{14BCEEEE-5CE1-4A3F-B425-A31D16417955}">
+					<ChildrenList>
+						<Action Name="" ID="{8B38A23E-FE23-49EC-AF8F-E5F8EA416B29}" ShortID="283708472">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="CoinSpinResult" ID="{060FF953-337B-4EB5-8705-1590431EB483}" WorkUnitID="{4FF65B86-7C31-48B1-8BB9-45ECFE2FC08A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="FlipRedCoin" ID="{5A461E81-BCA6-4CD3-BFCC-91E0DFFEA9E7}">
+					<ChildrenList>
+						<Action Name="" ID="{9E41A487-1328-444A-988B-54182D0ED96A}" ShortID="1021155875">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="CoinFlip" ID="{8E4441E4-4EE2-4429-961D-5D38819EDDE6}" WorkUnitID="{4FF65B86-7C31-48B1-8BB9-45ECFE2FC08A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="HoverButton" ID="{4C588CAF-D7CF-41EA-A947-7F22B4682F7B}">
+					<ChildrenList>
+						<Action Name="" ID="{4E3274A3-75D7-497D-99A8-73E64D0BA240}" ShortID="712732266">
+							<PropertyList>
+								<Property Name="Delay" Type="Real64">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{9DF4C7AA-77E2-4F0C-ADD3-2A97AB16DF68}">
+												<PropertyList>
+													<Property Name="Max" Type="Real64" Value="100"/>
+													<Property Name="Min" Type="Real64" Value="-100"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="SlotButtonHover" ID="{B5F8C9A5-84C4-467E-BBBD-3056839AF3C4}" WorkUnitID="{4FF65B86-7C31-48B1-8BB9-45ECFE2FC08A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="PressButton" ID="{03DEDFB1-C4F5-4CB2-A59D-CD318F44CC9A}">
+					<ChildrenList>
+						<Action Name="" ID="{D97A4D87-D4D5-40A7-A230-E7E8F2D6F300}" ShortID="963932057">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="SlotButtonPressed" ID="{47B018AB-0D62-4A5D-B059-15707B77A4F4}" WorkUnitID="{4FF65B86-7C31-48B1-8BB9-45ECFE2FC08A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="BalanceMove" ID="{87209F9E-9380-42B3-A0E0-D7BA21640C6B}">
+					<ChildrenList>
+						<Action Name="" ID="{9BA37F8C-4850-42E3-AAC4-7B11CFE8714C}" ShortID="519150589">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="BalanceMove" ID="{949C846B-3078-4F68-AE10-BEA37FA7235C}" WorkUnitID="{4FF65B86-7C31-48B1-8BB9-45ECFE2FC08A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="BalanceWin" ID="{D20367C4-C63E-49B9-86BA-58BA58A9431F}">
+					<ChildrenList>
+						<Action Name="" ID="{84EB5A3B-07AB-4AD8-BC14-5FF486ABE067}" ShortID="978235311">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="BalanceWin" ID="{213B1D82-2366-408A-908B-B50A1A0A36CE}" WorkUnitID="{4FF65B86-7C31-48B1-8BB9-45ECFE2FC08A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="BalanceLose" ID="{2B81EB0D-084D-4C30-8023-55755CAADF44}">
+					<ChildrenList>
+						<Action Name="" ID="{51556A84-2B67-49DC-8E6B-58D05F0DEC8F}" ShortID="150983971">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="BalanceLose" ID="{C4231EA5-B89B-4DD7-9824-65A4944A8F3E}" WorkUnitID="{4FF65B86-7C31-48B1-8BB9-45ECFE2FC08A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="DummyFluids" ID="{33F781BF-3CD3-48B0-89C4-5063FA30A896}">
+					<ChildrenList>
+						<Action Name="" ID="{18BCFE78-DE91-414E-ADD1-CBDE83744BA6}" ShortID="254173779">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="BodyFluids" ID="{D202C84C-79EC-47AF-8B59-BBD9C99A8548}" WorkUnitID="{4FF65B86-7C31-48B1-8BB9-45ECFE2FC08A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="DummyUp" ID="{3922EFF5-0B16-4934-B333-78F8172E7309}">
+					<ChildrenList>
+						<Action Name="" ID="{A0A7AF2C-83B9-4110-AEED-232AEE39FEB4}" ShortID="1006680400">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="RopeUp" ID="{B54AAB57-9D86-4052-89EB-39C3AD0D2BB6}" WorkUnitID="{4FF65B86-7C31-48B1-8BB9-45ECFE2FC08A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="DummyDown" ID="{B6711F83-3380-45B8-9331-3D2B9FF427A1}">
+					<ChildrenList>
+						<Action Name="" ID="{0B2D6ADC-6006-4BE5-9024-4F598928CC95}" ShortID="814511518">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="RopeDown" ID="{0C6090D5-A6F9-4A28-800D-279DE952523F}" WorkUnitID="{4FF65B86-7C31-48B1-8BB9-45ECFE2FC08A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="DummyCrush" ID="{AFAB540D-D824-4A8A-AA79-B8DA65568ED4}">
+					<ChildrenList>
+						<Action Name="" ID="{08564A76-CF82-4C7A-B35E-6D028A3277CE}" ShortID="967246553">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="BodyCrush" ID="{B6F4A57E-40B4-4639-9E0B-D8B67C70DB77}" WorkUnitID="{4FF65B86-7C31-48B1-8BB9-45ECFE2FC08A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Screen" ID="{BC4889A6-F1D4-4A3A-82D6-112653AD0FFE}">
+					<ChildrenList>
+						<Action Name="" ID="{0E516135-7A80-4845-9680-642F2D91DB94}" ShortID="864529028">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Sceen" ID="{EFB2FCF5-999F-4D62-8829-D990FF4222C9}" WorkUnitID="{4FF65B86-7C31-48B1-8BB9-45ECFE2FC08A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="LeverPull" ID="{13ABE702-9B99-4EC6-9F36-751009687ED3}">
+					<ChildrenList>
+						<Action Name="" ID="{FCEDFFC7-0D32-4BC5-9C4F-73337CB75C03}" ShortID="678910230">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="SlotLeverPull" ID="{BDE2C739-010E-42B2-BA9D-10A0F5FF7DEA}" WorkUnitID="{4FF65B86-7C31-48B1-8BB9-45ECFE2FC08A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="SlotAnimation" ID="{A94C47ED-647F-40FB-8859-CA9364A6CC3A}">
+					<ChildrenList>
+						<Action Name="" ID="{9D1701B0-019B-42DA-B874-433F24AABC49}" ShortID="721454027">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Slot" ID="{2BC75482-ECA5-458D-B35D-D26CCB024807}" WorkUnitID="{4FF65B86-7C31-48B1-8BB9-45ECFE2FC08A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="ShopBuy" ID="{5A124C24-667D-402E-B087-6AB90C16B657}">
+					<ChildrenList>
+						<Action Name="" ID="{9619D86F-3BFC-43E1-AC1A-81B564A70C15}" ShortID="128424284">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Buy" ID="{B0941449-8345-4866-B359-F552F05701B4}" WorkUnitID="{4FF65B86-7C31-48B1-8BB9-45ECFE2FC08A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="ShopInventoryFull" ID="{5198E919-A0B5-47A6-A911-8EC1383927F1}">
+					<ChildrenList>
+						<Action Name="" ID="{C076CCC3-8B7E-48B8-838E-EBAE3A2A528D}" ShortID="524847666">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="NoInventorySpace" ID="{6BA667CA-2DE5-4B92-9FE4-B6CA6324F03E}" WorkUnitID="{4FF65B86-7C31-48B1-8BB9-45ECFE2FC08A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="ShopNoMoney" ID="{BB770184-7141-435A-A40F-E58F5E75D198}">
+					<ChildrenList>
+						<Action Name="" ID="{4F30A0A3-F9CC-4BB9-A57F-E6DD680A3064}" ShortID="6088390">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="NoMoney" ID="{55297F6C-9376-4C1A-8406-021A9E0BB508}" WorkUnitID="{4FF65B86-7C31-48B1-8BB9-45ECFE2FC08A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="SlotIcon" ID="{CC99B890-67C4-499F-A416-5AFB754B8D66}">
+					<ChildrenList>
+						<Action Name="" ID="{7D89F901-16FE-4652-9E29-F1DB8FC391B8}" ShortID="9363283">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Icon" ID="{F1A67150-20C5-47E2-9757-4A3B88470964}" WorkUnitID="{4FF65B86-7C31-48B1-8BB9-45ECFE2FC08A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Crowd" ID="{74030E5C-2CD6-4566-B75E-C3614D1B3A90}">
+					<ChildrenList>
+						<Action Name="" ID="{AE7343D5-52B1-44F8-877D-433C03F656A4}" ShortID="113152340">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="CrowdLoop" ID="{034D7767-549C-46CB-8416-E199AE8E439B}" WorkUnitID="{4FF65B86-7C31-48B1-8BB9-45ECFE2FC08A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Ventilation" ID="{3F3AC4DE-2B0D-44C7-BC9E-4FF3CE6A75A3}">
+					<ChildrenList>
+						<Action Name="" ID="{8A0A26CC-3B9B-43AD-B083-F0255DBBCE6E}" ShortID="784490560">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="VentilationDucts" ID="{A275D25B-C329-473D-BBF0-00B8C1AED209}" WorkUnitID="{4FF65B86-7C31-48B1-8BB9-45ECFE2FC08A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Saw" ID="{2397C07E-A45C-4674-8958-69D846717848}">
+					<ChildrenList>
+						<Action Name="" ID="{308D2B20-74E7-4AA9-9B29-A8C60BBB9A42}" ShortID="69959973">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Saw" ID="{1A6DCBB8-EA90-4B4F-9612-9580FB58A916}" WorkUnitID="{4FF65B86-7C31-48B1-8BB9-45ECFE2FC08A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Cigarette" ID="{D4EE7409-A183-4643-87E6-DD8788AA9721}">
+					<ChildrenList>
+						<Action Name="" ID="{8D816721-5AC0-4F36-B286-606117D3414A}" ShortID="402722795">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="SmokeCigar" ID="{C0870FF1-CD72-4299-B0DE-850937976FBD}" WorkUnitID="{4FF65B86-7C31-48B1-8BB9-45ECFE2FC08A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="InterruptorPress" ID="{3874C105-9615-4896-85BE-A11DAF6F9D5A}">
+					<ChildrenList>
+						<Action Name="" ID="{74D80C11-F265-4228-8C73-234EC24845D0}" ShortID="812026585">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="InterruptorPressed" ID="{9F131DDB-2833-4212-B19F-9CAB4CA80191}" WorkUnitID="{4FF65B86-7C31-48B1-8BB9-45ECFE2FC08A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="JokerLaugh" ID="{3252B65F-5E10-4734-9617-3D8B1BC0CC8B}">
+					<ChildrenList>
+						<Action Name="" ID="{27EEBBF6-BE83-446B-BD9D-D5C3336D9148}" ShortID="181317785">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="JokerLaugh" ID="{41677032-1604-44F1-8768-E678A00548BC}" WorkUnitID="{4FF65B86-7C31-48B1-8BB9-45ECFE2FC08A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+			</ChildrenList>
+		</WorkUnit>
+	</Events>
+</WwiseDocument>

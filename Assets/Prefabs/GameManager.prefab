@@ -49,15 +49,15 @@ MonoBehaviour:
   itemsPrefabs:
     _serializedList:
     - Key: 0
-      Value: {fileID: 2676114155494150353, guid: 45d7feb7df185c446a086b1baab24a38, type: 3}
+      Value: {fileID: 11400000, guid: 9b5e44650973f63408f3022be7bdab3f, type: 2}
     - Key: 1
-      Value: {fileID: 8383113559112466339, guid: 3f6b5e4a4047e9040a8e61efe599995d, type: 3}
+      Value: {fileID: 11400000, guid: 3c5b08b731b4eb84b83c115bf34f0ea8, type: 2}
     - Key: 2
-      Value: {fileID: 4226870186988666106, guid: bde9788f043d8044b9ec89f93bac9104, type: 3}
+      Value: {fileID: 11400000, guid: 6ccff7f126966f44c838b107a459d187, type: 2}
     - Key: 3
-      Value: {fileID: 658043596217429569, guid: 6a1caffdbae0797479e11ef9ee3a4ae7, type: 3}
+      Value: {fileID: 11400000, guid: e7870ea4bf2fa25438fc236a0dade187, type: 2}
     - Key: 4
-      Value: {fileID: 4117750167068455708, guid: 49da5920032a3914e877e3b25051cbb2, type: 3}
+      Value: {fileID: 11400000, guid: 001fc88e07729444da5b9877becbf614, type: 2}
   <playerLookController>k__BackingField: {fileID: 0}
   <state>k__BackingField: 0
   <actionState>k__BackingField: 0
@@ -90,7 +90,6 @@ MonoBehaviour:
   <segarroSmoke>k__BackingField: {fileID: 0}
   coinController: {fileID: 0}
   scrollingText: {fileID: 0}
-  coinFlipClip: {fileID: 8300000, guid: b948949d4fe933d4a85051f3119e266e, type: 3}
   buttonMaterialActive: {fileID: 0}
   buttonMaterialDisabled: {fileID: 0}
   buttons: []

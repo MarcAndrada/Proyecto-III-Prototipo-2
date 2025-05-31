@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{1C41DBC7-B02D-4812-9CD0-5C4A8DED8BC0}" SchemaVersion="123">
+	<Switches>
+		<WorkUnit Name="Default Work Unit" ID="{1C41DBC7-B02D-4812-9CD0-5C4A8DED8BC0}" PersistMode="Standalone">
+			<ChildrenList>
+				<SwitchGroup Name="TurnCoinFlip" ID="{4CB9C63A-490A-4128-B6C6-D64C9944E8DA}">
+					<ChildrenList>
+						<Switch Name="Player" ID="{C2761F77-FFEB-4E3E-9CE1-D0746B80BC41}"/>
+						<Switch Name="Enemy" ID="{6A8E5DCF-A89C-4B87-900C-45F7317A77E1}"/>
+						<Switch Name="RedCoin" ID="{426F37DA-8185-4BA7-8554-2DA5FAE42573}"/>
+					</ChildrenList>
+				</SwitchGroup>
+				<SwitchGroup Name="SlotIcon" ID="{EDBCB832-E942-493C-9B9E-0437062E3A33}">
+					<ChildrenList>
+						<Switch Name="x1" ID="{62434257-633F-4BB5-8F7B-703EBA8DEA37}"/>
+						<Switch Name="x2" ID="{EADFBCB1-0DAE-44A7-93A6-33747E6D6184}"/>
+						<Switch Name="x3" ID="{CAD1DD2C-D1B2-4886-81F7-A2E9117FC1BC}"/>
+						<Switch Name="Joker" ID="{1DA013F0-D341-4E42-AC7C-37CC91B5D83F}"/>
+						<Switch Name="Rotate" ID="{9F126DED-434F-4EA5-A1C7-E522D576E069}"/>
+					</ChildrenList>
+				</SwitchGroup>
+			</ChildrenList>
+		</WorkUnit>
+	</Switches>
+</WwiseDocument>

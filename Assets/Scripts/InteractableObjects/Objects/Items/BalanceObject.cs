@@ -7,19 +7,12 @@ public class BalanceObject : InteractableObject
 
     private List<Store.ItemType> itemsGenerated = new List<Store.ItemType>();
 
-    private AudioSource source;
     [SerializeField]
-    private AudioClip balanceMovingClip;
+    private AK.Wwise.Event balanceMoveEvent;
     [SerializeField]
-    private AudioClip winClip;
+    private AK.Wwise.Event balanceWinEvent;
     [SerializeField]
-    private AudioClip loseClip;
-
-    protected override void Awake()
-    {
-        base.Awake();
-        source = GetComponent<AudioSource>();
-    }
+    private AK.Wwise.Event balanceLoseEvent;
 
     public override void ActivateObject()
     {
@@ -62,8 +55,7 @@ public class BalanceObject : InteractableObject
         
         if (randNum == 0)
         {
-            source.clip = winClip;
-            source.Play();
+            AkUnitySoundEngine.PostEvent(balanceWinEvent.Id, gameObject);
 
             //Dar 3 objetos   
             for (int i = 0; i < 3; i++)
@@ -81,14 +73,12 @@ public class BalanceObject : InteractableObject
         }
         else
         {
-            source.clip = loseClip; 
-            source.Play();
+            AkUnitySoundEngine.PostEvent(balanceLoseEvent.Id, gameObject);
         }
     }
 
     public void PlayBalanceSound()
     {
-        source.clip = balanceMovingClip;
-        source.Play();
+        AkUnitySoundEngine.PostEvent(balanceMoveEvent.Id, gameObject);
     }
 }

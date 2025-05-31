@@ -1,0 +1,907 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Mac",
+  "BasePlatform": "Mac",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "154",
+  "SoundBanks": [
+   {
+    "Id": "3161908922",
+    "Type": "User",
+    "GUID": "{495EE933-5747-472B-95B8-0AD0E1E047A8}",
+    "Language": "SFX",
+    "Hash": "{A73E0E36-5E5E-1189-6FD2-6F4507B2B6DE}",
+    "ObjectPath": "\\SoundBanks\\Default Work Unit\\Main",
+    "ShortName": "Main",
+    "Path": "Main.bnk",
+    "Media": [
+     {
+      "Id": "3579411",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Envoirment\\Saw.wav",
+      "CachePath": "FF/{FF88EC4E-AB22-7AB6-B448-212EC842EDBB}.wem"
+     },
+     {
+      "Id": "32100745",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Shop\\NoInventorySpace.wav",
+      "CachePath": "80/{800BF687-3C90-6410-59A9-C095DE52798D}.wem"
+     },
+     {
+      "Id": "39927379",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Turn\\CoinSpin.wav",
+      "CachePath": "C3/{C3E10FDA-72F1-9429-F1B8-2D177D6F0EA1}.wem"
+     },
+     {
+      "Id": "65282563",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Slot\\Icon\\RotateIconHover.wav",
+      "CachePath": "63/{633AF296-5E65-6A92-0536-6B96BAF6996A}.wem"
+     },
+     {
+      "Id": "80709279",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Slot\\SlotLeverPull.wav",
+      "CachePath": "16/{1668C073-61AD-4ECA-A22A-78EE071EE192}.wem"
+     },
+     {
+      "Id": "98962512",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Objects\\SmokeCigar.wav",
+      "CachePath": "93/{93A83DAF-CA9D-D018-EC73-270B56573706}.wem"
+     },
+     {
+      "Id": "109088745",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "RopeUp.wav",
+      "CachePath": "F0/{F0F4EC1B-7C3D-0B52-D156-7FEB36174E70}.wem"
+     },
+     {
+      "Id": "128576854",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Turn\\Player\\PlayerStart 1.wav",
+      "CachePath": "31/{317B3EF5-D1E7-50E0-73A2-CC1C7C842928}.wem"
+     },
+     {
+      "Id": "155402771",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Slot\\SlotButtonPressed.wav",
+      "CachePath": "6B/{6B9A6D34-2927-9000-951B-ADF3A0BCE18F}.wem"
+     },
+     {
+      "Id": "182728152",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Slot\\Icon\\IconHovered x2.wav",
+      "CachePath": "57/{57384BCC-2ED4-D163-6CB6-45B119924039}.wem"
+     },
+     {
+      "Id": "187294827",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Objects\\Joker\\JokerLaugh.wav",
+      "CachePath": "1E/{1EA7BF27-16AD-F95E-183D-025F0EFA3D01}.wem"
+     },
+     {
+      "Id": "200323554",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "BodyFluids.wav",
+      "CachePath": "54/{542F102C-CD44-1677-0B36-9FA440EA1601}.wem"
+     },
+     {
+      "Id": "210330772",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Objects\\Interruptor\\Turn On TV.wav",
+      "CachePath": "7D/{7D03739F-D355-6402-39C0-A1C0C4D6ECB2}.wem"
+     },
+     {
+      "Id": "213839297",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Slot\\Slot.wav",
+      "CachePath": "E7/{E7C74892-2708-381E-C846-D17EE488DE4A}.wem"
+     },
+     {
+      "Id": "222682664",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Objects\\Joker\\JokerHover.wav",
+      "CachePath": "7B/{7BF83ACA-36C7-6E22-5E14-A648687A4587}.wem"
+     },
+     {
+      "Id": "256452140",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Objects\\Interruptor\\Turn Off TV.wav",
+      "CachePath": "F7/{F79436CC-2317-B007-7CCB-4E615EA1B85A}.wem"
+     },
+     {
+      "Id": "265208720",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Objects\\Balance\\BalanceMove.wav",
+      "CachePath": "31/{3165A075-9F7E-FEA7-0180-F180C1AF841F}.wem"
+     },
+     {
+      "Id": "400130998",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Turn\\Enemy\\EnemyStart1.wav",
+      "CachePath": "76/{760A9EC5-A063-163C-A16E-2E08BA9366A7}.wem"
+     },
+     {
+      "Id": "449865577",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "BodyCrush.wav",
+      "CachePath": "83/{83B6D7D4-2183-2AB3-79C0-247F581D680F}.wem"
+     },
+     {
+      "Id": "464368143",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Slot\\Icon\\IconHovered x1.wav",
+      "CachePath": "97/{97DDB324-455A-D4F4-3619-B139C0E1CA4B}.wem"
+     },
+     {
+      "Id": "469748948",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Slot\\SlotButtonHover.wav",
+      "CachePath": "87/{87263070-2B18-F436-2E16-201F60DFFD03}.wem"
+     },
+     {
+      "Id": "477197591",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Envoirment\\VentilationDucts.wav",
+      "CachePath": "29/{2966CA9F-C13F-08FE-7D4A-B049132B182E}.wem"
+     },
+     {
+      "Id": "526492567",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Objects\\Interruptor\\InterruptorPressed.wav",
+      "CachePath": "63/{63610A63-D73B-5A80-35A0-9584DFB93787}.wem"
+     },
+     {
+      "Id": "607074482",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Turn\\Enemy\\EnemyStart2.wav",
+      "CachePath": "81/{8119AF28-8374-58E8-93C3-E83C6B4AECDF}.wem"
+     },
+     {
+      "Id": "641493561",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Turn\\Enemy\\EnemyStart3.wav",
+      "CachePath": "B9/{B9C7A3D1-77DF-1366-3E0F-2CF4A92C81CF}.wem"
+     },
+     {
+      "Id": "662797147",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Objects\\Balance\\BalanceWin.wav",
+      "CachePath": "2B/{2BF5BFA2-7589-A1A6-5692-C56A5CC4BAF8}.wem"
+     },
+     {
+      "Id": "671295475",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Objects\\RedCoin\\CoinFlip.wav",
+      "CachePath": "19/{1953EE2A-BB6A-896A-A213-79A08C591640}.wem"
+     },
+     {
+      "Id": "673660660",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Envoirment\\CrowdLoop.wav",
+      "CachePath": "D0/{D080491C-7A85-5606-6428-88EF9B9CF754}.wem"
+     },
+     {
+      "Id": "679038946",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Shop\\Buy.wav",
+      "CachePath": "E6/{E6A5BB36-CA79-36CF-5E48-F77EB77A0394}.wem"
+     },
+     {
+      "Id": "683930648",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Turn\\Player\\PlayerStart 2.wav",
+      "CachePath": "48/{48E4C420-B21E-2E73-0D82-1D63FB8B1B47}.wem"
+     },
+     {
+      "Id": "690288760",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Objects\\RedCoin\\RedCoinAppeared.wav",
+      "CachePath": "40/{40295BC5-7121-92D7-1AF3-36E871731EBD}.wem"
+     },
+     {
+      "Id": "734539768",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Objects\\Balance\\BalanceLose.wav",
+      "CachePath": "F8/{F887472F-4F59-E1EB-155A-9FC4E63A1FC2}.wem"
+     },
+     {
+      "Id": "800670875",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "RopeDown.wav",
+      "CachePath": "CB/{CBB21D31-40F3-09C2-50C3-B04545B54C72}.wem"
+     },
+     {
+      "Id": "860657209",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Shop\\CoinFall.wav",
+      "CachePath": "D4/{D44F4C2E-8860-2F31-A310-E4CC9E401BC1}.wem"
+     },
+     {
+      "Id": "865657016",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Slot\\Icon\\IconHovered x3.wav",
+      "CachePath": "B7/{B7D129AC-FF98-FD61-EF0F-B51C65E23714}.wem"
+     },
+     {
+      "Id": "950372930",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Shop\\NoMoney.wav",
+      "CachePath": "4E/{4EAC1584-077F-E28F-24FB-5D0BB5BBAE30}.wem"
+     },
+     {
+      "Id": "962549345",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Turn\\Player\\PlayerStart 3.wav",
+      "CachePath": "E0/{E0386F00-FF2F-834A-12F3-336FC071200D}.wem"
+     }
+    ],
+    "Events": [
+     {
+      "Id": "4020120096",
+      "Name": "BalanceLose",
+      "ObjectPath": "\\Events\\Default Work Unit\\BalanceLose",
+      "GUID": "{2B81EB0D-084D-4C30-8023-55755CAADF44}",
+      "DurationType": "OneShot",
+      "DurationMin": "1.8558838",
+      "DurationMax": "2.083159",
+      "MediaRefs": [
+       {
+        "Id": "734539768"
+       }
+      ]
+     },
+     {
+      "Id": "2412137972",
+      "Name": "BalanceMove",
+      "ObjectPath": "\\Events\\Default Work Unit\\BalanceMove",
+      "GUID": "{87209F9E-9380-42B3-A0E0-D7BA21640C6B}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.66165936",
+      "DurationMax": "0.83363855",
+      "MediaRefs": [
+       {
+        "Id": "265208720"
+       }
+      ]
+     },
+     {
+      "Id": "155621611",
+      "Name": "BalanceWin",
+      "ObjectPath": "\\Events\\Default Work Unit\\BalanceWin",
+      "GUID": "{D20367C4-C63E-49B9-86BA-58BA58A9431F}",
+      "DurationType": "OneShot",
+      "DurationMin": "2.943676",
+      "DurationMax": "3.3041646",
+      "MediaRefs": [
+       {
+        "Id": "662797147"
+       }
+      ]
+     },
+     {
+      "Id": "3307530599",
+      "Name": "Cigarette",
+      "ObjectPath": "\\Events\\Default Work Unit\\Cigarette",
+      "GUID": "{D4EE7409-A183-4643-87E6-DD8788AA9721}",
+      "DurationType": "OneShot",
+      "DurationMin": "16.36822",
+      "DurationMax": "17.341524",
+      "MediaRefs": [
+       {
+        "Id": "98962512"
+       }
+      ]
+     },
+     {
+      "Id": "2655758413",
+      "Name": "CoinFall",
+      "ObjectPath": "\\Events\\Default Work Unit\\CoinFall",
+      "GUID": "{A27C4DA8-E33E-4116-8F96-BD1FA1CC7ADC}",
+      "DurationType": "OneShot",
+      "DurationMin": "1.7485017",
+      "DurationMax": "2.3339698",
+      "MediaRefs": [
+       {
+        "Id": "860657209"
+       }
+      ]
+     },
+     {
+      "Id": "2848349012",
+      "Name": "Crowd",
+      "ObjectPath": "\\Events\\Default Work Unit\\Crowd",
+      "GUID": "{74030E5C-2CD6-4566-B75E-C3614D1B3A90}",
+      "DurationType": "Infinite",
+      "MediaRefs": [
+       {
+        "Id": "673660660"
+       }
+      ]
+     },
+     {
+      "Id": "3518705528",
+      "Name": "DummyCrush",
+      "ObjectPath": "\\Events\\Default Work Unit\\DummyCrush",
+      "GUID": "{AFAB540D-D824-4A8A-AA79-B8DA65568ED4}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.9206176",
+      "DurationMax": "0.9753604",
+      "MediaRefs": [
+       {
+        "Id": "449865577"
+       }
+      ]
+     },
+     {
+      "Id": "213344387",
+      "Name": "DummyDown",
+      "ObjectPath": "\\Events\\Default Work Unit\\DummyDown",
+      "GUID": "{B6711F83-3380-45B8-9331-3D2B9FF427A1}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.9930551",
+      "DurationMax": "1.251171",
+      "MediaRefs": [
+       {
+        "Id": "800670875"
+       }
+      ]
+     },
+     {
+      "Id": "1059185820",
+      "Name": "DummyFluids",
+      "ObjectPath": "\\Events\\Default Work Unit\\DummyFluids",
+      "GUID": "{33F781BF-3CD3-48B0-89C4-5063FA30A896}",
+      "DurationType": "Infinite",
+      "MediaRefs": [
+       {
+        "Id": "200323554"
+       }
+      ]
+     },
+     {
+      "Id": "802614564",
+      "Name": "DummyUp",
+      "ObjectPath": "\\Events\\Default Work Unit\\DummyUp",
+      "GUID": "{3922EFF5-0B16-4934-B333-78F8172E7309}",
+      "DurationType": "OneShot",
+      "DurationMin": "1.7898062",
+      "DurationMax": "2.2550144",
+      "MediaRefs": [
+       {
+        "Id": "109088745"
+       }
+      ]
+     },
+     {
+      "Id": "762051322",
+      "Name": "FlipRedCoin",
+      "ObjectPath": "\\Events\\Default Work Unit\\FlipRedCoin",
+      "GUID": "{5A461E81-BCA6-4CD3-BFCC-91E0DFFEA9E7}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.71715176",
+      "DurationMax": "0.80497575",
+      "MediaRefs": [
+       {
+        "Id": "671295475"
+       }
+      ]
+     },
+     {
+      "Id": "2710047957",
+      "Name": "HoverButton",
+      "ObjectPath": "\\Events\\Default Work Unit\\HoverButton",
+      "GUID": "{4C588CAF-D7CF-41EA-A947-7F22B4682F7B}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.06804028",
+      "DurationMax": "0.07637264",
+      "MediaRefs": [
+       {
+        "Id": "469748948"
+       }
+      ]
+     },
+     {
+      "Id": "3446469450",
+      "Name": "InterruptorPress",
+      "ObjectPath": "\\Events\\Default Work Unit\\InterruptorPress",
+      "GUID": "{3874C105-9615-4896-85BE-A11DAF6F9D5A}",
+      "DurationType": "OneShot",
+      "DurationMin": "1.8877485",
+      "DurationMax": "2.1189263",
+      "MediaRefs": [
+       {
+        "Id": "526492567"
+       }
+      ]
+     },
+     {
+      "Id": "2607658113",
+      "Name": "JokerLaugh",
+      "ObjectPath": "\\Events\\Default Work Unit\\JokerLaugh",
+      "GUID": "{3252B65F-5E10-4734-9617-3D8B1BC0CC8B}",
+      "DurationType": "OneShot",
+      "DurationMin": "2.1388881",
+      "DurationMax": "2.2660732",
+      "MediaRefs": [
+       {
+        "Id": "187294827"
+       }
+      ]
+     },
+     {
+      "Id": "2563778470",
+      "Name": "LeverPull",
+      "ObjectPath": "\\Events\\Default Work Unit\\LeverPull",
+      "GUID": "{13ABE702-9B99-4EC6-9F36-751009687ED3}",
+      "DurationType": "OneShot",
+      "DurationMin": "1.8561147",
+      "DurationMax": "2.0834186",
+      "MediaRefs": [
+       {
+        "Id": "80709279"
+       }
+      ]
+     },
+     {
+      "Id": "2561485778",
+      "Name": "PressButton",
+      "ObjectPath": "\\Events\\Default Work Unit\\PressButton",
+      "GUID": "{03DEDFB1-C4F5-4CB2-A59D-CD318F44CC9A}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.41734016",
+      "DurationMax": "0.4421565",
+      "MediaRefs": [
+       {
+        "Id": "155402771"
+       }
+      ]
+     },
+     {
+      "Id": "443572616",
+      "Name": "Saw",
+      "ObjectPath": "\\Events\\Default Work Unit\\Saw",
+      "GUID": "{2397C07E-A45C-4674-8958-69D846717848}",
+      "DurationType": "Infinite",
+      "MediaRefs": [
+       {
+        "Id": "3579411"
+       }
+      ]
+     },
+     {
+      "Id": "804877345",
+      "Name": "Screen",
+      "ObjectPath": "\\Events\\Default Work Unit\\Screen",
+      "GUID": "{BC4889A6-F1D4-4A3A-82D6-112653AD0FFE}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.1217896",
+      "DurationMax": "0.21505721",
+      "SwitchContainers": [
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "804877345",
+         "Id": "1092031120",
+         "GUID": "{12A499AA-E1ED-47A7-B529-96B46FC850BD}",
+         "Default": "true"
+        },
+        "MediaRefs": [
+         {
+          "Id": "256452140"
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "804877345",
+         "Id": "99209978",
+         "GUID": "{B3B8B7B2-9D23-4010-AA84-6C51AA727486}"
+        },
+        "MediaRefs": [
+         {
+          "Id": "210330772"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "Id": "1153606107",
+      "Name": "ShopBuy",
+      "ObjectPath": "\\Events\\Default Work Unit\\ShopBuy",
+      "GUID": "{5A124C24-667D-402E-B087-6AB90C16B657}",
+      "DurationType": "OneShot",
+      "DurationMin": "2.0765233",
+      "DurationMax": "2.330819",
+      "MediaRefs": [
+       {
+        "Id": "679038946"
+       }
+      ]
+     },
+     {
+      "Id": "1063113708",
+      "Name": "ShopInventoryFull",
+      "ObjectPath": "\\Events\\Default Work Unit\\ShopInventoryFull",
+      "GUID": "{5198E919-A0B5-47A6-A911-8EC1383927F1}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.49159047",
+      "DurationMax": "0.6193652",
+      "MediaRefs": [
+       {
+        "Id": "32100745"
+       }
+      ]
+     },
+     {
+      "Id": "66472324",
+      "Name": "ShopNoMoney",
+      "ObjectPath": "\\Events\\Default Work Unit\\ShopNoMoney",
+      "GUID": "{BB770184-7141-435A-A40F-E58F5E75D198}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.78600925",
+      "DurationMax": "1.0491965",
+      "MediaRefs": [
+       {
+        "Id": "950372930"
+       }
+      ]
+     },
+     {
+      "Id": "1005173321",
+      "Name": "SlotAnimation",
+      "ObjectPath": "\\Events\\Default Work Unit\\SlotAnimation",
+      "GUID": "{A94C47ED-647F-40FB-8859-CA9364A6CC3A}",
+      "DurationType": "OneShot",
+      "DurationMin": "2.538458",
+      "DurationMax": "2.6685905",
+      "MediaRefs": [
+       {
+        "Id": "213839297"
+       }
+      ]
+     },
+     {
+      "Id": "4028009350",
+      "Name": "SlotIcon",
+      "ObjectPath": "\\Events\\Default Work Unit\\SlotIcon",
+      "GUID": "{CC99B890-67C4-499F-A416-5AFB754B8D66}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.18361403",
+      "DurationMax": "1.9812855",
+      "SwitchContainers": [
+       {
+        "SwitchValue": {
+         "GroupType": "Switch",
+         "GroupId": "4028009350",
+         "Id": "1500973334",
+         "GUID": "{CAD1DD2C-D1B2-4886-81F7-A2E9117FC1BC}"
+        },
+        "MediaRefs": [
+         {
+          "Id": "865657016"
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "Switch",
+         "GroupId": "4028009350",
+         "Id": "1500973332",
+         "GUID": "{62434257-633F-4BB5-8F7B-703EBA8DEA37}",
+         "Default": "true"
+        },
+        "MediaRefs": [
+         {
+          "Id": "464368143"
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "Switch",
+         "GroupId": "4028009350",
+         "Id": "1500973335",
+         "GUID": "{EADFBCB1-0DAE-44A7-93A6-33747E6D6184}"
+        },
+        "MediaRefs": [
+         {
+          "Id": "182728152"
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "Switch",
+         "GroupId": "4028009350",
+         "Id": "1302771492",
+         "GUID": "{9F126DED-434F-4EA5-A1C7-E522D576E069}"
+        },
+        "MediaRefs": [
+         {
+          "Id": "65282563"
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "Switch",
+         "GroupId": "4028009350",
+         "Id": "856429646",
+         "GUID": "{1DA013F0-D341-4E42-AC7C-37CC91B5D83F}"
+        },
+        "MediaRefs": [
+         {
+          "Id": "222682664"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "Id": "408639982",
+      "Name": "TurnCoinFlip",
+      "ObjectPath": "\\Events\\Default Work Unit\\TurnCoinFlip",
+      "GUID": "{0BF6D4A9-CBA6-4B6A-AB54-9095E79F3A79}",
+      "DurationType": "OneShot",
+      "DurationMin": "3.5248458",
+      "DurationMax": "3.9565063",
+      "MediaRefs": [
+       {
+        "Id": "39927379"
+       }
+      ]
+     },
+     {
+      "Id": "1628677272",
+      "Name": "TurnCoinResult",
+      "ObjectPath": "\\Events\\Default Work Unit\\TurnCoinResult",
+      "GUID": "{14BCEEEE-5CE1-4A3F-B425-A31D16417955}",
+      "DurationType": "OneShot",
+      "DurationMin": "2.1374376",
+      "DurationMax": "8.300181",
+      "SwitchContainers": [
+       {
+        "SwitchValue": {
+         "GroupType": "Switch",
+         "GroupId": "408639982",
+         "Id": "1069431850",
+         "GUID": "{C2761F77-FFEB-4E3E-9CE1-D0746B80BC41}",
+         "Default": "true"
+        },
+        "MediaRefs": [
+         {
+          "Id": "128576854"
+         },
+         {
+          "Id": "683930648"
+         },
+         {
+          "Id": "962549345"
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "Switch",
+         "GroupId": "408639982",
+         "Id": "2299321487",
+         "GUID": "{6A8E5DCF-A89C-4B87-900C-45F7317A77E1}"
+        },
+        "MediaRefs": [
+         {
+          "Id": "400130998"
+         },
+         {
+          "Id": "607074482"
+         },
+         {
+          "Id": "641493561"
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "Switch",
+         "GroupId": "408639982",
+         "Id": "3334102693",
+         "GUID": "{426F37DA-8185-4BA7-8554-2DA5FAE42573}"
+        },
+        "MediaRefs": [
+         {
+          "Id": "690288760"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "Id": "3172605362",
+      "Name": "Ventilation",
+      "ObjectPath": "\\Events\\Default Work Unit\\Ventilation",
+      "GUID": "{3F3AC4DE-2B0D-44C7-BC9E-4FF3CE6A75A3}",
+      "DurationType": "Infinite",
+      "MediaRefs": [
+       {
+        "Id": "477197591"
+       }
+      ]
+     }
+    ],
+    "StateGroups": [
+     {
+      "Id": "804877345",
+      "Name": "Screen",
+      "ObjectPath": "\\States\\Default Work Unit\\Screen",
+      "GUID": "{A5A95367-6E3A-42A7-9CC8-29407EC8C4B2}",
+      "States": [
+       {
+        "Id": "99209978",
+        "Name": "ScreenOn",
+        "ObjectPath": "\\States\\Default Work Unit\\Screen\\ScreenOn",
+        "GUID": "{B3B8B7B2-9D23-4010-AA84-6C51AA727486}"
+       },
+       {
+        "Id": "748895195",
+        "Name": "None",
+        "ObjectPath": "\\States\\Default Work Unit\\Screen\\None",
+        "GUID": "{38ABB7B5-A0F5-4A1B-AA19-50D4F3772030}"
+       },
+       {
+        "Id": "1092031120",
+        "Name": "ScreenOff",
+        "ObjectPath": "\\States\\Default Work Unit\\Screen\\ScreenOff",
+        "GUID": "{12A499AA-E1ED-47A7-B529-96B46FC850BD}"
+       }
+      ]
+     }
+    ],
+    "SwitchGroups": [
+     {
+      "Id": "408639982",
+      "Name": "TurnCoinFlip",
+      "ObjectPath": "\\Switches\\Default Work Unit\\TurnCoinFlip",
+      "GUID": "{4CB9C63A-490A-4128-B6C6-D64C9944E8DA}",
+      "Switches": [
+       {
+        "Id": "1069431850",
+        "Name": "Player",
+        "ObjectPath": "\\Switches\\Default Work Unit\\TurnCoinFlip\\Player",
+        "GUID": "{C2761F77-FFEB-4E3E-9CE1-D0746B80BC41}"
+       },
+       {
+        "Id": "2299321487",
+        "Name": "Enemy",
+        "ObjectPath": "\\Switches\\Default Work Unit\\TurnCoinFlip\\Enemy",
+        "GUID": "{6A8E5DCF-A89C-4B87-900C-45F7317A77E1}"
+       },
+       {
+        "Id": "3334102693",
+        "Name": "RedCoin",
+        "ObjectPath": "\\Switches\\Default Work Unit\\TurnCoinFlip\\RedCoin",
+        "GUID": "{426F37DA-8185-4BA7-8554-2DA5FAE42573}"
+       }
+      ]
+     },
+     {
+      "Id": "4028009350",
+      "Name": "SlotIcon",
+      "ObjectPath": "\\Switches\\Default Work Unit\\SlotIcon",
+      "GUID": "{EDBCB832-E942-493C-9B9E-0437062E3A33}",
+      "Switches": [
+       {
+        "Id": "856429646",
+        "Name": "Joker",
+        "ObjectPath": "\\Switches\\Default Work Unit\\SlotIcon\\Joker",
+        "GUID": "{1DA013F0-D341-4E42-AC7C-37CC91B5D83F}"
+       },
+       {
+        "Id": "1302771492",
+        "Name": "Rotate",
+        "ObjectPath": "\\Switches\\Default Work Unit\\SlotIcon\\Rotate",
+        "GUID": "{9F126DED-434F-4EA5-A1C7-E522D576E069}"
+       },
+       {
+        "Id": "1500973332",
+        "Name": "x1",
+        "ObjectPath": "\\Switches\\Default Work Unit\\SlotIcon\\x1",
+        "GUID": "{62434257-633F-4BB5-8F7B-703EBA8DEA37}"
+       },
+       {
+        "Id": "1500973334",
+        "Name": "x3",
+        "ObjectPath": "\\Switches\\Default Work Unit\\SlotIcon\\x3",
+        "GUID": "{CAD1DD2C-D1B2-4886-81F7-A2E9117FC1BC}"
+       },
+       {
+        "Id": "1500973335",
+        "Name": "x2",
+        "ObjectPath": "\\Switches\\Default Work Unit\\SlotIcon\\x2",
+        "GUID": "{EADFBCB1-0DAE-44A7-93A6-33747E6D6184}"
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "FileHash": "{E7588982-E6F5-20A0-6A62-AA58C00A8D62}"
+ }
+}

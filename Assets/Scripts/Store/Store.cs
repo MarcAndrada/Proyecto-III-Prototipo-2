@@ -31,13 +31,12 @@ public class Store : MonoBehaviour
     private List<Button> generatedButtons = new List<Button>();
 
     [Space, Header("SFX"), SerializeField]
-    private AudioClip buyClip;
+    private AK.Wwise.Event buyEvent;
     [SerializeField]
-    private AudioClip noMoneyClip;
+    private AK.Wwise.Event noMoneyEvent;
     [SerializeField]
-    private AudioClip fullInventoryClip;
-    [SerializeField]
-    private AudioSource source;
+    private AK.Wwise.Event fullInventoryEvent;
+
 
 
     void Start()
@@ -60,7 +59,14 @@ public class Store : MonoBehaviour
         for (int i = 0; i < randomItemIndexes.Length; i++)
         {
             int randomIndex = Random.Range(0, shopItems.Length);
+            if (!GameManager.Instance.itemsPrefabs[shopItems[randomIndex]].unlocked)
+            {
+                i--;
+                continue;
+            }
+
             randomItemIndexes[i] = randomIndex;
+
 
             GameObject buttonObj = Instantiate(buttonPrefab, buttonContainer);
 
@@ -88,20 +94,13 @@ public class Store : MonoBehaviour
             {
                 moneyController.RemoveCoins(itemPrices[itemIndex]);
                 generatedButtons[buttonIndex].interactable = false;
-                source.clip = buyClip;
-                source.Play();
+                AkUnitySoundEngine.PostEvent(buyEvent.Id, gameObject);
             }
             else
-            {
-                source.clip = fullInventoryClip;
-                source.Play();
-            }
+                AkUnitySoundEngine.PostEvent(fullInventoryEvent.Id, gameObject);
         }
         else
-        {
-            source.clip = noMoneyClip;
-            source.Play();
-        }
-        
+            AkUnitySoundEngine.PostEvent(noMoneyEvent.Id, gameObject);
+
     }
 }
