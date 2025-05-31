@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using static Unity.VisualScripting.Member;
 
 public class TurnController : MonoBehaviour
 {
@@ -41,15 +42,15 @@ public class TurnController : MonoBehaviour
     private MoneyController moneyController;
 
     [Space, SerializeField]
-    private AudioClip[] hoveredClips;
+    private GameObject tvObject;
     [SerializeField]
-    private AudioClip rotateClip;
+    private AK.Wwise.Event iconEvent;
     [SerializeField]
-    private AudioClip jokerClip;
-    [SerializeField]
-    private AudioSource source;
-    [SerializeField]
-    private AudioSource jokerSource;
+    private string iconSwitch;
+    [SerializeField] 
+    private string iconJokerState;
+    [SerializeField] 
+    private string iconRotateState;
 
     private void Awake()
     {
@@ -185,41 +186,24 @@ public class TurnController : MonoBehaviour
                 break;
         }
 
+        GameObject sourceObject = tvObject;
+        if (!sourceObject)
+            sourceObject = gameObject;
 
         if (selectedIcons[currentLoopId].type != SlotIcon.IconType.ROTATE)
         {
             lastIconType = selectedIcons[currentLoopId].type;
-            if (source)
-            {
-                source.clip = hoveredClips[Mathf.Clamp(currentMultiplier - 1, 0, hoveredClips.Length - 1)];
-                source.Play();
-            }
-            else
-                AmbientSoundController.instance.PlaySound(hoveredClips[Mathf.Clamp(currentMultiplier - 1, 0, hoveredClips.Length - 1)], 1, UnityEngine.Random.Range(0.9f, 1.1f));
 
-            if (usedItemsType.Contains(Store.ItemType.JOKER))
-            {
-                if (jokerSource)
-                {
-                    jokerSource.pitch = UnityEngine.Random.Range(0.9f, 1.1f);
-                    jokerSource.Play();
-                }
-                else
-                    AmbientSoundController.instance.PlaySound(jokerClip, 1, UnityEngine.Random.Range(0.9f, 1.1f));
-            }
-        }
-        else
-        {
-            if (source)
-            {
-                source.clip = rotateClip;
-                source.Play();
-            }
+            if (!usedItemsType.Contains(Store.ItemType.JOKER))
+                AkUnitySoundEngine.SetSwitch(iconSwitch, "x" + Mathf.Clamp(currentMultiplier, 1, 3), sourceObject);
             else
-                AmbientSoundController.instance.PlaySound(rotateClip, 1, UnityEngine.Random.Range(0.9f, 1.1f));
-
-           
+                AkUnitySoundEngine.SetSwitch(iconSwitch, iconJokerState,sourceObject);
         }
+        else 
+            AkUnitySoundEngine.SetSwitch(iconSwitch, iconRotateState, sourceObject);
+
+        AkUnitySoundEngine.PostEvent(iconEvent.Id, sourceObject);
+
 
         selectedIcons[currentLoopId].backgroundImage.enabled = true;
 

@@ -16,7 +16,7 @@ public class InventoryManager : MonoBehaviour
         {
             if (storedItems[i] == null)
             { 
-                GameObject newObject = Instantiate(GameManager.Instance.itemsPrefabs[_type], inventorySlots[i]);
+                GameObject newObject = Instantiate(GameManager.Instance.itemsPrefabs[_type].objectPrefab, inventorySlots[i]);
                 storedItems[i] = newObject;
                 newObject.transform.localPosition = Vector3.zero;
                 return true;

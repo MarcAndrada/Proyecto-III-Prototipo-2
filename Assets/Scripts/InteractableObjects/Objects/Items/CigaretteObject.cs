@@ -15,13 +15,8 @@ public class CigaretteObject : InteractableObject
     [SerializeField]
     private float smokeSpeed;
 
-    private AudioSource source;
-
-    protected override void Awake()
-    {
-        base.Awake();
-        source = GetComponent<AudioSource>();
-    }
+    [SerializeField]
+    private AK.Wwise.Event cigaretteEvent;
 
     public override void ActivateObject()
     {
@@ -37,7 +32,7 @@ public class CigaretteObject : InteractableObject
         }
         else
         {
-            source.Play();
+            AkUnitySoundEngine.PostEvent(cigaretteEvent.Id, gameObject);
             cigarretteProcess = 1;
         }
         
@@ -74,10 +69,10 @@ public class CigaretteObject : InteractableObject
         transform.position = Vector3.Lerp(starterPos, GameManager.Instance.cigarretteTransform.position, cigarretteProcess);
         transform.rotation = Quaternion.Lerp(starterRot, GameManager.Instance.cigarretteTransform.rotation, cigarretteProcess);
 
-        if(cigarretteProcess <= 1)
+        if(cigarretteProcess >= 1)
         {
             transform.parent = GameManager.Instance.cigarretteTransform;
-            source.Play();
+            AkUnitySoundEngine.PostEvent(cigaretteEvent.Id, gameObject);
         }
     }
 

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{E61DB75A-F735-46C1-A2C9-7FD16D86F14C}" SchemaVersion="123">
+	<States>
+		<WorkUnit Name="Default Work Unit" ID="{E61DB75A-F735-46C1-A2C9-7FD16D86F14C}" PersistMode="Standalone">
+			<ChildrenList>
+				<StateGroup Name="Screen" ID="{A5A95367-6E3A-42A7-9CC8-29407EC8C4B2}">
+					<ChildrenList>
+						<State Name="None" ID="{38ABB7B5-A0F5-4A1B-AA19-50D4F3772030}"/>
+						<State Name="ScreenOn" ID="{B3B8B7B2-9D23-4010-AA84-6C51AA727486}"/>
+						<State Name="ScreenOff" ID="{12A499AA-E1ED-47A7-B529-96B46FC850BD}"/>
+					</ChildrenList>
+				</StateGroup>
+			</ChildrenList>
+		</WorkUnit>
+	</States>
+</WwiseDocument>
