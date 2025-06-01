@@ -10,6 +10,13 @@
 						<State Name="ScreenOff" ID="{12A499AA-E1ED-47A7-B529-96B46FC850BD}"/>
 					</ChildrenList>
 				</StateGroup>
+				<StateGroup Name="Turn" ID="{902B635D-24DE-4A43-BE8E-5B189259D39C}">
+					<ChildrenList>
+						<State Name="None" ID="{17ADCB1E-06AB-43B0-B958-07764D5FD78B}"/>
+						<State Name="Player" ID="{78671260-7B21-4154-9F41-770EDED50834}"/>
+						<State Name="Enemy" ID="{7E2D6ABE-A5B6-48E5-BB16-ED9C2645EE95}"/>
+					</ChildrenList>
+				</StateGroup>
 			</ChildrenList>
 		</WorkUnit>
 	</States>

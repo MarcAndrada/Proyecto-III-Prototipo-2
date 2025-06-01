@@ -1,10 +1,14 @@
 State Group	ID	Name			Wwise Object Path	Notes
 	804877345	Screen			\Default Work Unit\Screen	
+	3137665780	Turn			\Default Work Unit\Turn	
 
 State	ID	Name	State Group			Notes
 	99209978	ScreenOn	Screen			
 	748895195	None	Screen			
 	1092031120	ScreenOff	Screen			
+	748895195	None	Turn			
+	1069431850	Player	Turn			
+	2299321487	Enemy	Turn			
 
 Audio Bus	ID	Name			Wwise Object Path	Notes
 	3803692087	Master Audio Bus			\Default Work Unit\Master Audio Bus	

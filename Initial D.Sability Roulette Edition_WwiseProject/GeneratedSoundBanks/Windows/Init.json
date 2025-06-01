@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{701ECBBD-9C7B-4030-8CDB-749EE5D1C7B9}",
     "Language": "SFX",
-    "Hash": "{B5E6D6D9-86C3-34E5-C2FC-FCB2E1A42028}",
+    "Hash": "{4CE19FA1-22B9-EB54-08B8-D541F106617B}",
     "ObjectPath": "Init",
     "ShortName": "Init",
     "Path": "Init.bnk",
@@ -66,6 +66,32 @@
         "Name": "ScreenOff",
         "ObjectPath": "\\States\\Default Work Unit\\Screen\\ScreenOff",
         "GUID": "{12A499AA-E1ED-47A7-B529-96B46FC850BD}"
+       }
+      ]
+     },
+     {
+      "Id": "3137665780",
+      "Name": "Turn",
+      "ObjectPath": "\\States\\Default Work Unit\\Turn",
+      "GUID": "{902B635D-24DE-4A43-BE8E-5B189259D39C}",
+      "States": [
+       {
+        "Id": "748895195",
+        "Name": "None",
+        "ObjectPath": "\\States\\Default Work Unit\\Turn\\None",
+        "GUID": "{17ADCB1E-06AB-43B0-B958-07764D5FD78B}"
+       },
+       {
+        "Id": "1069431850",
+        "Name": "Player",
+        "ObjectPath": "\\States\\Default Work Unit\\Turn\\Player",
+        "GUID": "{78671260-7B21-4154-9F41-770EDED50834}"
+       },
+       {
+        "Id": "2299321487",
+        "Name": "Enemy",
+        "ObjectPath": "\\States\\Default Work Unit\\Turn\\Enemy",
+        "GUID": "{7E2D6ABE-A5B6-48E5-BB16-ED9C2645EE95}"
        }
       ]
      }
@@ -138,6 +164,6 @@
     ]
    }
   ],
-  "FileHash": "{D6AE35C8-05A4-7B0F-8EEE-EFEED2190144}"
+  "FileHash": "{8FD6F1DA-6716-5523-AF12-DA7FAAC090A5}"
  }
 }

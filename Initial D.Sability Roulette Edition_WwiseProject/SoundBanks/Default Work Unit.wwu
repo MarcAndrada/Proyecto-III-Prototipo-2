@@ -18,6 +18,7 @@
 						<ObjectRef Name="Saw" ID="{2397C07E-A45C-4674-8958-69D846717848}" WorkUnitID="{CD325505-E320-4A4A-B53F-985CE759D54A}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="JokerLaugh" ID="{3252B65F-5E10-4734-9617-3D8B1BC0CC8B}" WorkUnitID="{CD325505-E320-4A4A-B53F-985CE759D54A}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="ShopInventoryFull" ID="{5198E919-A0B5-47A6-A911-8EC1383927F1}" WorkUnitID="{CD325505-E320-4A4A-B53F-985CE759D54A}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Music" ID="{1EFD4E3B-D2DB-488D-802A-AA4CA2BC81BD}" WorkUnitID="{CD325505-E320-4A4A-B53F-985CE759D54A}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="InterruptorPress" ID="{3874C105-9615-4896-85BE-A11DAF6F9D5A}" WorkUnitID="{CD325505-E320-4A4A-B53F-985CE759D54A}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="DummyFluids" ID="{33F781BF-3CD3-48B0-89C4-5063FA30A896}" WorkUnitID="{CD325505-E320-4A4A-B53F-985CE759D54A}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="DummyUp" ID="{3922EFF5-0B16-4934-B333-78F8172E7309}" WorkUnitID="{CD325505-E320-4A4A-B53F-985CE759D54A}" Origin="Manual" Filter="7"/>

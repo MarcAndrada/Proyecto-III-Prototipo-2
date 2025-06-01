@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{495EE933-5747-472B-95B8-0AD0E1E047A8}",
     "Language": "SFX",
-    "Hash": "{A73E0E36-5E5E-1189-6FD2-6F4507B2B6DE}",
+    "Hash": "{390855AE-D5C1-912C-74CE-7951B138D84C}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Main",
     "ShortName": "Main",
     "Path": "Main.bnk",
@@ -24,12 +24,20 @@
       "CachePath": "FF/{FF88EC4E-AB22-7AB6-B448-212EC842EDBB}.wem"
      },
      {
+      "Id": "22832002",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Music.wav",
+      "CachePath": "04/{04B169A0-B0CA-A956-E5A5-0CC1622E8EB2}.wem"
+     },
+     {
       "Id": "32100745",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "Shop\\NoInventorySpace.wav",
-      "CachePath": "80/{800BF687-3C90-6410-59A9-C095DE52798D}.wem"
+      "CachePath": "AA/{AA88F61D-EADA-DF43-FC4C-26E533D2098D}.wem"
      },
      {
       "Id": "39927379",
@@ -93,7 +101,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "Slot\\Icon\\IconHovered x2.wav",
-      "CachePath": "57/{57384BCC-2ED4-D163-6CB6-45B119924039}.wem"
+      "CachePath": "76/{76EFEC98-290B-24DB-2017-00F7BF48381F}.wem"
      },
      {
       "Id": "187294827",
@@ -101,7 +109,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "Objects\\Joker\\JokerLaugh.wav",
-      "CachePath": "1E/{1EA7BF27-16AD-F95E-183D-025F0EFA3D01}.wem"
+      "CachePath": "2B/{2BB7F2B6-AB52-545D-E545-C32F9F8B2BAB}.wem"
      },
      {
       "Id": "200323554",
@@ -133,7 +141,15 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "Objects\\Joker\\JokerHover.wav",
-      "CachePath": "7B/{7BF83ACA-36C7-6E22-5E14-A648687A4587}.wem"
+      "CachePath": "37/{3713B4C5-2922-71FE-F0D2-9D066B0F926D}.wem"
+     },
+     {
+      "Id": "242298843",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "EnemyMusic.wav",
+      "CachePath": "23/{23F9776D-EFD1-146A-8B09-8D8F31387098}.wem"
      },
      {
       "Id": "256452140",
@@ -173,7 +189,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "Slot\\Icon\\IconHovered x1.wav",
-      "CachePath": "97/{97DDB324-455A-D4F4-3619-B139C0E1CA4B}.wem"
+      "CachePath": "2D/{2D1D6D1C-E9D5-84F2-5DEB-12C6140000F4}.wem"
      },
      {
       "Id": "469748948",
@@ -229,7 +245,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "Objects\\RedCoin\\CoinFlip.wav",
-      "CachePath": "19/{1953EE2A-BB6A-896A-A213-79A08C591640}.wem"
+      "CachePath": "C8/{C835AB8B-FCFB-7635-43AE-F65CBF25A674}.wem"
      },
      {
       "Id": "673660660",
@@ -261,7 +277,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "Objects\\RedCoin\\RedCoinAppeared.wav",
-      "CachePath": "40/{40295BC5-7121-92D7-1AF3-36E871731EBD}.wem"
+      "CachePath": "27/{274A4EE5-0232-E35D-A59A-44519B17C8DA}.wem"
      },
      {
       "Id": "734539768",
@@ -293,7 +309,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "Slot\\Icon\\IconHovered x3.wav",
-      "CachePath": "B7/{B7D129AC-FF98-FD61-EF0F-B51C65E23714}.wem"
+      "CachePath": "A4/{A494005A-D1FC-94ED-AA78-9C7AEB403B37}.wem"
      },
      {
       "Id": "950372930",
@@ -309,7 +325,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "Turn\\Player\\PlayerStart 3.wav",
-      "CachePath": "E0/{E0386F00-FF2F-834A-12F3-336FC071200D}.wem"
+      "CachePath": "C2/{C28D157C-A7E5-B43D-0451-4DC26012C71E}.wem"
      }
     ],
     "Events": [
@@ -516,6 +532,54 @@
       "MediaRefs": [
        {
         "Id": "80709279"
+       }
+      ]
+     },
+     {
+      "Id": "3991942870",
+      "Name": "Music",
+      "ObjectPath": "\\Events\\Default Work Unit\\Music",
+      "GUID": "{1EFD4E3B-D2DB-488D-802A-AA4CA2BC81BD}",
+      "DurationType": "Infinite",
+      "SwitchContainers": [
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "3137665780",
+         "Id": "1069431850",
+         "GUID": "{78671260-7B21-4154-9F41-770EDED50834}"
+        },
+        "MediaRefs": [
+         {
+          "Id": "22832002"
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "3137665780",
+         "Id": "2299321487",
+         "GUID": "{7E2D6ABE-A5B6-48E5-BB16-ED9C2645EE95}"
+        },
+        "MediaRefs": [
+         {
+          "Id": "242298843"
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "3137665780",
+         "Id": "748895195",
+         "GUID": "{17ADCB1E-06AB-43B0-B958-07764D5FD78B}"
+        },
+        "MediaRefs": [
+         {
+          "Id": "22832002"
+         }
+        ]
        }
       ]
      },
@@ -832,6 +896,32 @@
         "GUID": "{12A499AA-E1ED-47A7-B529-96B46FC850BD}"
        }
       ]
+     },
+     {
+      "Id": "3137665780",
+      "Name": "Turn",
+      "ObjectPath": "\\States\\Default Work Unit\\Turn",
+      "GUID": "{902B635D-24DE-4A43-BE8E-5B189259D39C}",
+      "States": [
+       {
+        "Id": "748895195",
+        "Name": "None",
+        "ObjectPath": "\\States\\Default Work Unit\\Turn\\None",
+        "GUID": "{17ADCB1E-06AB-43B0-B958-07764D5FD78B}"
+       },
+       {
+        "Id": "1069431850",
+        "Name": "Player",
+        "ObjectPath": "\\States\\Default Work Unit\\Turn\\Player",
+        "GUID": "{78671260-7B21-4154-9F41-770EDED50834}"
+       },
+       {
+        "Id": "2299321487",
+        "Name": "Enemy",
+        "ObjectPath": "\\States\\Default Work Unit\\Turn\\Enemy",
+        "GUID": "{7E2D6ABE-A5B6-48E5-BB16-ED9C2645EE95}"
+       }
+      ]
      }
     ],
     "SwitchGroups": [
@@ -902,6 +992,6 @@
     ]
    }
   ],
-  "FileHash": "{E7588982-E6F5-20A0-6A62-AA58C00A8D62}"
+  "FileHash": "{2541EDE4-32BE-F461-09A6-6A287FEBA5AA}"
  }
 }

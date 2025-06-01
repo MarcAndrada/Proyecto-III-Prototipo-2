@@ -28,6 +28,7 @@ namespace AK
         static const AkUniqueID INTERRUPTORPRESS = 3446469450U;
         static const AkUniqueID JOKERLAUGH = 2607658113U;
         static const AkUniqueID LEVERPULL = 2563778470U;
+        static const AkUniqueID MUSIC = 3991942870U;
         static const AkUniqueID PRESSBUTTON = 2561485778U;
         static const AkUniqueID SAW = 443572616U;
         static const AkUniqueID SCREEN = 804877345U;
@@ -54,6 +55,18 @@ namespace AK
                 static const AkUniqueID SCREENON = 99209978U;
             } // namespace STATE
         } // namespace SCREEN
+
+        namespace TURN
+        {
+            static const AkUniqueID GROUP = 3137665780U;
+
+            namespace STATE
+            {
+                static const AkUniqueID ENEMY = 2299321487U;
+                static const AkUniqueID NONE = 748895195U;
+                static const AkUniqueID PLAYER = 1069431850U;
+            } // namespace STATE
+        } // namespace TURN
 
     } // namespace STATES
 
