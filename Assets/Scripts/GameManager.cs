@@ -91,6 +91,12 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private GameObject loseCanvas;
 
+    [Space, Header("Audio"), SerializeField]
+    private string gameState;
+    [SerializeField]
+    private string playerTurnState;
+    [SerializeField]
+    private string enemyTurnState;
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -208,6 +214,7 @@ public class GameManager : MonoBehaviour
                     return;
                 }
 
+                AkUnitySoundEngine.SetState(gameState, playerTurnState);
                 scrollingText.SetText("Your Turn");
                 break;
             case GameState.AI_TURN:
@@ -228,6 +235,7 @@ public class GameManager : MonoBehaviour
                     return;
                 }
 
+                AkUnitySoundEngine.SetState(gameState, enemyTurnState);
                 scrollingText.SetText("Enemy Turn");
                 enemySlot.GetComponent<EnemyBehaviour>().StartTurn();
                 break;

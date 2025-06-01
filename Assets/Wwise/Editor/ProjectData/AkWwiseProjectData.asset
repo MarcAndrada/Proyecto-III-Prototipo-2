@@ -24,7 +24,7 @@ MonoBehaviour:
     ParentPath: Virtual Acoustics\Default Work Unit
     guid: 394b69fb74011645be98af9caf66d18c
     GuidInternal: 
-    m_lastTime: -8584534969338501340
+    m_lastTime: -8584528825500935523
     List: []
   AuxBusWwu:
   - PhysicalPath: Master-Mixer Hierarchy\Default Work Unit.wwu
@@ -38,7 +38,7 @@ MonoBehaviour:
     ParentPath: Master-Mixer Hierarchy\Default Work Unit
     guid: 291e6f901c6a3147b64d266ef06d132a
     GuidInternal: 
-    m_lastTime: -8584534969339337126
+    m_lastTime: -8584528825510184903
     List:
     - name: Master Audio Bus
       guid: d8a41415a61d2a41a17e75ca0c2149f3
@@ -66,7 +66,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: 878fe54af84f4345a3f8343e9b199dde
     GuidInternal: 
-    m_lastTime: -8584528861332272752
+    m_lastTime: -8584528135992350833
     List:
     - name: Main
       guid: 33e95e4947572b4795b80ad0e1e047a8
@@ -94,7 +94,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 055532cd20e34a4ab53f985ce759d54a
     GuidInternal: 
-    m_lastTime: -8584528860850288256
+    m_lastTime: -8584528136094197667
     List:
     - name: BalanceLose
       guid: 0deb812b4d08304c802355755caadf44
@@ -351,6 +351,23 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 2.0834186
       minDuration: 1.8561147
+    - name: Music
+      guid: 3b4efd1edbd28d48802aaa4ca2bc81bd
+      id: 3991942870
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 055532cd20e34a4ab53f985ce759d54a
+      - ElementName: Music
+        ObjectType: 3
+        guid: 3b4efd1edbd28d48802aaa4ca2bc81bd
+      Path: Events\Default Work Unit\Music
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
     - name: PressButton
       guid: b1dfde03f5c4b24ca59dcd318f44cc9a
       id: 2561485778
@@ -550,7 +567,7 @@ MonoBehaviour:
     ParentPath: Game Parameters\Default Work Unit
     guid: e5af774ece5ba94ba6bec8f724b0eaf5
     GuidInternal: 
-    m_lastTime: -8584534969339676361
+    m_lastTime: -8584528825517398692
     List: []
   StateWwu:
   - PhysicalPath: States\Default Work Unit.wwu
@@ -564,7 +581,7 @@ MonoBehaviour:
     ParentPath: States\Default Work Unit
     guid: 5ab71de635f7c146a2c97fd16d86f14c
     GuidInternal: 
-    m_lastTime: -8584528933874951327
+    m_lastTime: -8584528142808861364
     List:
     - name: Screen
       guid: 6753a9a53a6ea7429cc829407ec8c4b2
@@ -632,6 +649,72 @@ MonoBehaviour:
       ValueGuids: []
       ValueIcons: []
       valuesInternal: []
+    - name: Turn
+      guid: 5d632b90de24434abe8e5b189259d39c
+      id: 3137665780
+      PathAndIcons:
+      - ElementName: States
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 5ab71de635f7c146a2c97fd16d86f14c
+      - ElementName: Turn
+        ObjectType: 9
+        guid: 5d632b90de24434abe8e5b189259d39c
+      Path: States\Default Work Unit\Turn
+      values:
+      - name: Enemy
+        guid: be6a2d7eb6a5e548bb16ed9c2645ee95
+        id: 2299321487
+        PathAndIcons:
+        - ElementName: States
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: 5ab71de635f7c146a2c97fd16d86f14c
+        - ElementName: Turn
+          ObjectType: 9
+          guid: 5d632b90de24434abe8e5b189259d39c
+        - ElementName: Enemy
+          ObjectType: 8
+          guid: be6a2d7eb6a5e548bb16ed9c2645ee95
+      - name: None
+        guid: 1ecbad17ab06b043b95807764d5fd78b
+        id: 748895195
+        PathAndIcons:
+        - ElementName: States
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: 5ab71de635f7c146a2c97fd16d86f14c
+        - ElementName: Turn
+          ObjectType: 9
+          guid: 5d632b90de24434abe8e5b189259d39c
+        - ElementName: None
+          ObjectType: 8
+          guid: 1ecbad17ab06b043b95807764d5fd78b
+      - name: Player
+        guid: 60126778217b54419f41770eded50834
+        id: 1069431850
+        PathAndIcons:
+        - ElementName: States
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: 5ab71de635f7c146a2c97fd16d86f14c
+        - ElementName: Turn
+          ObjectType: 9
+          guid: 5d632b90de24434abe8e5b189259d39c
+        - ElementName: Player
+          ObjectType: 8
+          guid: 60126778217b54419f41770eded50834
+      ValueGuids: []
+      ValueIcons: []
+      valuesInternal: []
   SwitchWwu:
   - PhysicalPath: Switches\Default Work Unit.wwu
     PathAndIcons:
@@ -644,7 +727,7 @@ MonoBehaviour:
     ParentPath: Switches\Default Work Unit
     guid: c7db411c2db012489cd05c4a8ded8bc0
     GuidInternal: 
-    m_lastTime: -8584528899660998588
+    m_lastTime: -8584528825500946664
     List:
     - name: SlotIcon
       guid: 32b8bced42e93c499b9e0437062e3a33
@@ -822,10 +905,10 @@ MonoBehaviour:
     ParentPath: Triggers\Default Work Unit
     guid: 31e5c21cf0cc6545bb2cb7140067eccf
     GuidInternal: 
-    m_lastTime: -8584534969338846391
+    m_lastTime: -8584528825500935523
     List: []
   ExpandedFileSystemItemIds: 
-  ExpandedWaapiItemIds: 010000000500000006000000070000000a0000000b0000000f00000010000000190000001a00000092000000
+  ExpandedWaapiItemIds: 010000000500000006000000070000000a0000000b0000000f00000010000000190000001a000000230000002400000092000000
   AutoSyncSelection: 1
   autoPopulateEnabled: 1
   currentDataSource: 0
