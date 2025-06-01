@@ -15,6 +15,6 @@ MonoBehaviour:
   <objectName>k__BackingField: Balance
   <objectDescription>k__BackingField: LETS GO GAMBLING
   <objectPrefab>k__BackingField: {fileID: 4117750167068455708, guid: 49da5920032a3914e877e3b25051cbb2, type: 3}
-  unlocked: 0
+  unlocked: 1
   <medalPrefab>k__BackingField: {fileID: 6530064254697816040, guid: ea47800bc6fbef14d853523c12dcaa58, type: 3}
   <medalSprite>k__BackingField: {fileID: 21300000, guid: 8b736f77126494a4aa60e85f6388b004, type: 3}

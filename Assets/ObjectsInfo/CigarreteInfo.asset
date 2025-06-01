@@ -15,6 +15,6 @@ MonoBehaviour:
   <objectName>k__BackingField: Cigarrette
   <objectDescription>k__BackingField: 
   <objectPrefab>k__BackingField: {fileID: 4226870186988666106, guid: bde9788f043d8044b9ec89f93bac9104, type: 3}
-  unlocked: 0
+  unlocked: 1
   <medalPrefab>k__BackingField: {fileID: 0}
   <medalSprite>k__BackingField: {fileID: 0}
